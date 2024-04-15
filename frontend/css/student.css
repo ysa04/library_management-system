@@ -1,0 +1,168 @@
+.main{
+    height: 100vh;
+    background-image: linear-gradient(to right, white, white, rgb(100, 204, 220), skyblue);
+  }
+  
+  .top-content{
+    background-color: rgb(11, 11, 90);
+    display: flex;
+    color: white;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+  .top-content p{
+    padding-left: 10px;
+  }
+  
+  
+  .side-image{
+    float: right;
+    max-width: 100%; /* Ensures the image doesn't exceed the width of its container */
+    height: auto; /* Allows the height to adjust according to the aspect ratio */
+  }
+  
+  
+  .ama-logo{
+    margin-left: 20px;
+  }
+  
+  .student-login{
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 15%;
+    background-color: rgb(155, 220, 226);
+    padding: 15px 20px 0px;
+    border-radius: 5px; 
+  }
+  
+  ::placeholder {
+    text-align: center; /* Center-align the placeholder text */
+  }
+  
+  .login-input{
+    margin-top: 20px;
+  }
+  
+  .password-input{
+    margin-top: 40px;
+    
+  }
+  
+  .submit-login{
+    margin-top: 40px;
+  }
+  
+  .submit-login input{
+    width: 300px;
+    border-radius: 5px;
+    background-color: rgb(39, 20, 126);
+    color: white;
+  }
+  .submit-login a{
+    color: red;
+  }
+  
+  .login-input, .password-input, input{
+    width: 300px;
+    border-radius: 5px;
+    height: 30px;
+  }
+  
+  .input{
+    background-color: rgb(203, 198, 198);
+    color: black;
+    border: 1px solid transparent;
+  }
+  
+  .footer{
+    position: absolute;
+    margin-top: 36%;
+    width: 100%;
+    background-color: rgb(11, 11, 90);
+    color: white;
+  
+  }
+  
+  .footer p{
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+
+  /* student_home.php css start*/
+
+  .nav-content{
+    background-color: gray;
+    display: flex;
+    
+
+  }
+
+  .nav-content img{
+    margin: 10px;
+    border-radius: 2px;
+  
+  }
+
+  .nav-links{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+  }
+
+  .nav-links li{
+    padding-left: 20px;
+    list-style-type: none;
+    color: white;
+    font-weight: 500;
+  }
+
+  .nav-links a{
+    padding-right: 13px;
+    text-decoration: none;
+    display: inline-block; /* Make it block-level to respect padding */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
+  }
+
+  .nav-links a:hover{
+    background-color: rgb(193, 84, 84);
+    border-radius: 5px;
+  }
+
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    background-color: rgb(196, 139, 139);
+    border-radius: 3px;
+    padding: 30px 30px 30px;
+  }
+
+  .header-content{
+    display: block;
+  }
+
+  .header-content h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .book-image{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 15px 15px 15px;
+    border: 1px solid gray;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+  }
+
+ .gallery a img{
+  width: 100%; /* Make the image take full width of its grid cell */
+  height: 100%;
+  object-fit: cover; /* Scale images to cover the container */
+ }
+   /* student_home.php css end*/
+
