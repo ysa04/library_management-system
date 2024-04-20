@@ -20,9 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usnOrEmail = trim($_POST['usn_or_email']);
     $password = $_POST['pwd'];
 
-    // Debugging output
-    echo "Username/Email: " . $usnOrEmail . "<br>";
-    echo "Password: " . $password . "<br>";
+    
 
     // Convert to lowercase for case-insensitive comparison
     $usnOrEmail = strtolower($usnOrEmail);
