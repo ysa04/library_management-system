@@ -1,3 +1,6 @@
+
+
+/*  student_home.php css start */
 .main{
     height: 100vh;
     background-image: linear-gradient(to right, white, white, rgb(100, 204, 220), skyblue);
@@ -99,8 +102,6 @@
   }
   
 
-  /* student_home.php css start*/
-
   .nav-content{
     display: flex;
     
@@ -134,12 +135,6 @@
     transition: background-color 0.3s; /* Smooth transition for background color change */
   }
 
-  /* .nav-links a:hover{
-    background-color: rgb(11, 11, 90);
-    border-radius: 5px;
-  }
-   */
-
 
   .book-image{
     margin-bottom: 5%;
@@ -167,11 +162,7 @@
   color:rgb(11, 11, 90);
   text-decoration: none;
  }
-   /* student_home.php css end*/
-
-
-
-/* booksgallery css start */
+   
 
 
 .top-navbar{
@@ -191,9 +182,6 @@
   padding-top: 6px;
 }
 
-/* .top-img{
-  margin-left: 87%;
-} */
 
 .nav-search{
 
@@ -230,24 +218,7 @@ border: 2px solid rgb(11, 11, 90);
   color: black;
 }
 
-/* booksgallery css end */
-
-/* header.html css start */
-
-.header-carousel{
-  margin-top: 10px;
-}
-
-.carousel {
-  width: 100%; /* Adjust width */
-
-}
-
-.carousel-inner{
-  border-radius: 5px;
-}
-
-/* header.html css end */
+/* student_home.php css end */
 
 
 /* footer.html css start */
@@ -282,6 +253,7 @@ border: 2px solid rgb(11, 11, 90);
 
 .chatbot-div img{
   border-radius: 20px;
+  margin-left: 50px;
 }
 
 /* chatbot css end */

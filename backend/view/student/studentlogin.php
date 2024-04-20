@@ -30,7 +30,7 @@ $result = $con->query($sql);
 
 if ($result->num_rows == 1) {
     // Username and password are correct, redirect to home page
-    header("Location:  student_home.php"); 
+    header("Location:  student_home.php"); // the location should be on the same folder with same php file
     exit();
 } else {
     // Username or password is incorrect, display error message

@@ -11,16 +11,143 @@
 </head>
 <body>
 
+  <div class="top-navbar">
+    <img class="top-icon" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
+    <p>e-Library</p>
+    <!-- <img class="top-img" src="/frontend/img/AMAES-logo_header.png" alt="" height="40" width="90"/> -->
+
+    <div class="nav-content">
+      <ul class="nav-links">
+        <a href="/"><li>HOME</li></a> 
+        <a href="/"><li>CONTACT</li></a> 
+        <a href="/"><li>PROFILE</li></a>  
+      </ul>
+
+       <div class="login-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <p>&nbsp;Name,</p>
+      <p>&nbsp;Surname</p>
+      <p>&nbsp;&nbsp;USN:123456798</p>
+      <input class="logout-button" type="button" value="logout"/>
+     </div>
+     </div>
+
+
+   <div style="background-color: rgb(191, 222, 234); border-radius: 5px; position: relative;" class="container">
+
+    <div class="main-content ">
+    <h4>"If you study to remember, you will forget; But if you study to understand you will remember" </h4>
+    <h1>BOOK CATEGORIES</h1>
+
+          
+    <form class="nav-search" id="mySearchForm" action="/" method="GET">
+      <input class="search-input" id="searchInput" type="text" name="query" placeholder="Search..." >
+      <input class="search-button" type="submit" value="Search">
+    </form>
+   </div>
+
+   <div class="book-image container">
+    <div class="gallery">
+      <a href="/" onclick="navigateToCategory('adventure')">
+        <img src="/frontend/img/books/a1.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+    </div>
+
+    <div class="gallery">
+      <a href="/" onclick="navigateToCategory('biography')">
+        <img src="/frontend/img/Business/b2.jpg" alt="Mountains" >
+        <p class="book-category" ></p>
+      </a>
+  
+    </div>
+
+    <div class="gallery">
+      <a href="/" onclick="navigateToCategory('comics')">
+        <img src="/frontend/img/IT/IT1.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+
+    </div>
+
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('contemporary')">
+        <img src="/frontend/img/NURSING/n2.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+
+    </div>
+
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('fantasy')">
+        <img src="/frontend/img/IT/IT2.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+ 
+    </div>
+
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('fiction')">
+        <img src="/frontend/img/NURSING/n3.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+ 
+    </div>
+
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('mystery')">
+        <img src="/frontend/img/books/a2.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+  
+    </div>
+
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('romance')">
+        <img src="/frontend/img/Business/b4.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+
+    </div>
+
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('science')">
+        <img src="/frontend/img/books/a3.webp" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+
+    </div>
+
+    
+    <div class="gallery">
+      <a href="/"  onclick="navigateToCategory('technology')">
+        <img src="/frontend/img/Business/b5.jpg" alt="Mountains" >
+        <p class="book-category"></p>
+      </a>
+  
+    </div>
+   </div>
+
+     <div class="chatbot-div">
+      <img src="/frontend/img/chatbot.jpg" alt="chatbot" width="65" height="65"/>
+      <a href="/"><p>Chat with Amaia</p></a>  
+     </div>
+
+  </div>
 
 <?php
-    // Include the shared content
-    
-    include '../../../frontend/components/student/booksgallery.html';
-    include '../../../frontend/components/student/footer.html';
-    
+
+include '../../../frontend/components/student/footer.html';
+
 ?>
 
-   
+
+
+
+ 
+<script src="/frontend/js/bookNavigate.js"></script>
+<script src="/frontend/js/retrieve_data.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
