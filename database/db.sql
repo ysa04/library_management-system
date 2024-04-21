@@ -1,4 +1,3 @@
---WIP
 
 CREATE TABLE Books (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -8,16 +7,17 @@ CREATE TABLE Books (
     publication_year INT,
     status ENUM('Available', 'Borrowed') DEFAULT 'Available'
 );
---borrowed_id from borrowings? to show in user profile  <----!
+
 CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    usn VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    pwd VARCHAR(255) NOT NULL,
-    -- Add other relevant user information here
+    pwd VARCHAR(255) NOT NULL
+    
 );
---Transactions/borrowings still need testing <-------!
+
 CREATE TABLE Borrowings (
     id INT AUTO_INCREMENT PRIMARY KEY,
     book_id INT,
@@ -28,13 +28,13 @@ CREATE TABLE Borrowings (
     FOREIGN KEY (book_id) REFERENCES Books(id),
     FOREIGN KEY (user_id) REFERENCES Users(id)
 );
---Prob just changing this to admin
+
 CREATE TABLE Librarians (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    usn VARCHAR(255) NOT NULL,
-    pwd VARCHAR(255) NOT NULL, -- Encrypted password
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    usn VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    -- Add other relevant librarian information here
-);
+    pwd VARCHAR(255) NOT NULL
+
+)
