@@ -13,6 +13,7 @@ CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    usn VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     pwd VARCHAR(255) NOT NULL,
     -- Add other relevant user information here
@@ -31,10 +32,10 @@ CREATE TABLE Borrowings (
 --Prob just changing this to admin
 CREATE TABLE Librarians (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    usn VARCHAR(255) NOT NULL,
-    pwd VARCHAR(255) NOT NULL, -- Encrypted password
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    usn VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
+    pwd VARCHAR(255) NOT NULL, -- Encrypted password
     -- Add other relevant librarian information here
 );
