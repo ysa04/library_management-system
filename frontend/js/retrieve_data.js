@@ -28,7 +28,7 @@
 }
 
 
-//this function can can call back the tableNames data so that we can still manipulate the data and render it to P tag in student_home.php
+//this function can callback the tableNames data so that we can still manipulate the data and render it to P tag in student_home.php
 function renderTableNames(tableNames) {
     const pTags = document.querySelectorAll('.book-category');
 
