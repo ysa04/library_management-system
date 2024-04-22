@@ -18,7 +18,8 @@ if ($con->connect_error) {
     echo "Connected";
 }
 
-
+    // If the connection was successful, start the session
+    session_start();
 
 // Retrieve username and password from form submission studentlogin.html
 $usn = $_POST['usn'];
@@ -29,6 +30,16 @@ $sql = "SELECT * FROM student_information WHERE usn_number='$usn' AND password='
 $result = $con->query($sql);
 
 if ($result->num_rows == 1) {
+
+    // Fetch the student's details
+    $row = $result->fetch_assoc();
+    $name = $row['first_name']; // Assuming 'name' is a column in your student_information table
+    $surName = $row['last_name'];
+    // Store the retrieved data in session variables
+    $_SESSION['usn'] = $usn;
+    $_SESSION['first_name'] = $name;
+    $_SESSION['last_name'] = $surName;
+    
     // Username and password are correct, redirect to home page
     header("Location:  student_home.php"); // the location should be on the same folder with same php file
     exit();

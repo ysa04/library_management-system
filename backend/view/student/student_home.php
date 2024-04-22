@@ -23,13 +23,33 @@
         <a href="/"><li>PROFILE</li></a>  
       </ul>
 
+<!-- php start for session -->
+      <?php
+       session_start();
+
+         // Check if user is logged in
+     if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name'])) {
+    header("Location: studentlogin.php");
+    exit();
+    }
+
+    $usn = $_SESSION['usn'];
+    $name = $_SESSION['first_name'];
+    $surName = $_SESSION['last_name'];
+    ?>
+<!-- php end for session -->
+
        <div class="login-icon">
         <i class="fa-solid fa-user"></i>
-      </div>
-      <p>&nbsp;Name,</p>
-      <p>&nbsp;Surname</p>
-      <p>&nbsp;&nbsp;USN:123456798</p>
+        </div>
+
+      <div style="display: flex;">
+      <p>&nbsp;<?php echo $name; ?>,</p>
+      <p>&nbsp; <?php echo $surName; ?></p> <br/>
+      <p>&nbsp;&nbsp;USN: <?php echo $usn; ?></p>
       <input class="logout-button" type="button" value="logout"/>
+      </div>
+    
      </div>
      </div>
 
