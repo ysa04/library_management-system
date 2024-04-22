@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h2>Register</h2>
-    <form action="signup.php" method="post">
+    <form action="/backend/view/student/signup.php" method="post">
         <div class="input-group">
             <label for="usn_number">USN:</label>
             <input type="text" id="usn_number" name="usn_number" required>
