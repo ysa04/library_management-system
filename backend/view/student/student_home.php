@@ -23,7 +23,7 @@
         <a href="/"><li>PROFILE</li></a>  
       </ul>
 
-<!-- php start for session -->
+<!-- php start for session catch data-->
       <?php
        session_start();
 
@@ -69,14 +69,14 @@
 
    <div class="book-image container">
     <div class="gallery">
-      <a href="/" onclick="navigateToCategory('adventure')">
+      <a href="bookNavigate.php?category=adventure">
         <img src="/frontend/img/books/a1.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
     </div>
 
     <div class="gallery">
-      <a href="/" onclick="navigateToCategory('biography')">
+      <a href="bookNavigate.php?category=biography">
         <img src="/frontend/img/Business/b2.jpg" alt="Mountains" >
         <p class="book-category" ></p>
       </a>
@@ -84,7 +84,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/" onclick="navigateToCategory('comics')">
+      <a href="bookNavigate.php?category=comics">
         <img src="/frontend/img/IT/IT1.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -92,7 +92,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('contemporary')">
+      <a href="bookNavigate.php?category=contemporary">
         <img src="/frontend/img/NURSING/n2.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -100,7 +100,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('fantasy')">
+      <a href="bookNavigate.php?category=fantasy">
         <img src="/frontend/img/IT/IT2.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -108,7 +108,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('fiction')">
+      <a href="bookNavigate.php?category=fiction">
         <img src="/frontend/img/NURSING/n3.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -116,7 +116,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('mystery')">
+      <a href="bookNavigate.php?category=mystery">
         <img src="/frontend/img/books/a2.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -124,7 +124,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('romance')">
+      <a href="bookNavigate.php?category=romance">
         <img src="/frontend/img/Business/b4.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -132,7 +132,7 @@
     </div>
 
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('science')">
+      <a href="bookNavigate.php?category=science">
         <img src="/frontend/img/books/a3.webp" alt="Mountains" >
         <p class="book-category"></p>
       </a>
@@ -141,7 +141,7 @@
 
     
     <div class="gallery">
-      <a href="/"  onclick="navigateToCategory('technology')">
+      <a href="bookNavigate.php?category=technology">
         <img src="/frontend/img/Business/b5.jpg" alt="Mountains" >
         <p class="book-category"></p>
       </a>

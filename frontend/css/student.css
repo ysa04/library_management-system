@@ -275,3 +275,42 @@ border: 2px solid rgb(11, 11, 90);
 
 /* student_login css end */
 
+
+/* register.php css start */
+
+.register-form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.register-form form{
+  background-color:  rgb(11, 11, 90);
+  color: white;
+  border-radius: 10px;
+  padding: 20px 40px 20px;
+  font-weight: 400;
+}
+
+.input-group label{
+  display: inline-block;
+  width: 100px; /* Adjust width as needed */
+  text-align: right;
+  margin-right: 10px; 
+  padding-bottom: 10px;
+}
+
+.input-group button{
+  background-color: skyblue;
+  margin-left: 75%;
+}
+
+.input-group input[type="password"]{
+}
+
+.register-form a{
+  color: rgb(95, 184, 219);
+}
+
+/* register.php css end */

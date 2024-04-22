@@ -1,42 +1,55 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMA MAKATI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/frontend/css/landingpage.css">
+   </head>
+   <body>
 
-// Database connection parameters
-$host = "localhost";       // The hostname of the MySQL server
-$username = "root";        // The MySQL username
-$password = "ysa_2024_gatongay"; // The MySQL password
-$database = "student_record";    // The name of the database to connect to
+    <div class="main-section">
 
-// Attempt to establish a connection to the MySQL database
-$con = new mysqli($host, $username, $password, $database);
+    <div class="header">
+    <img class="header-logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
+    <p>e-Library</p>
+    </div>
 
-// Check if the connection was successful
-if ($con->connect_error) {
-    // If there was an error connecting to the database, display the error message
-    echo $con->connect_error;
-} else {
-    // If the connection was successful, display a message indicating that the connection was established
-    echo "Connected";
-}
+    <div class="ama-logo">
+      <img src="/frontend/img/AMAES-logo_header.png"  height="100" alt="AMA"/>
+    </div>
+
+     <div class="login-gallery">
+
+      <div class="gallery">
+       <img class="image1" src="/frontend/img/student_3D_icon.png" alt="student" width="300" height="300"/>
+      <a href="/frontend/components/student/student_login.html"><button>STUDENT</button></a> 
+      </div>
+
+      <div class="gallery">
+        <img class="image2" src="/frontend/img/book-bulb-3D.png" alt="student" width="295" height="260"/>
+        <a href="/frontend/components/admin/adminlogin.html"><button>ADMIN</button></a>
+       </div>
+
+       <div class="gallery">
+        <img class="image3" src="/frontend/img/teacher_3D_icon.png" alt="student" width="300" height="290"/>
+       <a href="/frontend/components/teacher/teacherlogin.html"><button>TEACHERS</button></a> 
+       </div>
+ 
+
+     </div>
 
 
+   <div class="footer">
+    <p>&copy; 2024 AMACC Makati e-Lib All rights reserved</p>
+   </div>
 
-// SQL query to select data from the database
-$sql = "SELECT * FROM student_information";
+    </div>
+   
 
-// Execute the query
-$result = $con->query($sql);
 
-// Check if the query was successful
-if ($result) {
-    // Fetch the results as an associative array
-    while ($row = $result->fetch_assoc()) {
-        // Output each row of data
-        echo "student name: " . $row['first_name'] . ", Age: " . $row['last_name'] .  ", email: " . $row['email'] . ", password:" . $row['password']. "\n";
-    }
-} else {
-    // If there was an error executing the query, display the error message
-    echo "Error executing query: " . $con->error;
-}
-
-// Close the database connection
-$con->close();
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

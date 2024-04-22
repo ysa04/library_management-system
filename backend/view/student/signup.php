@@ -29,16 +29,19 @@ $mysqli->query($createTableSql);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
     $usn_number = $_POST['usn_number'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $age = $_POST['age'];
+    $email = $_POST['email'];
     $password = $_POST['password']; 
     
-   // $email = $_POST['email'];
     
     // Prepare INSERT statement
-    $insertSql = "INSERT INTO student_information (usn_number, password) VALUES (?, ?)";
+    $insertSql = "INSERT INTO student_information (usn_number,first_name,last_name,age,email, password) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $mysqli->prepare($insertSql);
     
     // Bind parameters and execute statement
-    $stmt->bind_param("ss", $usn_number, $password);
+    $stmt->bind_param("ssssss", $usn_number,$first_name, $last_name,$age,$email,$password);
     $stmt->execute();
     
     // Check if registration was successful
