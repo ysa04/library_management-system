@@ -11,7 +11,7 @@ function logout() {
     session_destroy();
 
     // Redirect to login page
-    header("Location: student_login.html");
+    header("Location: index.php");
     exit;
 }
 

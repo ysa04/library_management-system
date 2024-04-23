@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       <p>&nbsp;<?php echo $name; ?>,</p>
       <p>&nbsp;<?php echo $surName; ?></p> <br/>
       <p>&nbsp;&nbsp;USN: <?php echo $usn; ?></p>
-      <form method="post" action="">
+      <form method="post" action="/backend/view/index.php">
       <input type="hidden" name="logout" value="true">
       <button class="logout-button" type="submit">logout</button>
       </form>
