@@ -33,7 +33,7 @@ if ($result->num_rows == 1) {
 
     // Fetch the student's details
     $row = $result->fetch_assoc();
-    $name = $row['first_name']; // Assuming 'name' is a column in your student_information table
+    $name = $row['first_name']; 
     $surName = $row['last_name'];
     // Store the retrieved data in session variables
     $_SESSION['usn'] = $usn;

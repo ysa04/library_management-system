@@ -9,7 +9,7 @@
 
 
 </head>
-<body style="background-color:skyblue;">
+<body style="background-color: rgb(197, 227, 239);">
 
        <div class="top-navbar">
           <img class="top-icon" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
@@ -22,6 +22,7 @@
   
     <form action="/backend/view/student/signup.php" method="post">
     <h2>Student Register</h2>
+    <br/>
         <div class="input-group">
             <label  for="usn_number">USN:</label>
             <input type="text" id="usn_number" name="usn_number" required>

@@ -24,17 +24,17 @@
 
       <div class="gallery">
        <img class="image1" src="/frontend/img/student_3D_icon.png" alt="student" width="300" height="300"/>
-      <a href="/frontend/components/student/student_login.html"><button>STUDENT</button></a> 
+      <a href="/backend/view/login.php?user=STUDENT"><button>STUDENT</button></a> 
       </div>
 
       <div class="gallery">
         <img class="image2" src="/frontend/img/book-bulb-3D.png" alt="student" width="295" height="260"/>
-        <a href="/frontend/components/admin/adminlogin.html"><button>ADMIN</button></a>
+        <a href="/backend/view/login.php?user=ADMIN"><button>ADMIN</button></a>
        </div>
 
        <div class="gallery">
         <img class="image3" src="/frontend/img/teacher_3D_icon.png" alt="student" width="300" height="290"/>
-       <a href="/frontend/components/teacher/teacherlogin.html"><button>TEACHERS</button></a> 
+       <a href="/backend/view/login.php?user=TEACHER"><button>TEACHERS</button></a> 
        </div>
  
 

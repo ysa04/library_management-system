@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="/frontend/css/student.css">
 </head>
 <body>
-           <div class="main">
+
+<?php
+// Retrieve the category from the query parameter
+$user = $_GET['user'];
+
+?>
+          <div class="main">
           <div class="top-content">
           <img class="top=logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
            <p>e-Library</p>
@@ -17,9 +23,9 @@
           <img class="side-image" src="/frontend/img/book2.png" alt=""/>
 
             <div class="student-login">
-            <p style="font-weight: 700;">TEACHER'S LOGIN</p>
+            <p style="font-weight: 700;"><?php echo $user ?> LOGIN</p>
         <!-- FORM START-->
-            <form action="/backend/view/teacher/teacherlogin.php" method="post">
+            <form action="/backend/view/student/studentlogin.php" method="post">
               <div class="login-input">
                 <label for="usn">USN</label>
                 <input class="input" name="usn" type="text" placeholder="USN"/>
@@ -36,7 +42,7 @@
             </div>
             </form>
         <!--FORM END  -->
-           <p style="margin-left: 50px;">Not Registered? <a href="">Sign up now</a></p>
+           <p style="margin-left: 50px;">Not Registered? <a href="/backend/view/student/Regsiter.php">Sign up now</a></p>
           </div>
      
       <!-- FOOTER START -->
