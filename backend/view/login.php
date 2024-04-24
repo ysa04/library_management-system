@@ -10,10 +10,12 @@
 <body>
 
 <?php
-// Retrieve the category from the query parameter
+// Retrieve the query parameter category from index.php
 $user = $_GET['user'];
 
 ?>
+
+
           <div class="main">
           <div class="top-content">
           <img class="top=logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
@@ -25,7 +27,8 @@ $user = $_GET['user'];
             <div class="student-login">
             <p style="font-weight: 700;"><?php echo $user ?> LOGIN</p>
         <!-- FORM START-->
-            <form action="/backend/view/student/studentlogin.php" method="post">
+              <!-- passing the user query parameter to from URL so that the studentlogin.php can get it -->
+            <form action="/backend/view/userslogin.php?user=<?php echo $_GET['user']; ?>" method="post">
               <div class="login-input">
                 <label for="usn">USN</label>
                 <input class="input" name="usn" type="text" placeholder="USN"/>
@@ -42,9 +45,17 @@ $user = $_GET['user'];
             </div>
             </form>
         <!--FORM END  -->
-           <p style="margin-left: 50px;">Not Registered? <a href="/backend/view/student/Regsiter.php">Sign up now</a></p>
-          </div>
-     
+
+ <!-- start of conditional statement if user is admin and teacher signup link will not appear -->
+ <?php
+ if ($user !== "admin" && $user !== "teacher") {
+?>
+<p style="margin-left: 50px;">Not Registered? <a href="/backend/view/student/Register.php<?php echo isset($_GET['user']) ? "?user=" . $_GET['user'] : ""; ?>">Sign up now</a></p>
+<?php
+}
+?>      
+ <!-- end of conditional statement if user is admin and teacher signup link will not appear -->
+    </div>
       <!-- FOOTER START -->
      <div class="footer">
       <p>&copy; 2024 AMACC Makati e-Lib All rights reserved</p>
