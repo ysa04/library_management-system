@@ -54,13 +54,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">HOME</a>
+          <a class="nav-link active" aria-current="page" href="#">DASHBOARD</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CONTACT</a>
+          <a class="nav-link" href="#">BOOKS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">PROFILE</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            STUDENTS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">SENIOR HIGH</a></li>
+            <li><a class="dropdown-item" href="#">BSIT</a></li>
+            <li><a class="dropdown-item" href="#">BSCS</a></li>
+            <li><a class="dropdown-item" href="#">NURSING</a></li>
+            <li><a class="dropdown-item" href="#">ENGINEERING</a></li>
+       
+          </ul>
         </li>
       </ul>
       <div style="display: flex; color: white; margin-top: 15px;">

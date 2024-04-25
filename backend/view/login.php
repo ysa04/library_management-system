@@ -14,8 +14,6 @@
 $user = $_GET['user'];
 
 ?>
-
-
           <div class="main">
           <div class="top-content">
           <img class="top=logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
@@ -25,7 +23,7 @@ $user = $_GET['user'];
           <img class="side-image" src="/frontend/img/book2.png" alt=""/>
 
             <div class="student-login">
-            <p style="font-weight: 700;"><?php echo $user ?> LOGIN</p>
+            <p style="font-weight: 700;"><?php echo strtoupper($user) ?> LOGIN</p>
         <!-- FORM START-->
               <!-- passing the user query parameter to from URL so that the studentlogin.php can get it -->
             <form action="/backend/view/userslogin.php?user=<?php echo $_GET['user']; ?>" method="post">
