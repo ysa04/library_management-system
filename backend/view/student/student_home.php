@@ -94,14 +94,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=adventure">
         <img src="/frontend/img/books/a1.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">ADVENTURE</p>
       </a>
     </div>
 
     <div class="gallery">
       <a href="bookNavigate.php?category=biography">
         <img src="/frontend/img/Business/b2.jpg" alt="Mountains" >
-        <p class="book-category" ></p>
+        <p class="book-category" >BIOGRAPHY</p>
       </a>
   
     </div>
@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=comics">
         <img src="/frontend/img/IT/IT1.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">COMIC</p>
       </a>
 
     </div>
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=contemporary">
         <img src="/frontend/img/NURSING/n2.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">CONTEMPORARY</p>
       </a>
 
     </div>
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=fantasy">
         <img src="/frontend/img/IT/IT2.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">FANTASY</p>
       </a>
  
     </div>
@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=fiction">
         <img src="/frontend/img/NURSING/n3.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">FICTION</p>
       </a>
  
     </div>
@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=mystery">
         <img src="/frontend/img/books/a2.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">MYSTERY</p>
       </a>
   
     </div>
@@ -149,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=romance">
         <img src="/frontend/img/Business/b4.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">ROMANCE</p>
       </a>
 
     </div>
@@ -157,16 +157,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="gallery">
       <a href="bookNavigate.php?category=science">
         <img src="/frontend/img/books/a3.webp" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">SCIENCE</p>
       </a>
 
     </div>
-
-    
     <div class="gallery">
       <a href="bookNavigate.php?category=technology">
         <img src="/frontend/img/Business/b5.jpg" alt="Mountains" >
-        <p class="book-category"></p>
+        <p class="book-category">TECHNOLOGY</p>
       </a>
   
     </div>

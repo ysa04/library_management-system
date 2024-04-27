@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/frontend/css/student.css">
+    <link rel="stylesheet" href="/frontend/css/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>admin home page</title>
 </head>
 <body>
-
 
 <!-- php start for session catch data-->
 <?php
@@ -61,15 +61,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            STUDENTS
+            OTHERS
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">SENIOR HIGH</a></li>
-            <li><a class="dropdown-item" href="#">BSIT</a></li>
-            <li><a class="dropdown-item" href="#">BSCS</a></li>
-            <li><a class="dropdown-item" href="#">NURSING</a></li>
+            <!-- <li><a class="dropdown-item" href="#">COMPUTING</a></li>
             <li><a class="dropdown-item" href="#">ENGINEERING</a></li>
-       
+            <li><a class="dropdown-item" href="#">BUSINESS AND MANAGEMENT</a></li>
+            <li><a class="dropdown-item" href="#">HOSPITALITY AND TOURISM MANAGEMENT</a></li>
+            <li><a class="dropdown-item" href="#">EDUCATION</a></li>
+            <li><a class="dropdown-item" href="#">ACCOUNTANCY</a></li>
+            <li><a class="dropdown-item" href="#">CRIMINOLOGY</a></li>
+            <li><a class="dropdown-item" href="#">ARTS AND SCIENCES</a></li>
+            <li><a class="dropdown-item" href="#">MEDICAL/NURSING/HEALTH</a></li>
+            <li><a class="dropdown-item" href="#">MARITIME</a></li>
+            <li><a class="dropdown-item" href="#">AVIATION</a></li>
+            <li><a class="dropdown-item" href="#">GRADUATE PROGRAMS</a></li>
+            <li><a class="dropdown-item" href="#">BASIC EDUCATION</a></li>
+            <li><a class="dropdown-item" href="#">SENIOR HIGH</a></li> -->
+
           </ul>
         </li>
       </ul>
@@ -87,9 +96,87 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
   </div>
 </nav>
 
+<div class="admin-main">
+<!-- side page start -->
+<nav class="col-1">
+            <ul class="side-link">
+                <h5>STUDENT PROGRAMS</h5>
+                <?php
+                // Generate the links dynamically using PHP
+                $programs = array(
+                    "COMPUTING",
+                    "BUSINESS AND MANAGEMENT",
+                    "HOSPITALITY AND TOURISM MANAGEMENT",
+                    "EDUCATION",
+                    "ACCOUNTANCY",
+                    "ENGINEERING",
+                    "CRIMINOLOGY",
+                    "ARTS AND SCIENCES",
+                    "MEDICAL/NURSING/HEALTH",
+                    "MARITIME",
+                    "AVIATION",
+                    "GRADUATE PROGRAMS",
+                    "BASIC EDUCATION",
+                    "SENIOR HIGH"
+                );
 
-<!-- <script src="/frontend/js/bookNavigate.js"></script>
-<script src="/frontend/js/retrieve_data.js"></script> -->
+                foreach ($programs as $program) {
+                    echo '<li><a href="#" class="program-link">' . $program . '</a></li>';
+                }
+                ?>
+            </ul>
+        </nav>
+  <!-- side page end -->
+
+  <!-- upper header start -->
+  <div class="col-2">
+  	<header>
+    <form>
+    <label>student name</label>
+    <input type="text" />
+    <label>course</label>
+    <input type="text">
+    <input type="button" value="submit"/>
+  </form>
+    </header>
+     <!-- upper header end -->
+
+    <main class="content">
+    <div class="details">
+    <h4>Student Details</h4>
+    <?php include 'studentdetails.php'; ?>
+    </div>
+
+    <article>
+      <!-- table start -->
+    <div>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Program</th>
+      <th scope="col">Course</th>
+      <th scope="col">Option</th>
+    </tr>
+  </thead>
+
+  </table>
+ 
+    </div>  
+    <!-- table end -->
+    </article>
+    </main>
+
+    <!-- footer start -->
+  	<footer>Footer</footer>
+  </div>
+</div>
+
+<!-- 
+ <script src="/frontend/js/bookNavigate.js"></script> -->
+<script src="/frontend/js/retrieve_data.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

@@ -1,0 +1,71 @@
+.login-gallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.gallery a button{
+    text-align: center;
+   }
+
+   .admin-main{
+    box-sizing: border-box;
+    display: flex;
+   }
+
+   .col-1 {
+    background-color: rgb(194, 226, 239);
+    flex: 1;
+  }
+  .col-2 {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .content > article {
+    background-color: rgb(11, 11, 90);
+    position: relative;
+    color: white;
+    flex: 4;
+    min-height: 60vh;
+  }
+  header, footer {
+    background: white;
+    height: 20vh;
+  }
+  header, footer, article, nav {
+    padding: 1em;
+  }
+  
+  .side-link li{
+    padding-bottom: 17px;
+  }
+
+ .details{
+  position: absolute;
+  padding: 50px 50px 70px;
+  color:rgb(11, 11, 90);
+  z-index: 1;
+  background-color: white;
+  width: 100%;
+  top: 80px;
+  display: none;
+ }
+
+ .details th{
+   padding-left: 70px;
+ }
+
+ .details thead{
+  background-color: rgb(194, 226, 239);
+  color: rgb(11, 11, 90);
+ }
+
+ .details tbody{
+  background-color: rgb(11, 11, 90);
+  color: white;
+ }
