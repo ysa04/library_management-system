@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="/frontend/css/student.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>student Home Page</title>
+    <style>
+      /* WIP
+       .book-container {
+            display: block;
+            flex-wrap: wrap;
+            justify-content: flex-start;  Align items to the start of the container 
+            margin: 0-10px;  Adjust the margin as needed 
+            
+        } */ 
+
+        .book-cover {
+            flex: 0 0 calc(100% - 20px); /* Adjust the width for covers per row */
+            margin: 15px 0px px 50px; /* Adjust the margin as needed */
+            max-width: 250px; /* Set a maximum width for the book cover */
+            height: auto; /* Automatically adjust the height to maintain aspect ratio */
+            
+        }
+    </style>
 </head>
 <body>
 
@@ -84,92 +102,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <h1>BOOK CATEGORIES</h1>
 
           
-    <form class="nav-search" id="mySearchForm" action="/" method="GET">
-      <input class="search-input" id="searchInput" type="text" name="query" placeholder="Search..." >
-      <input class="search-button" type="submit" value="Search">
+    <form class="nav-search" onclick="toggleFilter()" id="filterForm">
+        <div class="">
+            <input type="text" name="title" id="titleInput" placeholder="Title">
+            <input type="text" name="author" id="authorInput" placeholder="Author">
+            <input type="text" name="year" id="yearInput" placeholder="Publication Year">
+            <select name="genre" id="genreSelect">
+                <option value="">Select Genre</option>
+                <option value="Business">Business</option>
+                <option value="Nursing">Nursing</option>
+                <option value="IT">IT</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Comedy">Comedy</option>
+                <!-- Add more genre options as needed -->
+            </select>
+            <select name="status" id="statusSelect">
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Borrowed">Borrowed</option>
+            </select>
+            <button class="search-button" type="button" onclick="applyFilter()">Search</button> <!-- Use type="button" to prevent form submission -->
+        </div>
     </form>
    </div>
 
-   <div class="book-image container">
-    <div class="gallery">
-      <a href="bookNavigate.php?category=adventure">
-        <img src="/frontend/img/books/a1.jpg" alt="Mountains" >
-        <p class="book-category">ADVENTURE</p>
-      </a>
+   <div class="gallery">
+        <?php include_once "searchhome.php"; ?>
     </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=biography">
-        <img src="/frontend/img/Business/b2.jpg" alt="Mountains" >
-        <p class="book-category" >BIOGRAPHY</p>
-      </a>
-  
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=comics">
-        <img src="/frontend/img/IT/IT1.jpg" alt="Mountains" >
-        <p class="book-category">COMIC</p>
-      </a>
-
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=contemporary">
-        <img src="/frontend/img/NURSING/n2.jpg" alt="Mountains" >
-        <p class="book-category">CONTEMPORARY</p>
-      </a>
-
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=fantasy">
-        <img src="/frontend/img/IT/IT2.jpg" alt="Mountains" >
-        <p class="book-category">FANTASY</p>
-      </a>
- 
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=fiction">
-        <img src="/frontend/img/NURSING/n3.jpg" alt="Mountains" >
-        <p class="book-category">FICTION</p>
-      </a>
- 
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=mystery">
-        <img src="/frontend/img/books/a2.jpg" alt="Mountains" >
-        <p class="book-category">MYSTERY</p>
-      </a>
-  
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=romance">
-        <img src="/frontend/img/Business/b4.jpg" alt="Mountains" >
-        <p class="book-category">ROMANCE</p>
-      </a>
-
-    </div>
-
-    <div class="gallery">
-      <a href="bookNavigate.php?category=science">
-        <img src="/frontend/img/books/a3.webp" alt="Mountains" >
-        <p class="book-category">SCIENCE</p>
-      </a>
-
-    </div>
-    <div class="gallery">
-      <a href="bookNavigate.php?category=technology">
-        <img src="/frontend/img/Business/b5.jpg" alt="Mountains" >
-        <p class="book-category">TECHNOLOGY</p>
-      </a>
-  
-    </div>
-   </div>
-
+       
      <div class="chatbot-div">
       <img src="/frontend/img/chatbot.jpg" alt="chatbot" width="65" height="65"/>
       <a href="/"><p>Chat with Amaia</p></a>  
@@ -183,6 +143,24 @@ include '../../../frontend/components/student/footer.html';
 
 ?>
 
+<script> //script for the filter
+function applyFilter() {
+        var formData = new FormData(document.getElementById("filterForm"));
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "searchhome.php", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var results = xhr.responseText;
+                // Update the image containers with search results
+                document.querySelectorAll('.gallery').forEach(function(container) {
+                    container.innerHTML = results;
+                });
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
+    
 <script src="/frontend/js/bookNavigate.js"></script>
 <script src="/frontend/js/retrieve_data.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
