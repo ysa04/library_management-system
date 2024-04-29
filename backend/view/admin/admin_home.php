@@ -68,15 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
             <li><a class="dropdown-item" href="#">ENGINEERING</a></li>
             <li><a class="dropdown-item" href="#">BUSINESS AND MANAGEMENT</a></li>
             <li><a class="dropdown-item" href="#">HOSPITALITY AND TOURISM MANAGEMENT</a></li>
-            <li><a class="dropdown-item" href="#">EDUCATION</a></li>
-            <li><a class="dropdown-item" href="#">ACCOUNTANCY</a></li>
-            <li><a class="dropdown-item" href="#">CRIMINOLOGY</a></li>
-            <li><a class="dropdown-item" href="#">ARTS AND SCIENCES</a></li>
-            <li><a class="dropdown-item" href="#">MEDICAL/NURSING/HEALTH</a></li>
-            <li><a class="dropdown-item" href="#">MARITIME</a></li>
-            <li><a class="dropdown-item" href="#">AVIATION</a></li>
-            <li><a class="dropdown-item" href="#">GRADUATE PROGRAMS</a></li>
-            <li><a class="dropdown-item" href="#">BASIC EDUCATION</a></li>
             <li><a class="dropdown-item" href="#">SENIOR HIGH</a></li> -->
 
           </ul>

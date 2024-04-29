@@ -24,7 +24,7 @@
 
       <div class="gallery">
        <img class="image1" src="/frontend/img/student_3D_icon.png" alt="student" width="300" height="300"/>
-      <a href="/backend/view/login.php?user=student"><button>STUDENTs</button></a> 
+      <a href="/backend/view/login.php?user=student"><button>STUDENT</button></a> 
       </div>
 
       <div class="gallery">

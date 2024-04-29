@@ -11,12 +11,13 @@
 
             // Make an AJAX request to retrieve data for the selected program
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'retrieve_data.php?program=' + encodedProgram, true);
+            xhr.open('GET', 'retrieve_data.php?program=' + encodedProgram, true); 
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
                         var data = JSON.parse(xhr.responseText);
-                        renderTable(data);
+                        renderTable(data); // a callback funuction so that we can still manipulate data
+                        console.log(data); // try to log the retrieved data to console.
                     } else {
                         console.error('Error: ' + xhr.status);
                     }
@@ -27,7 +28,7 @@
     });
 });
 
-function renderTable(data) {
+    function renderTable(data) { //manipulate data
     var tableContainer = document.querySelector('.table');
 
     // Clear the existing content of the table body
@@ -67,8 +68,8 @@ function renderTable(data) {
 
         var button = document.createElement('td');
         var link = document.createElement('a');
-        link.href = 'studentdetails.php?program='
-        link.textContent = "more details"
+        link.href = 'studentdetails.php?id=' + encodeURIComponent(rowData.id); // Append studentId to the URL
+        link.textContent = "more details";
         button.appendChild(link);
         row.appendChild(button);
 
@@ -79,48 +80,35 @@ function renderTable(data) {
          link.addEventListener('click', function(event) {
             event.preventDefault();
             openModal(rowData.id);
+       
         });
 
     });
 }
 
-function navigateToPhpFile(phpFile, paramName, paramValue) {
-    // Construct the URL with the specific query parameter
-    var url = phpFile + '?' + paramName + '=' + encodeURIComponent(paramValue);
-    // Navigate to the URL
-    window.location.href = url;
+
+function openModal(studentId) {
+    // Find the modal div in your HTML
+    var modal = document.querySelector('.details');
+
+    // Make the modal visible
+    modal.style.display = 'block';
+    // Set the opacity to 0 to hide the modal initially
+      console.log(studentId);
+
+    // Make an AJAX request to fetch additional details for the student with studentId
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'modaldetails.php?id=' + encodeURIComponent(studentId), true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Handle the response here to populate the modal with additional details
+                modal.innerHTML = xhr.responseText;
+       
+            } else {
+                console.error('Error: ' + xhr.status);
+            }
+        }
+    };
+    xhr.send();
 }
-
-function openModal(details){
-    var modalContent = document.querySelector('.details');
-
-    modalContent.style.display = "block";
-}
-
-
-
-
-// function openModal(studentId) {
-//     // Find the modal div in your HTML
-//     var modal = document.querySelector('.details');
-
-//     // Make the modal visible
-//     modal.style.display = 'block';
-
-//     // Make an AJAX request to fetch additional details for the student with studentId
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('GET', 'studentdetails.php?id=' + encodeURIComponent(studentId), true);
-//     xhr.onreadystatechange = function() {
-//         if (xhr.readyState === XMLHttpRequest.DONE) {
-//             if (xhr.status === 200) {
-//                 // Handle the response here to populate the modal with additional details
-//                 var additionalDetails = JSON.parse(xhr.responseText);
-//                 // Populate modal with additionalDetails
-            
-//             } else {
-//                 console.error('Error: ' + xhr.status);
-//             }
-//         }
-//     };
-//     xhr.send();
-// }

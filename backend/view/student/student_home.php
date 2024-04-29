@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
    <div class="gallery">
         <?php include_once "searchhome.php"; ?>
     </div>
-       
+     
      <div class="chatbot-div">
       <img src="/frontend/img/chatbot.jpg" alt="chatbot" width="65" height="65"/>
       <a href="/"><p>Chat with Amaia</p></a>  
@@ -138,31 +138,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
   </div>
 
 <?php
-
 include '../../../frontend/components/student/footer.html';
-
 ?>
 
-<script> //script for the filter
-function applyFilter() {
-        var formData = new FormData(document.getElementById("filterForm"));
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "searchhome.php", true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var results = xhr.responseText;
-                // Update the image containers with search results
-                document.querySelectorAll('.gallery').forEach(function(container) {
-                    container.innerHTML = results;
-                });
-            }
-        };
-        xhr.send(formData);
-    }
-</script>
+
     
 <script src="/frontend/js/bookNavigate.js"></script>
 <script src="/frontend/js/retrieve_data.js"></script>
+<script src="/frontend/js/filtersearch.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

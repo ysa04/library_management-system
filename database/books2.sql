@@ -45,34 +45,34 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(11, 'Software Engineering\r\nPRINCIPLES AND PRACTICES', 'DEEPAK JAIN', 'SE Summary', 'IT', 1, 2008, 'Available', 'Software Engineering');
+(11, 'Software Engineering\r\nPRINCIPLES AND PRACTICES', 'DEEPAK JAIN', 'SE Summary', 'IT', 1, 2008, 'Available', 'Software Engineering', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(12, 'Pearson Guide To The B.Sc. ( Nursing ) Entrance Examination, Third Edition', 'Dr Saroj Parwez', 'Nursing Sum', 'Nursing', 0, 2015, 'Available', 'nursing');
+(12, 'Pearson Guide To The B.Sc. ( Nursing ) Entrance Examination, Third Edition', 'Dr Saroj Parwez', 'Nursing Sum', 'Nursing', 0, 2015, 'Available', 'nursing', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(13, 'Modern Software Engineering', 'David Farley', 'MSE sum', 'IT', 0, 2023, 'Borrowed', 'MSE');
+(13, 'Modern Software Engineering', 'David Farley', 'MSE sum', 'IT', 0, 2023, 'Borrowed', 'MSE', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(14, "Lewis\'s Medical-Surgical Nursing: Assessment and Management of Clinical Problems", 'Harding Kwong Roberts Hagler Reinisch', 'Surgical Sum', 'Nursing', 0, 2019, 'Available', 'Surg nur');
+(14, "Lewis\'s Medical-Surgical Nursing: Assessment and Management of Clinical Problems", 'Harding Kwong Roberts Hagler Reinisch', 'Surgical Sum', 'Nursing', 0, 2019, 'Available', 'Surg nur', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(15, 'Naruto Anime Profiles, Vol. 2: Episodes 38-80', 'Masashi Kishimoto', 'naruto sum', 'Fantasy', 1, 2007, 'Available', 'naruto');
+(15, 'Naruto Anime Profiles, Vol. 2: Episodes 38-80', 'Masashi Kishimoto', 'naruto sum', 'Fantasy', 1, 2007, 'Available', 'naruto', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(16, 'Business Management B.Com. I Semester II', 'Archana Singhal & Shelly Goel', 'Bm sum', 'Business', 1, 2017, 'Borrowed', 'bm sum');
+(16, 'Business Management B.Com. I Semester II', 'Archana Singhal & Shelly Goel', 'Bm sum', 'Business', 1, 2017, 'Borrowed', 'bm sum', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(17, 'Adventure of the theater version ONE PIECE dead end', 'Eiichiro Oda', 'one piece sum', 'Comedy', 1, 2003, 'Available', 'one piece');
+(17, 'Adventure of the theater version ONE PIECE dead end', 'Eiichiro Oda', 'one piece sum', 'Comedy', 1, 2003, 'Available', 'one piece', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(18, 'Skills for Business and Management', 'Martin Sedgley', 'SBm sum', 'Business', 1, 2020, 'Available', 'SBm sum');
+(18, 'Skills for Business and Management', 'Martin Sedgley', 'SBm sum', 'Business', 1, 2020, 'Available', 'SBm sum', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(19, 'Demon Slayer', 'Koyoharu Gotouge', 'Demon slayer summary', 'Fantasy', 1, 2016, 'Borrowed', 'Demon Slayer');
+(19, 'Demon Slayer', 'Koyoharu Gotouge', 'Demon slayer summary', 'Fantasy', 1, 2016, 'Borrowed', 'Demon Slayer', '/frontend/img/a1.jpg');
 
 INSERT INTO `books` (`id`, `title`, `author`, `summary`, `genre`, `book_count`, `publication_year`, `status`, `image_name`, `image_data`) VALUES
-(20, 'Small Business Management: Essential Ingredients for Success (Best Business Books)', 'Meir Liraz\r\n', 'SBM Summary', 'Business', 1, 2017, 'Available', 'SBM image');
+(20, 'Small Business Management: Essential Ingredients for Success (Best Business Books)', 'Meir Liraz\r\n', 'SBM Summary', 'Business', 1, 2017, 'Available', 'SBM image', '/frontend/img/a1.jpg');
 
 --
 -- Indexes for dumped tables
