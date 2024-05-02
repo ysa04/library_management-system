@@ -16,7 +16,27 @@
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
                         var data = JSON.parse(xhr.responseText);
-                        renderTable(data); // a callback funuction so that we can still manipulate data
+                        var tableBody = document.getElementById('studentTableBody');
+                        tableBody.innerHTML = '';
+                        if (data.length > 0) {
+                            data.forEach(function(row) {
+                                var tr = document.createElement('tr');
+                                tr.innerHTML = "<td>" + row['id'] + "</td>" +
+                                               "<td>" + row['first_name'] + "</td>" +
+                                               "<td>" + row['last_name'] + "</td>" +
+                                               "<td>" + row['program'] + "</td>" +
+                                               "<td>" + row['course'] + "</td>" +
+                                               "<td class='more_details'><button onclick='openModal(" + row['id'] + ")'>more details</button></td>";
+                                tableBody.appendChild(tr);
+                            });
+                        } else {
+                            // If no results are found, display a message in the table body
+                            var tr = document.createElement('tr');
+                            tr.innerHTML = "<td colspan='6'>No results found</td>";
+                            tableBody.appendChild(tr);
+                        }
+                    
+                     
                         console.log(data); // try to log the retrieved data to console.
                     } else {
                         console.error('Error: ' + xhr.status);
@@ -28,87 +48,91 @@
     });
 });
 
-    function renderTable(data) { //manipulate data
-    var tableContainer = document.querySelector('.table');
 
-    // Clear the existing content of the table body
-    var tableBody = tableContainer.querySelector('tbody');
-    if (tableBody) {
-        tableBody.innerHTML = '';
-    } else {
-        tableBody = document.createElement('tbody');
-        tableContainer.appendChild(tableBody);
-    }
+//     function renderTable(data) { //manipulate data
+//     var tableContainer = document.querySelector('.table');
 
-    // Loop through the retrieved data and construct table rows
-    data.forEach(function (rowData, index) {
-        // Create a new row (<tr>) for each data entry
-        var row = document.createElement('tr');
+//     // Clear the existing content of the table body
+//     var tableBody = tableContainer.querySelector('tbody');
+//     tableBody.innerHTML = '';
 
-        // Create cells (<td>) for firstname, lastname, and program
-        var uniqueId = document.createElement('td');
-        uniqueId.textContent = rowData.id;
-        row.appendChild(uniqueId);
+//     // Loop through the retrieved data and construct table rows
+//     data.forEach(function (rowData) {
+//         // Create a new row (<tr>) for each data entry
+//         var row = document.createElement('tr');
 
-        var firstNameCell = document.createElement('td');
-        firstNameCell.textContent = rowData.first_name;
-        row.appendChild(firstNameCell);
+//         // Create cells (<td>) for firstname, lastname, and program
+//         var uniqueId = document.createElement('td');
+//         uniqueId.textContent = rowData.id; //value of the td
+//         row.appendChild(uniqueId);
 
-        var lastNameCell = document.createElement('td');
-        lastNameCell.textContent = rowData.last_name;
-        row.appendChild(lastNameCell);
+//         var firstNameCell = document.createElement('td');
+//         firstNameCell.textContent = rowData.first_name;
+//         row.appendChild(firstNameCell);
 
-        var programCell = document.createElement('td');
-        programCell.textContent = rowData.program;
-        row.appendChild(programCell);
+//         var lastNameCell = document.createElement('td');
+//         lastNameCell.textContent = rowData.last_name;
+//         row.appendChild(lastNameCell);
 
-        var courseCell = document.createElement('td');
-        courseCell.textContent = rowData.course;
-        row.appendChild(courseCell);
+//         var programCell = document.createElement('td');
+//         programCell.textContent = rowData.program;
+//         row.appendChild(programCell);
 
-        var button = document.createElement('td');
-        var link = document.createElement('a');
-        link.href = 'studentdetails.php?id=' + encodeURIComponent(rowData.id); // Append studentId to the URL
-        link.textContent = "more details";
-        button.appendChild(link);
-        row.appendChild(button);
+//         var courseCell = document.createElement('td');
+//         courseCell.textContent = rowData.course;
+//         row.appendChild(courseCell);
 
-        // Append the row to the table body
-        tableBody.appendChild(row);
+//         var td = document.createElement('td');
+//         var link = document.createElement('a');
+//         link.href = 'studentdetails.php?id='+ encodeURIComponent(rowData.id); 
+//         link.textContent = "more details";
+//         td.appendChild(link);
+//         row.appendChild(td);
+    
+//         // Append the row to the table body
+//         tableBody.appendChild(row);
 
-         // Add click event listeners to the links
-         link.addEventListener('click', function(event) {
-            event.preventDefault();
-            openModal(rowData.id);
-       
-        });
+               
+//         link.addEventListener('click', function(e) {
+//             e.preventDefault(); // Prevent the default navigation behavior
+//             openModal(rowData.id); // Call the openModal function to show the modal
+//         });
 
-    });
-}
+    
+//     });
+// };
 
 
+ 
 function openModal(studentId) {
-    // Find the modal div in your HTML
+
+    console.log(studentId);
+
     var modal = document.querySelector('.details');
+    modal.style.display = 'block'; // Display the modal
+    // Apply CSS transitions to smoothly animate the modal appearance
+    modal.style.opacity = '0'; // Start with opacity 0
+    modal.style.transition = '0.8s ease'; // Apply transition for opacity property
 
-    // Make the modal visible
-    modal.style.display = 'block';
-    // Set the opacity to 0 to hide the modal initially
-      console.log(studentId);
+// Use setTimeout to delay the modal appearance
+setTimeout(function() {
+    modal.style.opacity = '1'; // Set opacity to 1 after a short delay
+}, 50); 
 
-    // Make an AJAX request to fetch additional details for the student with studentId
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'modaldetails.php?id=' + encodeURIComponent(studentId), true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                // Handle the response here to populate the modal with additional details
-                modal.innerHTML = xhr.responseText;
-       
-            } else {
-                console.error('Error: ' + xhr.status);
-            }
+// Make an AJAX request to fetch additional details for the student with studentId
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'modaldetails.php?id=' + encodeURIComponent(studentId), true);
+xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+            // Handle the response here to populate the modal with additional details
+            modal.innerHTML = xhr.responseText;
+   
+        } else {
+            console.error('Error: ' + xhr.status);
         }
-    };
-    xhr.send();
-}
+    }
+};
+xhr.send();
+
+};

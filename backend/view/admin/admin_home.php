@@ -121,29 +121,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
 
   <!-- upper header start -->
   <div class="col-2">
-  	<header>
-    <form>
-    <label>student name</label>
-    <input type="text" />
-    <label>course</label>
-    <input type="text">
-    <input type="button" value="submit"/>
-  </form>
-    </header>
-     <!-- upper header end -->
-
-    <main class="content">
-    <div class="details">
+  <div class="details">
     <h4>Student Details</h4>
     <?php include 'studentdetails.php'; ?>
     </div>
 
+  	<header >
+    <!-- data process in searchResult.php / the submit event is in filtersearch.js -->
+    <form  class="header-form" id="searchForm" method="post"> 
+    <label for="first_name">Firstname</label>
+    <input type="text" id="first_name" name="first_name"/>
+    <label for="last_name">Lastname</label>
+    <input type="text" id="last_name" name="last_name">
+    <label for="usn_number">USN</label>
+    <input type="text" id="usn_number" name="usn_number">
+    <label for="course">Course</label>
+    <input type="text" id="course" name="course">
+    <button type="submit">Search</button>
+   </form>
+    </header>
+     <!-- upper header end -->
+
+    <main class="content">
     <article>
-      <!-- table start -->
     <div>
+   
+   <!-- table start -->
     <table class="table">
   <thead>
-    <tr>
+    <tr> 
       <th scope="col">ID</th>
       <th scope="col">Firstname</th>
       <th scope="col">Lastname</th>
@@ -152,7 +158,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       <th scope="col">Option</th>
     </tr>
   </thead>
+<tbody id="studentTableBody">
 
+</tbody>
   </table>
  
     </div>  
@@ -168,6 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
 <!-- 
  <script src="/frontend/js/bookNavigate.js"></script> -->
 <script src="/frontend/js/retrieve_data.js"></script>
+<script src="/frontend/js/filtersearch.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

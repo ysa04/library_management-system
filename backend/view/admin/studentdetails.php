@@ -11,14 +11,10 @@
    </head>
    <body>
 
-   <?php
-    
-   echo $student_data['first_name']; 
-// Now you can use $studentId to fetch additional details for the student from your database or perform any other actions
-?>
 
-    <h4>student details</h4>
+    <div  class="table-details">
    <table>
+   <h4 class="table-h4">Student Details</h4>
     <thead>
     <tr>
       <th scope="col">ID</th>
@@ -31,11 +27,11 @@
    <tbody>
     <tr>
      
-      <th><?php echo $student_data['id']; ?></th>
-      <th><?php echo $student_data['first_name']; ?></th>
-      <th><?php echo $student_data['last_name']; ?></th>
-      <th><?php echo $student_data['age']; ?></th>
-      <th><?php echo $student_data['email']; ?></th>
+      <th> <input type="text" id="id" value="<?php echo $student_data['id'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="first_name" value="<?php echo $student_data['first_name'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="last_name" value="<?php echo $student_data['last_name'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="age" value="<?php echo $student_data['age'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="email" value="<?php echo $student_data['email'];?>" style="width: 200px;"/> </th>
     </tr>
   </tbody>
    <thead>
@@ -49,11 +45,12 @@
   </thead>
   <tbody>
     <tr>
-      <th><?php echo $student_data['usn_number']; ?></th>
-      <th><?php echo $student_data['contact_number']; ?></th>
-      <th><?php echo $student_data['number_visit']; ?></th>
-      <th><?php echo $student_data['no_books_barrowed']; ?></th>
-      <th><?php echo $student_data['no_books_returned']; ?></th>
+     
+     <th> <input type="text" id="usn_number" value="<?php echo $student_data['usn_number'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="contact_number" value="<?php echo $student_data['contact_number'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="number_visit" value="<?php echo $student_data['number_visit'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="number_barrowed" value="<?php echo $student_data['number_barrowed'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="book_returned" value="<?php echo $student_data['book_returned'];?>" style="width: 200px;"/> </th>
     </tr>
   </tbody>
   <thead>
@@ -65,28 +62,26 @@
   </thead>
   <tbody>
     <tr>
-      <th><?php echo $student_data['penalty']; ?></th>
-      <th><?php echo $student_data['paid_penalty']; ?></th>
-      <th><?php echo $student_data['added_at']; ?></th>
-      <th><?php echo $student_data['program']; ?></th>
-      <th><?php echo $student_data['course']; ?></th>
+
+    <th> <input type="text" id="penalty" value="<?php echo $student_data['penalty'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="paid_penalty" value="<?php echo $student_data['paid_penalty'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="added_at" value="<?php echo $student_data['added_at'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="program" value="<?php echo $student_data['program'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="course" value="<?php echo $student_data['course'];?>" style="width: 200px;"/> </th>
     </tr>
   </tbody>
     </table>
+    </div>
     <br/>
-   <div>
-    <button>update details</button>
-    <button class="close-tab" onclick="closeTab()">Close Tab</button>
 
+   <div class="table-button">
+     <button onclick="updateDetails(<?php echo $student_data['id'];?>)">Update Details</button>
+    <button class="close-tab" onclick="closeTab()">Close Tab</button>
    </div>
 
-   <script>
-    function closeTab() {
-      var modalClose = document.querySelector('.details');
-      modalClose.style.display = "none";
-    }
-   </script>
+  
 
+<script src="/frontend/js/update.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>

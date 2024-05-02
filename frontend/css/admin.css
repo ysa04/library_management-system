@@ -33,6 +33,20 @@
     flex: 4;
     min-height: 60vh;
   }
+
+  .header-form{
+    display: flex;
+  font-weight: 600;
+  margin-top: 30px;
+  }
+
+  .header-form button{
+    background-color:rgb(11, 11, 90) ;
+    color: white;
+   margin-left: 2px;
+   border-radius: 3px;
+  }
+
   header, footer {
     background: white;
     height: 20vh;
@@ -47,25 +61,57 @@
 
  .details{
   position: absolute;
-  padding: 50px 50px 50px;
+  padding: 50px 78px 50px;
   color:rgb(11, 11, 90);
   z-index: 1;
-  background-color: white;
-  width: 100%;
-  top: 80px;
+  background-color: rgb(165, 178, 184);
+  width: fit-content;
+  top: 84px;
+  left: 6px;
   display: none;
+  transition: 0.8s ease-out;
+  border-radius: 1px;
  }
+
 
  .details th{
    padding-left: 70px;
  }
 
  .details thead{
-  background-color: rgb(194, 226, 239);
+ 
   color: rgb(11, 11, 90);
  }
 
  .details tbody{
+
+  color: white;
+ }
+
+ .table-button button{
+  border-radius: 3px;
   background-color: rgb(11, 11, 90);
   color: white;
+ }
+
+ #studentTableBody td button{
+  background-color: rgb(11, 11, 90);
+  color: white;
+  border-radius: 3px;
+ }
+
+ .table-details{
+  background-color: rgb(194, 226, 239);
+  padding-bottom: 40px;
+  padding-right: 60px;
+  border-radius: 4px;
+ }
+
+ .table-h4{
+  margin-left: 10px;
+  margin-top: 15px;
+ }
+
+ .table-details th input{
+  padding: 10px 10px 10px;
  }
