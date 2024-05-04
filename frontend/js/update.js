@@ -2,7 +2,11 @@
 function closeTab() {
   var modalClose = document.querySelector('.details');
   modalClose.style.display = "none";
-}
+
+};
+
+
+
 
 //function for update student details button
 
@@ -16,7 +20,7 @@ function updateDetails(getId){
     var usn= document.getElementById("usn_number").value;
     var contact = document.getElementById("contact_number").value;
     var numberVisit = document.getElementById("number_visit").value;
-    var numberBookBarrowed = document.getElementById("number_barrowed").value;
+    var numberBookBorrowed = document.getElementById("number_borrowed").value;
     var numberBookReturned = document.getElementById("book_returned").value;
     var penalty= document.getElementById("penalty").value;
     var paidPenalty = document.getElementById("paid_penalty").value;
@@ -36,7 +40,7 @@ function updateDetails(getId){
       usn: usn,
       contact: contact,
       numberVisit: numberVisit,
-      numberBookBarrowed: numberBookBarrowed,
+      numberBookBorrowed: numberBookBorrowed,
       numberBookReturned: numberBookReturned,
       penalty: penalty,
       paidPenalty: paidPenalty,
@@ -53,8 +57,7 @@ function updateDetails(getId){
         if (xhr.readyState === 4 && xhr.status === 200) {
             // Handle the response if needed
             alert(xhr.responseText);
-            location.reload();
-
+            updateDetails();
             // You can also show a success message or update the UI accordingly
         } else if (xhr.status !== 200) {
             // Handle errors if any
@@ -66,3 +69,4 @@ function updateDetails(getId){
     xhr.send(JSON.stringify({ id: id, newData: newData }));
 
 };
+

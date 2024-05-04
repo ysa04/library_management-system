@@ -22,6 +22,7 @@
     flex-direction: column;
     flex: 5;
   }
+
   .content {
     display: flex;
     flex-direction: row;
@@ -114,4 +115,26 @@
 
  .table-details th input{
   padding: 10px 10px 10px;
+ }
+
+ .borrowed-books{
+  background-color: aqua;
+  border-radius: 3px;
+ }
+
+ #book-borrow{
+  position: absolute;
+  background-color: rgb(11, 11, 90);
+  color: white;
+  padding: 80px 90px 80px;
+  border-radius: 4px;
+  width: 97%;
+  top: 20%;
+  left: 2%;
+  z-index: 2;
+  /* display: none; */
+ }
+
+ .borrow-main{
+
  }

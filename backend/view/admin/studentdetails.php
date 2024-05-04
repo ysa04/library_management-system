@@ -39,17 +39,17 @@
       <th scope="col">Usn</th>
       <th scope="col">Contact No.</th>
       <th scope="col">No. of visit</th>
-      <th scope="col">Books Barrowed</th>
+      <th scope="col"></th>
       <th scope="col">Books Returned</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-     
+   
      <th> <input type="text" id="usn_number" value="<?php echo $student_data['usn_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="contact_number" value="<?php echo $student_data['contact_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="number_visit" value="<?php echo $student_data['number_visit'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="number_barrowed" value="<?php echo $student_data['number_barrowed'];?>" style="width: 200px;"/> </th>
+      <th> <button class="borrowed-books"  onclick="bookBorrow(<?php echo $student_data['id'];?>)">BOOKS</button> </th>
       <th> <input type="text" id="book_returned" value="<?php echo $student_data['book_returned'];?>" style="width: 200px;"/> </th>
     </tr>
   </tbody>
@@ -82,6 +82,7 @@
   
 
 <script src="/frontend/js/update.js"></script>
+<script src="/frontend/js/borrowBook.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>

@@ -51,28 +51,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-      
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">DASHBOARD</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">BOOKS</a>
+          <a class="nav-link" href="retrieveBooks.php">BOOKS</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            OTHERS
+          <a class="nav-link" href="barrowedRecord.php">
+            BORROWED BOOKS
           </a>
-          <ul class="dropdown-menu">
-            <!-- <li><a class="dropdown-item" href="#">COMPUTING</a></li>
-            <li><a class="dropdown-item" href="#">ENGINEERING</a></li>
-            <li><a class="dropdown-item" href="#">BUSINESS AND MANAGEMENT</a></li>
-            <li><a class="dropdown-item" href="#">HOSPITALITY AND TOURISM MANAGEMENT</a></li>
-            <li><a class="dropdown-item" href="#">SENIOR HIGH</a></li> -->
-
-          </ul>
         </li>
       </ul>
+
       <div style="display: flex; color: white; margin-top: 15px;">
       <i style="margin-top: 4px;" class="fa-solid fa-user"></i>
       <p>&nbsp;<?php echo $name; ?>,</p>
@@ -84,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       </form>
       </div>
     </div>
+
   </div>
 </nav>
 
@@ -126,6 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <?php include 'studentdetails.php'; ?>
     </div>
 
+    <div id="book-borrow">
+    <?php include 'bookBorrowed.php'; ?>
+    </div>
+
   	<header >
     <!-- data process in searchResult.php / the submit event is in filtersearch.js -->
     <form  class="header-form" id="searchForm" method="post"> 
@@ -159,7 +156,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     </tr>
   </thead>
 <tbody id="studentTableBody">
-
+  <!-- <tr>
+    <th>student details</th>
+  </tr> -->
 </tbody>
   </table>
  
@@ -177,6 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
  <script src="/frontend/js/bookNavigate.js"></script> -->
 <script src="/frontend/js/retrieve_data.js"></script>
 <script src="/frontend/js/filtersearch.js"></script>
+<script src="/frontend/js/borrowBook.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

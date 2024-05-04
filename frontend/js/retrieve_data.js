@@ -1,5 +1,4 @@
-  // making this foreach loop to get all class program-link when click 
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     var links = document.querySelectorAll('.program-link');
     links.forEach(function(link) {
         link.addEventListener('click', function(event) {
@@ -15,38 +14,58 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        var data = JSON.parse(xhr.responseText);
+                        var data = xhr.responseText;
+                        console.log(data);
                         var tableBody = document.getElementById('studentTableBody');
                         tableBody.innerHTML = '';
-                        if (data.length > 0) {
-                            data.forEach(function(row) {
+                        try {
+                            data = JSON.parse(data);
+                            if (data.length > 0) {
+                                data.forEach(function(row) {
+                                    var tr = document.createElement('tr');
+                                    tr.innerHTML = "<td>" + row['id'] + "</td>" +
+                                                   "<td>" + row['first_name'] + "</td>" +
+                                                   "<td>" + row['last_name'] + "</td>" +
+                                                   "<td>" + row['program'] + "</td>" +
+                                                   "<td>" + row['course'] + "</td>" +
+                                                   "<td class='more_details'><button onclick='openModal(" + row['id'] + ")'>more details</button></td>";
+                                    tableBody.appendChild(tr);
+                                });
+                            } else {
                                 var tr = document.createElement('tr');
-                                tr.innerHTML = "<td>" + row['id'] + "</td>" +
-                                               "<td>" + row['first_name'] + "</td>" +
-                                               "<td>" + row['last_name'] + "</td>" +
-                                               "<td>" + row['program'] + "</td>" +
-                                               "<td>" + row['course'] + "</td>" +
-                                               "<td class='more_details'><button onclick='openModal(" + row['id'] + ")'>more details</button></td>";
+                                tr.innerHTML = "<th>No results found for program: " + program + "</th>";
                                 tableBody.appendChild(tr);
-                            });
-                        } else {
-                            // If no results are found, display a message in the table body
+                                console.log("No results found for program: " + program);
+                            }
+                        } catch (error) {
                             var tr = document.createElement('tr');
-                            tr.innerHTML = "<td colspan='6'>No results found</td>";
+                            tr.innerHTML = "<th>no results found</th>";
                             tableBody.appendChild(tr);
+                            console.error('no results found');
                         }
-                    
-                     
-                        console.log(data); // try to log the retrieved data to console.
-                    } else {
-                        console.error('Error: ' + xhr.status);
-                    }
+                    } 
                 }
             };
             xhr.send();
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //     function renderTable(data) { //manipulate data

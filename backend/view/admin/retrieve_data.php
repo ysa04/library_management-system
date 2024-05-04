@@ -34,7 +34,7 @@ if (isset($_GET['program'])) {
         // Encode the data array as JSON and echo the JSON string
         echo json_encode($data);
     } else {
-        echo "No students found for program: " . $program;
+        echo "No students found for program";
     }
 } else {
     echo "No program specified.";
