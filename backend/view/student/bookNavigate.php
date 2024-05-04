@@ -10,26 +10,54 @@
 </head>
 <body>
 
-<h1>hello</h1>
-
-
 <?php
-// Retrieve the category title from the query parameter
-// if (isset($_GET['category'])) {
-//     $category = htmlspecialchars($_GET['category']);
-//     echo '<h1>' . $category . '</h1>';
-// } else {
-//     echo '<h1>Category Not Specified</h1>';
-// }
-// ?>
+// Database connection parameters
+$host = "localhost";
+$username = "root";
+$password = "ysa_2024_gatongay";
+$database = "library";
 
+// Attempt to establish a connection to the MySQL database
+$con = new mysqli($host, $username, $password, $database);
 
-<?php
-// Retrieve the category from the query parameter
-$category = $_GET['category'];
+// Check if the connection was successful
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
 
-// Display the received category
-echo "Selected Category: " . $category;
+// Check if the book ID is specified in the query parameters
+if (isset($_GET['book_id'])) {
+    // Retrieve the book ID from the query parameter
+    $book_id = $_GET['book_id'];
+
+    // Prepare and execute a query to fetch details of the specified book
+    $query = "SELECT book_id, title, author, summary, genre, book_count, publication_year, status, image_name, image_data FROM books WHERE book_id = ?";
+    $stmt = $con->prepare($query);
+    $stmt->bind_param("i", $book_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if the book is found
+    if ($result->num_rows == 1) {
+        // Display details of the book
+        $row = $result->fetch_assoc();
+        echo "<h1>" . $row['title'] . "</h1>";
+        echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "'><br>";
+        echo "<p>Author: " . $row['author'] . "</p>";
+        echo "<p>Summary: " . $row['summary'] . "</p>";
+        echo "<p>Genre: " . $row['genre'] . "</p>";
+        echo "<p>Publication Year: " . $row['publication_year'] . "</p>";
+        echo "<p>Book Count: " . $row['book_count'] . "</p>";
+        echo "<p>Status: " . $row['status'] . "</p>";
+    } else {
+        echo "<p>Book not found.</p>";
+    }
+} else {
+    echo "<p>Book ID not specified.</p>";
+}
+
+// Close the database connection
+$con->close();
 ?>
    
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
