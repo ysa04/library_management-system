@@ -4,7 +4,7 @@
 $host = 'localhost';
 $username = 'root';  // Your MySQL username
 $password =  'ysa_2024_gatongay';      // Your MySQL password
-$database = 'users_category'; // Your database name
+$database = 'library'; // Your database name
 
 // Connect to MySQL
 $mysqli = new mysqli($host, $username, $password);
@@ -21,8 +21,19 @@ $mysqli->select_db($database);
 // Create student_information table if not exists
 $createTableSql = "CREATE TABLE IF NOT EXISTS student_info ( 
     id INT AUTO_INCREMENT PRIMARY KEY,
-    usn_number VARCHAR(20) NOT NULL, -- Change data type to VARCHAR and specify maximum length
-    password VARCHAR(255) NOT NULL
+    first_name varchar(50) NOT NULL,
+    last_name varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
+    age int(30) NOT NULL,
+    usn_number varchar(30) NOT NULL,
+    contact_number varchar(30) NOT NULL,
+    number_visit int(50) NOT NULL,
+    no_books_barrowed int(50) NOT NULL,
+    no_books_returned int(50) NOT NULL,
+    penalty int(50) NOT NULL,
+    paid_penalty int(50) NOT NULL,
+    added_at varchar(50) NOT NULL DEFAULT current_timestamp(),
+    password varchar(50) NOT NULL
 )";
 $mysqli->query($createTableSql);
 
