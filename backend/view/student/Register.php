@@ -6,7 +6,11 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="stylesheet" href="/frontend/css/student.css"> <!-- Include your CSS file -->
 <title>Register - Library Management System</title>
-
+<style>
+    .error-message {
+            color: red;
+        }
+</style>
 
 </head>
 <body style="background-color: rgb(197, 227, 239);">
@@ -14,8 +18,20 @@
 
 <?php
 // Retrieve the query parameter category from login.php
-$user = $_GET['user'];
+$user = isset($_GET['user']) ? $_GET['user'] : null;
 
+
+// Define variables to store error messages
+$error_usn = "";
+$error_email = "";
+
+// Check if there are error messages from signup.php
+if (isset($_GET['error_usn'])) {
+    $error_usn = $_GET['error_usn'];
+}
+if (isset($_GET['error_email'])) {
+    $error_email = $_GET['error_email'];
+}
 ?>
 
        <div class="top-navbar">
@@ -30,6 +46,15 @@ $user = $_GET['user'];
     <form action="/backend/view/student/signup.php" method="post">
     <h2>Student Register</h2>
     <br/>
+       <?php
+        // Display error messages if they exist
+        if (!empty($error_usn)) {
+            echo "<p class='error-message'>$error_usn</p>";
+        }
+        if (!empty($error_email)) {
+            echo "<p class='error-message'>$error_email</p>";
+        }
+        ?>
         <div class="input-group">
             <label  for="usn_number">USN:</label>
             <input type="text" id="usn_number" name="usn_number" required>

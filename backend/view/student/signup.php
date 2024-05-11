@@ -4,7 +4,7 @@
 $host = 'localhost';
 $username = 'root';  // Your MySQL username
 $password =  'ysa_2024_gatongay';      // Your MySQL password
-$database = 'users_category'; // Your database name
+$database = 'library'; // Your database name
 
 // Connect to MySQL
 $mysqli = new mysqli($host, $username, $password);
@@ -21,8 +21,19 @@ $mysqli->select_db($database);
 // Create student_information table if not exists
 $createTableSql = "CREATE TABLE IF NOT EXISTS student_info ( 
     id INT AUTO_INCREMENT PRIMARY KEY,
-    usn_number VARCHAR(20) NOT NULL, -- Change data type to VARCHAR and specify maximum length
-    password VARCHAR(255) NOT NULL
+    first_name varchar(50) NOT NULL,
+    last_name varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
+    age int(30) NOT NULL,
+    usn_number varchar(30) NOT NULL,
+    contact_number varchar(30) NOT NULL,
+    number_visit int(50) NOT NULL,
+    no_books_barrowed int(50) NOT NULL,
+    no_books_returned int(50) NOT NULL,
+    penalty int(50) NOT NULL,
+    paid_penalty int(50) NOT NULL,
+    added_at varchar(50) NOT NULL DEFAULT current_timestamp(),
+    password varchar(50) NOT NULL
 )";
 $mysqli->query($createTableSql);
 
@@ -37,16 +48,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password']; 
     
     
+    // Check if USN or email already exists
+    $is_usn_taken = false;
+    $is_email_registered = false;
+    
+    // Prepare SELECT statements
+    $selectUsnSql = "SELECT id FROM student_info WHERE usn_number = ?";
+    $selectEmailSql = "SELECT id FROM student_info WHERE email = ?";
+    
+    // Check if USN number is already taken
+    $stmtUsn = $mysqli->prepare($selectUsnSql);
+    $stmtUsn->bind_param("s", $usn_number);
+    $stmtUsn->execute();
+    $stmtUsn->store_result();
+    if ($stmtUsn->num_rows > 0) {
+        $is_usn_taken = true;
+    }
+    $stmtUsn->close();
+    
+    // Check if email is already registered
+    $stmtEmail = $mysqli->prepare($selectEmailSql);
+    $stmtEmail->bind_param("s", $email);
+    $stmtEmail->execute();
+    $stmtEmail->store_result();
+    if ($stmtEmail->num_rows > 0) {
+        $is_email_registered = true;
+    }
+    $stmtEmail->close();
+    
+    // If USN or email already taken, redirect back to register.php with error messages
+    if ($is_usn_taken || $is_email_registered) {
+        $error_params = "";
+        if ($is_usn_taken) {
+            $error_params .= "error_usn=USN%20number%20is%20already%20taken.";
+        }
+        if ($is_email_registered) {
+            $error_params .= "&error_email=Email%20is%20already%20registered.";
+        }
+        header("Location: register.php?$error_params");
+        exit();
+    }
+    
+    // If not already taken, proceed with registration
     // Prepare INSERT statement
-    $insertSql = "INSERT INTO student_info (usn_number,first_name,last_name,age,email, password) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $mysqli->prepare($insertSql);
+    $insertSql = "INSERT INTO student_info (usn_number, first_name, last_name, age, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmtInsert = $mysqli->prepare($insertSql);
     
     // Bind parameters and execute statement
-    $stmt->bind_param("ssssss", $usn_number,$first_name, $last_name,$age,$email,$password);
-    $stmt->execute();
+    $stmtInsert->bind_param("ssssss", $usn_number, $first_name, $last_name, $age, $email, $password);
+    $stmtInsert->execute();
     
     // Check if registration was successful
-    if ($stmt->affected_rows > 0) {
+    if ($stmtInsert->affected_rows > 0) {
         // Redirect to success page
         header("Location: ../../../backend/view/index.php");
         exit(); // Stop further execution
@@ -54,10 +107,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Registration failed. Please try again.";
     }
     
-    // Close statement
-    $stmt->close();
+    // Close statements
+    $stmtInsert->close();
 }
 
 // Close MySQL connection
 $mysqli->close();
+
+?>
 

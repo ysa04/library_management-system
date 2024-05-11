@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
             echo "<div class='row'>";
         }
         echo "<div class='col'>";
-        echo "<a href='bookNavigate.php?category=" . $row["title"] . "'>";
+        echo "<a href='bookNavigate.php?book_id=" . $row["book_id"] . "'>";
         echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "' class='book-cover'>";
         echo "<p class='book-category'></p>";
         echo "</a>";
