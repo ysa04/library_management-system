@@ -10,8 +10,9 @@
     
    </head>
    <body>
-  <h4>Student record with barrowed books</h4>
-  <div class="barrow-main">
+
+  <h4>Student record with borrowed books</h4>
+  <div class="borrow-main">
     <table class="table">
       <thead>
         <tr>
@@ -20,28 +21,17 @@
             <th>Book Title</th>
             <th>Date Borrowed</th>
             <th>Date Returned</th>
-            <th>Status</th>
+            <th>Number of Books</th>
+            <th>Penalty</th>
+            <th>Paid Penalty</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <th>1</th>
-          <th>title</th>
-          <th>data</th>
-          <th>Returned</th>
-          <th>Status</th>
-        <!-- <th> <input type="text" id="book_returned" value="" style="width: 60px;"/> </th>
-        <th> <input type="text" id="book_returned" value="" style="width: 60px;"/> </th>
-        <th> <input type="text" id="book_returned" value="" /> </th>
-        <th> <input type="text" id="book_returned" value="" style="width: 150px;"/> </th>
-        <th> <input type="text" id="book_returned" value="" style="width: 150px;"/> </th>
-        <th> <input type="text" id="book_returned" value="" style="width: 150px;"/> </th> -->
-        </tr>
+      <tbody id="borrow-main-table">
+    
       </tbody>
     </table>
 
-    <button onclick="closeBorrow()">close tab</button>
+    <button class="closeTab" onclick="closeBorrow()">close tab</button>
   </div>
 
 

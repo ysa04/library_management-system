@@ -1,3 +1,4 @@
+ // student directory
 function applyFilter() {
     var formData = new FormData(document.getElementById("filterForm"));
     var xhr = new XMLHttpRequest();
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                            "<td>" + row['last_name'] + "</td>" +
                                            "<td>" + row['program'] + "</td>" +
                                            "<td>" + row['course'] + "</td>" +
-                                           //the openModal function name is in the retrieve_data.js to less boiler plate code since they have the same button function
+                                           //the openModal function name is in the retrieve_data.js reuse it to less boiler plate code.
                                            "<td class='more_details'><button onclick='openModal(" + row['id'] + ")'>more details</button></td>";
                             tableBody.appendChild(tr);
                         });

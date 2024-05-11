@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 
-// Receive query ID from URL parameter
+// this data is coming from retrieve_data.js using ajax and modal function.
 $query_id = $_GET['id'];
 
 // Sanitize and validate query ID

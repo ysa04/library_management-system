@@ -24,8 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $data['id'];
     $newData = $data['newData'];
   
-
-
     // Construct an SQL UPDATE query
     $sql = "UPDATE student_info SET 
             first_name = ?,
@@ -35,10 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             usn_number = ?,
             contact_number = ?,
             number_visit = ?,
-            number_barrowed = ?,
-            book_returned = ?,
-            penalty = ?,
-            paid_penalty = ?,
             added_at = ?,
             program = ?,
             course = ?
@@ -48,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($sql);
 
     // Bind parameters
-    $stmt->bind_param("sssissiiiiisssi",
+    $stmt->bind_param("sssississsi",
         $newData['firstName'],
         $newData['lastName'],
         $newData['email'],
@@ -56,10 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newData['usn'],
         $newData['contact'],
         $newData['numberVisit'],
-        $newData['numberBookBarrowed'],
-        $newData['numberBookReturned'],
-        $newData['penalty'],
-        $newData['paidPenalty'],
         $newData['addedAt'],
         $newData['program'],
         $newData['course'],

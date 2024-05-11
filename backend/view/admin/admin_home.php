@@ -11,75 +11,7 @@
 </head>
 <body>
 
-<!-- php start for session catch data-->
-<?php
-       session_start();
-
-         // Check if user is logged in
-     if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name'])) {
-    header("Location: studentlogin.php");
-    exit();
-    }
-
-    $usn = $_SESSION['usn'];
-    $name = $_SESSION['first_name'];
-    $surName = $_SESSION['last_name'];
-
-
-// Include the logout function file
-require_once '../student/logout.php';
-
-// Check if logout button is clicked
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
-    // Call the logout function
-    logout();
-}
-?>
-
-<!-- php end for session -->
-
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-    <img class="top-icon" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
-    <p>e-Library</p>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">DASHBOARD</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="retrieveBooks.php">BOOKS</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="barrowedRecord.php">
-            BORROWED BOOKS
-          </a>
-        </li>
-      </ul>
-
-      <div style="display: flex; color: white; margin-top: 15px;">
-      <i style="margin-top: 4px;" class="fa-solid fa-user"></i>
-      <p>&nbsp;<?php echo $name; ?>,</p>
-      <p>&nbsp;<?php echo $surName; ?></p> <br/>
-      <p>&nbsp;&nbsp;USN: <?php echo $usn; ?></p>
-      <form method="post" action="/backend/view/index.php">
-      <input type="hidden" name="logout" value="true">
-      <button class="logout-button" type="submit">logout</button>
-      </form>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
+<?php include 'navbar.php'; ?> 
 <div class="admin-main">
 <!-- side page start -->
 <nav class="col-1">
@@ -116,10 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
   <div class="col-2">
   <div class="details">
     <h4>Student Details</h4>
-    <?php include 'studentdetails.php'; ?>
+    <!-- this php file can only see in an onclick event -->
+    <?php include 'studentdetails.php'; ?> 
     </div>
 
     <div id="book-borrow">
+    <!-- this php file can only see in an onclick event -->
     <?php include 'bookBorrowed.php'; ?>
     </div>
 
@@ -156,9 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     </tr>
   </thead>
 <tbody id="studentTableBody">
-  <!-- <tr>
-    <th>student details</th>
-  </tr> -->
+<!-- retrieve_data.js -->
 </tbody>
   </table>
  

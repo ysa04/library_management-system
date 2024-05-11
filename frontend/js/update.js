@@ -6,8 +6,6 @@ function closeTab() {
 };
 
 
-
-
 //function for update student details button
 
 function updateDetails(getId){
@@ -20,10 +18,6 @@ function updateDetails(getId){
     var usn= document.getElementById("usn_number").value;
     var contact = document.getElementById("contact_number").value;
     var numberVisit = document.getElementById("number_visit").value;
-    var numberBookBorrowed = document.getElementById("number_borrowed").value;
-    var numberBookReturned = document.getElementById("book_returned").value;
-    var penalty= document.getElementById("penalty").value;
-    var paidPenalty = document.getElementById("paid_penalty").value;
     var addedAt = document.getElementById("added_at").value;
     var program = document.getElementById("program").value;
     var course = document.getElementById("course").value;
@@ -40,10 +34,6 @@ function updateDetails(getId){
       usn: usn,
       contact: contact,
       numberVisit: numberVisit,
-      numberBookBorrowed: numberBookBorrowed,
-      numberBookReturned: numberBookReturned,
-      penalty: penalty,
-      paidPenalty: paidPenalty,
       addedAt: addedAt,
       program: program,
       course: course
@@ -57,7 +47,7 @@ function updateDetails(getId){
         if (xhr.readyState === 4 && xhr.status === 200) {
             // Handle the response if needed
             alert(xhr.responseText);
-            updateDetails();
+           
             // You can also show a success message or update the UI accordingly
         } else if (xhr.status !== 200) {
             // Handle errors if any

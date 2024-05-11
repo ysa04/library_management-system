@@ -62,13 +62,13 @@
 
  .details{
   position: absolute;
-  padding: 50px 78px 50px;
+  padding: 50px 55px 50px;
   color:rgb(11, 11, 90);
   z-index: 1;
   background-color: rgb(165, 178, 184);
   width: fit-content;
   top: 84px;
-  left: 6px;
+  left: 7px;
   display: none;
   transition: 0.8s ease-out;
   border-radius: 1px;
@@ -103,8 +103,7 @@
 
  .table-details{
   background-color: rgb(194, 226, 239);
-  padding-bottom: 40px;
-  padding-right: 60px;
+  padding: 20px 20px 20px;
   border-radius: 4px;
  }
 
@@ -128,13 +127,61 @@
   color: white;
   padding: 80px 90px 80px;
   border-radius: 4px;
-  width: 97%;
-  top: 20%;
-  left: 2%;
+  width: 99%;
+  top: 13%;
+  left: .5%;
   z-index: 2;
-  /* display: none; */
+  display: none;
  }
 
- .borrow-main{
-
+ .daily-book-admin{
+  display: flex;
  }
+
+ .daily-borrow{
+  background-color: rgb(11, 11, 90);
+  color: white;
+  border-radius: 5px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+ }
+
+ .daily-borrow table{
+padding: 10px 10px 10px;
+ 
+ }
+
+ .borrow-button{
+  border-radius: 3px;
+  color:rgb(11, 11, 90);
+  font-weight: 500;
+  margin-top: 5px;
+ }
+
+ .book-title{
+  background-color: aqua;
+ }
+ 
+ #searchResult {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.closeTab{
+  border-radius: 5px;
+  color: rgb(11, 11, 90);
+  font-weight: 500;
+}
+
+.daily-borrow-portal{
+  margin-top: 20px;
+  display: flex;
+}

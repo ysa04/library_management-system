@@ -10,8 +10,8 @@
     
    </head>
    <body>
-
-  <h1>books</h1>
+   <?php include 'navbar.php'; ?> 
+  <h1>Update books</h1>
 
 
   

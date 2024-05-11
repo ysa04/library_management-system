@@ -11,7 +11,7 @@
    </head>
    <body>
 
-
+<!-- data is coming from modaldetails.php -->
     <div  class="table-details">
    <table>
    <h4 class="table-h4">Student Details</h4>
@@ -39,8 +39,9 @@
       <th scope="col">Usn</th>
       <th scope="col">Contact No.</th>
       <th scope="col">No. of visit</th>
+      <th scope="col">SignUp Date</th>
       <th scope="col"></th>
-      <th scope="col">Books Returned</th>
+   
     </tr>
   </thead>
   <tbody>
@@ -49,23 +50,18 @@
      <th> <input type="text" id="usn_number" value="<?php echo $student_data['usn_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="contact_number" value="<?php echo $student_data['contact_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="number_visit" value="<?php echo $student_data['number_visit'];?>" style="width: 200px;"/> </th>
-      <th> <button class="borrowed-books"  onclick="bookBorrow(<?php echo $student_data['id'];?>)">BOOKS</button> </th>
-      <th> <input type="text" id="book_returned" value="<?php echo $student_data['book_returned'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="added_at" value="<?php echo $student_data['added_at'];?>" style="width: 200px;"/> </th>
+      <!-- the onclick bookBorrow function is in borrowBook.js and the view is in bookBarrowed.php -->
+      <th> <button class="borrowed-books"  onclick="bookBorrow(<?php echo $student_data['id'];?>)">BORROWED BOOKS</button> </th> 
     </tr>
   </tbody>
   <thead>
-  <th scope="col">Penalty</th>
-      <th scope="col">Paid Penalty</th>
-      <th scope="col">Added at</th>
+  
       <th scope="col">Program</th>
       <th scope="col">Course</th>
   </thead>
   <tbody>
     <tr>
-
-    <th> <input type="text" id="penalty" value="<?php echo $student_data['penalty'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="paid_penalty" value="<?php echo $student_data['paid_penalty'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="added_at" value="<?php echo $student_data['added_at'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="program" value="<?php echo $student_data['program'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="course" value="<?php echo $student_data['course'];?>" style="width: 200px;"/> </th>
     </tr>

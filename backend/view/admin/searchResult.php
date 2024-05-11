@@ -13,6 +13,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+//THIS IS FROM SEARCH FORM ADMIN_HOME.PHP
 
  // Check if form is submitted
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,7 +29,7 @@ if ($conn->connect_error) {
 
      
     
-// Check if any results are found
+
 // Check if any results are found
 if (mysqli_num_rows($result) > 0) {
     $data = array();
