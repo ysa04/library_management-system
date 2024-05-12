@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="/frontend/css/student.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>teacher home page</title>
+    <style>
+      /* WIP
+       .book-container {
+            display: block;
+            flex-wrap: wrap;
+            justify-content: flex-start;  Align items to the start of the container 
+            margin: 0-10px;  Adjust the margin as needed 
+            
+        } */ 
+
+        .book-cover {
+            flex: 0 0 calc(100% - 20px); /* Adjust the width for covers per row */
+            margin: 15px 0px px 50px; /* Adjust the margin as needed */
+            max-width: 250px; /* Set a maximum width for the book cover */
+            height: auto; /* Automatically adjust the height to maintain aspect ratio */
+            
+        }
+    </style>
 </head>
 <body>
 
@@ -62,6 +80,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
         <li class="nav-item">
           <a class="nav-link" href="#">PROFILE</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">STUDENTS</a>
+        </li>
       </ul>
       <div style="display: flex; color: white; margin-top: 15px;">
       <i style="margin-top: 4px;" class="fa-solid fa-user"></i>
@@ -77,9 +98,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
   </div>
 </nav>
 
+<div style="background-color: rgb(191, 222, 234); border-radius: 5px; position: relative;" class="container">
 
-<!-- <script src="/frontend/js/bookNavigate.js"></script>
-<script src="/frontend/js/retrieve_data.js"></script> -->
+    <div class="main-content ">
+    <h4>"If you study to remember, you will forget; But if you study to understand you will remember" </h4>
+    <h1>BOOK CATEGORIES</h1>
+
+          
+    <form class="nav-search" onclick="toggleFilter()" id="filterForm">
+        <div class="">
+            <input type="text" name="title" id="titleInput" placeholder="Title">
+            <input type="text" name="author" id="authorInput" placeholder="Author">
+            <input type="text" name="year" id="yearInput" placeholder="Publication Year">
+            <select name="genre" id="genreSelect">
+                <option value="">Select Genre</option>
+                <option value="Business">Business</option>
+                <option value="Nursing">Nursing</option>
+                <option value="IT">IT</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Comedy">Comedy</option>
+                <!-- Add more genre options as needed -->
+            </select>
+            <select name="status" id="statusSelect">
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Borrowed">Borrowed</option>
+            </select>
+            <button class="search-button" type="button" onclick="applyFilter()">Search</button> <!-- Use type="button" to prevent form submission -->
+        </div>
+    </form>
+   </div>
+
+   <div class="gallery">
+        <?php include_once "searchhome.php"; ?>
+    </div>
+
+<script src="/frontend/js/bookNavigate.js"></script>
+<script src="/frontend/js/retrieve_data.js"></script>
+<script src="/frontend/js/filtersearch.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
