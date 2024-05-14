@@ -133,6 +133,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
         <?php include_once "searchhome.php"; ?>
     </div>
 
+    <div class="chatbot-div">
+      <img src="/frontend/img/chatbot.jpg" alt="chatbot" width="65" height="65"/>
+      <a href="/"><p>Chat with Amaia</p></a>  
+     </div>
+</div>
+    <?php
+include '../../../frontend/components/student/footer.html';
+?>
 <script src="/frontend/js/bookNavigate.js"></script>
 <script src="/frontend/js/retrieve_data.js"></script>
 <script src="/frontend/js/filtersearch.js"></script>
