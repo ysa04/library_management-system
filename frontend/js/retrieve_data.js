@@ -1,55 +1,85 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var links = document.querySelectorAll('.program-link');
+    const links = document.querySelectorAll('.program-link');
+    const studentInfo = document.getElementById('studentTableBody');
+    const pagination = document.querySelector('.pagination');
+    let currentProgram = '';
+    let currentPage = 1;
+
     links.forEach(function(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            var program = event.target.textContent;
-
-            // Encode the program name before appending it to the URL
-            var encodedProgram = encodeURIComponent(program);
-
-            // Make an AJAX request to retrieve data for the selected program
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'retrieve_data.php?program=' + encodedProgram, true); 
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var data = xhr.responseText;
-                        console.log(data);
-                        var tableBody = document.getElementById('studentTableBody');
-                        tableBody.innerHTML = '';
-                        try {
-                            data = JSON.parse(data);
-                            if (data.length > 0) {
-                                data.forEach(function(row) {
-                                    var tr = document.createElement('tr');
-                                    tr.innerHTML = "<td>" + row['id'] + "</td>" +
-                                                   "<td>" + row['first_name'] + "</td>" +
-                                                   "<td>" + row['last_name'] + "</td>" +
-                                                   "<td>" + row['program'] + "</td>" +
-                                                   "<td>" + row['course'] + "</td>" +
-                                                   "<td class='more_details'><button onclick='openModal(" + row['id'] + ")'>more details</button></td>";
-                                    tableBody.appendChild(tr);
-                                });
-                            } else {
-                                var tr = document.createElement('tr');
-                                tr.innerHTML = "<th>No results found for program: " + program + "</th>";
-                                tableBody.appendChild(tr);
-                                console.log("No results found for program: " + program);
-                            }
-                        } catch (error) {
-                            var tr = document.createElement('tr');
-                            tr.innerHTML = "<th>no results found</th>";
-                            tableBody.appendChild(tr);
-                            console.error('no results found');
-                        }
-                    } 
-                }
-            };
-            xhr.send();
+            currentProgram = event.target.textContent;
+            currentPage = 1; // Reset to first page on program change
+            fetchStudentInfo(currentProgram, currentPage);
         });
     });
+
+    pagination.addEventListener('click', function(event) {
+        if (event.target.tagName === 'A') {
+            event.preventDefault();
+            const newPage = parseInt(event.target.getAttribute('data-page'));
+            if (!isNaN(newPage) && newPage !== currentPage) {
+                currentPage = newPage;
+                fetchStudentInfo(currentProgram, currentPage);
+            } else if (event.target.getAttribute('data-page') === 'prev' && currentPage > 1) {
+                currentPage -= 1;
+                fetchStudentInfo(currentProgram, currentPage);
+            } else if (event.target.getAttribute('data-page') === 'next') {
+                currentPage += 1;
+                fetchStudentInfo(currentProgram, currentPage);
+            }
+        }
+    });
+
+    function fetchStudentInfo(program, page) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `retrieve_data.php?program=${encodeURIComponent(program)}&page=${page}`, true); 
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                displayStudentInfo(data.data);
+                updatePagination(data.total_pages, data.current_page);
+            }
+        };
+        xhr.send();
+    }
+
+    function displayStudentInfo(students) {
+        studentInfo.innerHTML = students.map(student => `
+            <tr>
+                <td>${student.id}</td>
+                <td>${student.first_name}</td>
+                <td>${student.last_name}</td>
+                <td>${student.program}</td>
+                <td>${student.course}</td>
+                <td class='more_details'><button onclick='openModal(${student.id})'>more details</button></td>
+            </tr>
+        `).join('');
+    }
+
+    function updatePagination(totalPages, currentPage) {
+        let paginationHTML = '';
+        paginationHTML += `
+            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="prev">Previous</a>
+            </li>
+        `;
+        for (let i = 1; i <= totalPages; i++) {
+            paginationHTML += `
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="#" data-page="${i}">${i}</a>
+                </li>
+            `;
+        }
+        paginationHTML += `
+            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                <a class="page-link" href="#" data-page="next">Next</a>
+            </li>
+        `;
+        pagination.innerHTML = paginationHTML;
+    }
 });
+
 
 
  

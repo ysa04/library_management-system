@@ -46,7 +46,7 @@ if (!empty($year)) {
     $sql .= " AND publication_year = '$year'";
 }
 if (!empty($status)) {
-    $sql .= " AND status = '$status'";
+    $sql .= " AND stat = '$status'";
 }
 
 // Execute the query

@@ -52,13 +52,6 @@ function renderStudentData(studentData) {
        studentData.forEach(function(student) {
         // Create a new table row (tr)
         var row = document.createElement('tr');
-
-        // // Create table cells (td) for each property of the student
-        // var cell1 = document.createElement('td');
-        // var input1 = document.createElement('input');
-        // input1.type = "text";
-        // input1.value = student.book_id; // Replace property1 with the actual property name
-        // cell1.appendChild(input1);
         
         var cell1 = document.createElement('td');
         cell1.textContent = student.book_id; 

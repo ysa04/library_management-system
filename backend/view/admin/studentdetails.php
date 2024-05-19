@@ -71,6 +71,7 @@
     <br/>
 
    <div class="table-button">
+    <!-- function is in update.js -->
      <button onclick="updateDetails(<?php echo $student_data['id'];?>)">Update Details</button>
     <button class="close-tab" onclick="closeTab()">Close Tab</button>
    </div>

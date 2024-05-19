@@ -31,7 +31,7 @@ if (isset($_GET['book_id'])) {
     $book_id = $_GET['book_id'];
 
     // Prepare and execute a query to fetch details of the specified book
-    $query = "SELECT book_id, title, author, summary, genre, book_count, publication_year, status, image_name, image_data FROM books WHERE book_id = ?";
+    $query = "SELECT book_id, title, author, summary, genre, book_count, publication_year, stat, image_name, image_data FROM books WHERE book_id = ?";
     $stmt = $con->prepare($query);
     $stmt->bind_param("i", $book_id);
     $stmt->execute();
@@ -41,14 +41,25 @@ if (isset($_GET['book_id'])) {
     if ($result->num_rows == 1) {
         // Display details of the book
         $row = $result->fetch_assoc();
-        echo "<h1>" . $row['title'] . "</h1>";
+        echo "<div class='bookNavigate container'>";
+        echo "<div class='bookInfo'>";
+        echo "<h4>" . $row['title'] . "</h4>";
         echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "'><br>";
-        echo "<p>Author: " . $row['author'] . "</p>";
-        echo "<p>Summary: " . $row['summary'] . "</p>";
-        echo "<p>Genre: " . $row['genre'] . "</p>";
-        echo "<p>Publication Year: " . $row['publication_year'] . "</p>";
-        echo "<p>Book Count: " . $row['book_count'] . "</p>";
-        echo "<p>Status: " . $row['status'] . "</p>";
+        echo "<p><h6>Author:</h6> " . $row['author'] . "</p>";
+        echo "<p><h6>Genre:</h6>  " . $row['genre'] . "</p>";
+        echo "<p><h6>Publication year:</h6>  " . $row['publication_year'] . "</p>";
+        echo "<p><h6>Book Count:</h6>  " . $row['book_count'] . "</p>";
+        echo "<p><h6>Status:</h6> " . $row['stat'] . "</p>";
+        echo "</div>";
+        
+        echo "<div class='bookSummary'>";
+        echo "<h5>Summary:</h5>";
+        echo "<p>" . $row['summary'] . "</p>";
+        echo "</div>";
+        
+        echo "</div>";
+
+ 
     } else {
         echo "<p>Book not found.</p>";
     }

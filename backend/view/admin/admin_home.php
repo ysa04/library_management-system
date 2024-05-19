@@ -35,10 +35,10 @@
                     "BASIC EDUCATION",
                     "SENIOR HIGH"
                 );
-
                 foreach ($programs as $program) {
                     echo '<li><a href="#" class="program-link">' . $program . '</a></li>';
                 }
+                // function is in retrieve_data.js
                 ?>
             </ul>
         </nav>
@@ -90,11 +90,17 @@
     </tr>
   </thead>
 <tbody id="studentTableBody">
-<!-- retrieve_data.js -->
+<!-- retrieve_data.js for data render when an input search has success data -->
 </tbody>
   </table>
  
     </div>  
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <!-- Pagination controls will be injected here by JavaScript -->
+        </ul>
+    </nav>
     <!-- table end -->
     </article>
     </main>

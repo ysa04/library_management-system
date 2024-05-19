@@ -1,4 +1,4 @@
- // student directory
+ // student directory from student_home.php
 function applyFilter() {
     var formData = new FormData(document.getElementById("filterForm"));
     var xhr = new XMLHttpRequest();
@@ -14,8 +14,6 @@ function applyFilter() {
     };
     xhr.send(formData);
 }
-
-
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -63,4 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+
 

@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
     <h4>"If you study to remember, you will forget; But if you study to understand you will remember" </h4>
     <h1>BOOK CATEGORIES</h1>
 
-          
+          <!-- where is toggleFilter use for? -->
     <form class="nav-search" onclick="toggleFilter()" id="filterForm">
         <div class="">
             <input type="text" name="title" id="titleInput" placeholder="Title">

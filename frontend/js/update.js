@@ -6,6 +6,12 @@ function closeTab() {
 };
 
 
+function closeBookTab() {
+    var bookModal = document.querySelector('.bookModaldetails');
+    bookModal.style.display = "none";
+  
+  };
+
 //function for update student details button
 
 function updateDetails(getId){
@@ -59,4 +65,7 @@ function updateDetails(getId){
     xhr.send(JSON.stringify({ id: id, newData: newData }));
 
 };
+
+
+
 

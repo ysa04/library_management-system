@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<td>" . htmlspecialchars($row["author"]) . "</td>";
             echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
             echo "<td>" . htmlspecialchars($row["publication_year"]) . "</td>";
-            echo "<td>" . htmlspecialchars($row["status"]) . "</td>";
+            echo "<td>" . htmlspecialchars($row["stat"]) . "</td>";
             echo "</tr>";
         }
         echo "</tbody>";
