@@ -3,7 +3,7 @@
 if(isset($_GET['user'])) {
     $user = $_GET['user'];
 
-    // Rest of your code
+    // Rest of the code
 } else {
     echo "User parameter is missing";
     exit();
@@ -59,11 +59,16 @@ if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
     $name = $row['first_name']; 
     $surName = $row['last_name'];
+    $course = $row['course'];
+    $year = $row['year'];
+
 
     // Store the retrieved data in session variables
     $_SESSION['usn'] = $usn;
     $_SESSION['first_name'] = $name;
     $_SESSION['last_name'] = $surName;
+    $_SESSION['course'] = $course;
+    $_SESSION['year'] = $year;
     $_SESSION['user'] = $user; // Store the user type in session
     
     // Redirect to the appropriate dashboard based on user type

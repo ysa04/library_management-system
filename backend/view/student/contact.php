@@ -7,11 +7,26 @@
     <link rel="stylesheet" href="/frontend/css/student.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>student Home Page</title>
+
 </head>
 <body>
+<?php include 'studentNavbar.php'; ?>
 
 
-   
+<div class="contact-div container">
+    <div>
+    <h5>MAKATI AMA One Bldg., 5486 South Superhighway corner Gen. Tinio St., Bangkal, Makati City</h5>
+    </div>
+
+    <div>
+        <h5>Hotline: (02) 8656-0654 or 88443225 Mobile: 0995 721 1749</h5>
+    </div>
+
+    <div>
+        <h5>Tel. (02) 7751 7132</h5>
+    </div>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

@@ -25,7 +25,7 @@ $user = $_GET['user'];
             <div class="student-login">
             <p style="font-weight: 700;"><?php echo strtoupper($user) ?> LOGIN</p>
         <!-- FORM START-->
-              <!-- passing the user query parameter to from URL so that the studentlogin.php can get it -->
+              
             <form action="/backend/view/userslogin.php?user=<?php echo $_GET['user']; ?>" method="post">
               <div class="login-input">
                 <label for="usn">USN</label>

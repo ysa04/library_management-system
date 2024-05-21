@@ -4,7 +4,7 @@
 $host = "localhost";       // The hostname of the MySQL server
 $username = "root";        // The MySQL username
 $password = "ysa_2024_gatongay"; // The MySQL password
-$database = "student_record";    // The name of the database to connect to
+$database = "users_category";    // The name of the database to connect to
 
 // Attempt to establish a connection to the MySQL database
 $con = new mysqli($host, $username, $password, $database);
@@ -25,7 +25,7 @@ $usn = $_POST['usn'];
 $password = $_POST['password'];
 
 // Query the database to check if the username and password are correct
-$sql = "SELECT * FROM student_information WHERE usn_number='$usn' AND password='$password'";
+$sql = "SELECT * FROM teacher_info WHERE usn_number='$usn' AND password='$password'";
 $result = $con->query($sql);
 
 if ($result->num_rows == 1) {

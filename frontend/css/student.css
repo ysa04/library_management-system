@@ -217,6 +217,7 @@ border: 2px solid rgb(11, 11, 90);
   width: 70px;
   background-color: rgb(11, 11, 90);
   color: white;
+  border-radius: 3px;
 }
 
 .login-icon{
@@ -267,7 +268,10 @@ border: 2px solid rgb(11, 11, 90);
 }
 
 .chatbot-div a{
-  color: rgb(11, 11, 90);
+  background-color: rgb(103, 231, 220);
+  border-radius: 5px;
+  padding: 5px 5px 5px;
+  color: blue;
 }
 
 .chatbot-div img{
@@ -326,9 +330,6 @@ border: 2px solid rgb(11, 11, 90);
   margin-left: 75%;
 }
 
-.input-group input[type="password"]{
-}
-
 .register-form a{
   color: rgb(95, 184, 219);
 }
@@ -340,11 +341,14 @@ border: 2px solid rgb(11, 11, 90);
   display: flex;
   background-color: rgb(185, 225, 240);
   padding: 20px 20px 20px;
+  width: 70%;
+  margin-top: 10px;
 }
 
 .bookSummary{
   margin-top: 20px;
   border: 1px solid rgb(11, 11, 90);
+  border-radius: 5px;
   width: 80%;
 }
 
@@ -357,7 +361,68 @@ border: 2px solid rgb(11, 11, 90);
   margin: 10px 10px 10px;
 }
 
-.bookInfo{
- width: 20%;
-}
 /* bookNavigate.css end */
+
+/* contact.php css */
+
+.contact-div{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(185, 225, 240);
+  margin-top: 20px;
+  padding: 20px 20px 20px;
+  border-radius: 5px;
+}
+
+
+/* e-card css */
+
+.e-card{
+  background-color: rgb(185, 225, 240);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px 20px;
+}
+
+.card-content{
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px 10px;
+  background-color: rgb(11, 11, 90);
+  color: white;
+  border-radius: 5px;
+}
+
+.card-details{
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.card-details h6{
+  margin-top: 5px;
+}
+
+.card-validation{
+  margin-top: 10px;
+  padding: 5px 5px 5px;
+  border: 2px solid skyblue;
+}
+
+.card-header img{
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.card-header p{
+font-size: 13px;
+margin-left: 8px;
+}
+
+.card-signature{
+  margin-top: 20px;
+}
+
+.card-signature p{
+  margin-left: 33px;
+}

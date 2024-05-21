@@ -9,7 +9,7 @@
     <title>student Home Page</title>
 </head>
 <body>
-
+<?php include 'studentNavbar.php'; ?> 
 <?php
 // Database connection parameters
 $host = "localhost";
