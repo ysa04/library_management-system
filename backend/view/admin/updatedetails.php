@@ -1,9 +1,9 @@
 <?php
 // Database connection
 $servername = "localhost";
-$username = "root"; // Replace with your database username
-$password = "ysa_2024_gatongay"; // Replace with your database password
-$dbname = "users_category"; // Replace with your database name
+$username = "root"; 
+$password = "ysa_2024_gatongay"; 
+$dbname = "users_category"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

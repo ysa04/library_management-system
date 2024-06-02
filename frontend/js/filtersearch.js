@@ -19,7 +19,8 @@ function applyFilter() {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('searchForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent form submission
-        
+        const pagination = document.querySelector('.pagination');
+
         // Retrieve form data
         var formData = new FormData(this);
         
@@ -28,10 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
+                    console.log(xhr.responseText);
                     var responseData = JSON.parse(xhr.responseText); // this xhr.responseText is where the data located if php response successful
                     var tableBody = document.getElementById('studentTableBody');
+                    const paginationControls = document.querySelector('.pagination');
                     // Clear existing table body content
                     tableBody.innerHTML = '';
+                    paginationControls.innerHTML = ''; // Clear previous pagination  
                     // Loop through the response data and dynamically create table rows
                     if (responseData.length > 0) {
                         responseData.forEach(function(row) {

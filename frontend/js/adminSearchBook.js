@@ -1,4 +1,6 @@
 
+
+// coming from retrieveBooks.php
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('bookForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent form submission

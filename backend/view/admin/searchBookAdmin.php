@@ -13,6 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
+//coming from adminSearchBook.js for javascript action
 if(isset($_POST['title']) && isset($_POST['author'])) {
     // Sanitize and escape the input values to prevent SQL injection
     $title = $conn->real_escape_string($_POST['title']);

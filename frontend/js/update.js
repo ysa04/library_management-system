@@ -1,6 +1,8 @@
-// function for closing the tab of student details.
+// function for closing the tab of student details
 function closeTab() {
   var modalClose = document.querySelector('.details');
+  var bookModal = document.querySelector('.bookModaldetails');
+  bookModal.style.display = "none";
   modalClose.style.display = "none";
 
 };
@@ -9,7 +11,6 @@ function closeTab() {
 function closeBookTab() {
     var bookModal = document.querySelector('.bookModaldetails');
     bookModal.style.display = "none";
-  
   };
 
 //function for update student details button

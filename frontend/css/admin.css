@@ -36,9 +36,13 @@
   }
 
   .header-form{
-    display: flex;
+  display: flex;
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 20px;
+  }
+
+  .header-form input{
+    margin-left: 5px;
   }
 
   .header-form button{
@@ -186,7 +190,7 @@ padding: 10px 10px 10px;
   display: flex;
 }
 
-/* retrieveBooks.php css start */
+
 .retrieve-books{
   margin-top: 20px;
 }
@@ -203,19 +207,15 @@ background-color: rgb(11, 11, 90);
 color: white;
 }
 
-/* retrieveBook.php css start */
 
 .bookModaldetails{
-  position: absolute;
-  width: 99%;
-  padding: 50px 55px 50px;
+  margin-bottom: 20px;
+  padding: 30px 30px 30px;
   color:rgb(11, 11, 90);
-  z-index: 1;
   background-color: rgb(165, 178, 184);
-  top: 84px;
   display: none;
   transition: 0.8s ease-out;
-  border-radius: 1px;
+  border-radius: 5px;
  }
 
 #adminTableBody td {
@@ -226,3 +226,71 @@ color: white;
 .book_details{
 border-radius: 5px;
 }
+
+
+/* studentBorrowBooks.php css start */
+
+.student-borrow {
+  margin-top: 20px;
+}
+
+/* sample.php */
+
+.admin{
+  margin-top: 30px;
+  margin-left: 110px;
+}
+
+.box-div{
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 40px;
+}
+
+.box{
+  border: 1px solid rgb(11, 11, 90);
+  border-radius: 5px;
+}
+
+.box-content{
+  display: flex;
+  justify-content: center;
+  padding: 60px 30px 60px;
+}
+
+.box-content a{
+  font-size: 20px;
+}
+
+.box-content i{
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+/* registerstudent.php css */
+
+.registerStudent-form {
+  display: flex;
+  justify-content: center;
+}
+
+.registerStudent-form{
+  margin-top: 30px;
+}
+
+.registerStudent-form button{
+  border-radius: 5px;
+  background-color: rgb(11, 11, 90);
+  color: white;
+}
+
+.registeredStudent-table{
+  margin-top: 20px;
+}
+
+#adminTable td{
+  background-color: rgb(11, 11, 90);
+  color: white;
+}
+

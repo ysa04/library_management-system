@@ -53,15 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       <li class="nav-item">
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="admin_home.php">DASHBOARD</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="retrieveBooks.php">BOOKS</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link" href="borrowedRecord.php">
-            BORROW TODAY
-          </a>
+          <a class="nav-link active" aria-current="page" href="adminHome.php">DASHBOARD</a>
         </li>
       </ul>
 

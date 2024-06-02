@@ -4,7 +4,7 @@
 $host = 'localhost';
 $username = 'root';  // Your MySQL username
 $password =  'ysa_2024_gatongay';      // Your MySQL password
-$database = 'library'; // Your database name
+$database = 'users_category'; // Your database name
 
 // Connect to MySQL
 $mysqli = new mysqli($host, $username, $password);
@@ -45,6 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $last_name = $_POST['last_name'];
     $age = $_POST['age'];
     $email = $_POST['email'];
+    $course = $_POST['course'];
+    $contact_number = $_POST['contact_number'];
     $password = $_POST['password']; 
     
     
@@ -91,11 +93,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // If not already taken, proceed with registration
     // Prepare INSERT statement
-    $insertSql = "INSERT INTO student_info (usn_number, first_name, last_name, age, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+    $insertSql = "INSERT INTO student_info (usn_number, first_name, last_name, age, email, course, contact_number, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmtInsert = $mysqli->prepare($insertSql);
     
     // Bind parameters and execute statement
-    $stmtInsert->bind_param("ssssss", $usn_number, $first_name, $last_name, $age, $email, $password);
+    $stmtInsert->bind_param("ssssssss", $usn_number, $first_name, $last_name, $age, $email,$course, $contact_number, $password);
     $stmtInsert->execute();
     
     // Check if registration was successful

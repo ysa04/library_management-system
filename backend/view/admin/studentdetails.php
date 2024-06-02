@@ -51,7 +51,7 @@
       <th> <input type="text" id="contact_number" value="<?php echo $student_data['contact_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="number_visit" value="<?php echo $student_data['number_visit'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="added_at" value="<?php echo $student_data['added_at'];?>" style="width: 200px;"/> </th>
-      <!-- the onclick bookBorrow function is in borrowBook.js and the view is in bookBarrowed.php -->
+      <!-- the onclick bookBorrow function is in borrowBook.js -->
       <th> <button class="borrowed-books"  onclick="bookBorrow(<?php echo $student_data['id'];?>)">BORROWED BOOKS</button> </th> 
     </tr>
   </tbody>

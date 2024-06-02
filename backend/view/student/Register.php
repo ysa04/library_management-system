@@ -82,6 +82,17 @@ if (isset($_GET['error_email'])) {
         </div>
 
         <div class="input-group">
+            <label for="email">Course:</label>
+            <input type="text" id="course" name="course" required>
+        </div>
+
+
+        <div class="input-group">
+            <label for="contact">Mobile:</label>
+            <input type="text" id="contact_number" name="contact_number" required>
+        </div>
+
+        <div class="input-group">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>

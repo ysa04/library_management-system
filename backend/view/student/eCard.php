@@ -13,21 +13,27 @@
 <?php include 'studentNavbar.php'; ?>
 
 <?php
-    
-
-         // Check if user is logged in this session is from userslogin.php
-     if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name']) || !isset($_SESSION['course'])  || !isset($_SESSION['year'])   ){
+// Check if user is logged in (assuming this session is from userslogin.php)
+if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name']) || !isset($_SESSION['course']) || !isset($_SESSION['year']) || !isset($_SESSION['photo'])) {
+    // Redirect to login page or perform appropriate action
     // header("Location: studentlogin.php");
     // exit();
-    }
+}
 
-    $usn = $_SESSION['usn'];
-    $name = $_SESSION['first_name'];
-    $surName = $_SESSION['last_name'];
-    $course = $_SESSION['course'];
-    $year = $_SESSION['year'];
+// Extract session variables
+$usn = $_SESSION['usn'];
+$name = $_SESSION['first_name'];
+$surName = $_SESSION['last_name'];
+$course = $_SESSION['course'];
+$year = $_SESSION['year'];
+$photo = $_SESSION['photo'];
+
+// Base64 encode the photo for embedding in the HTML
+$encodedPhoto = base64_encode($photo);
+$photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
 
 ?>
+
 
    <div class="e-card container">
     <div class="card-content">
@@ -39,19 +45,25 @@
         <h6>USN: <?php echo $usn?></h6>
  
       <div class="card-signature">
-     <span>_____________________________</span>
+     <span>_____________________________</span> 
      <p>librarian signature</p>
       </div>
     </div>
     <div class="card-header">
-    <img src="/frontend/img/chatbot.jpg" alt="e-card" width="150px"/>
+    <!-- Render the photo -->
+    <?php if (!empty($encodedPhoto)): ?>
+        <img src="data:<?php echo $photoMimeType; ?>;base64,<?php echo $encodedPhoto; ?>" alt="User Photo" width="150px" height="180px">
+    <?php else: ?>
+        <p>No photo available</p>
+    <?php endif; ?>
+
     <div class="card-validation">
         <p>validation sticker here</p>
     </div>
     </div>
     </div>
     <div>
-    <a href="generate-pdf.php" target="_blank">Download E-Card</a>
+    <a href="generate-pdf.php?name=<?php echo urlencode($name); ?>&surname=<?php echo urlencode($surName); ?>&course=<?php echo urlencode($course); ?>&year=<?php echo urlencode($year); ?>&usn=<?php echo urlencode($usn); ?>" target="_blank">Download E-Card</a>
     </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

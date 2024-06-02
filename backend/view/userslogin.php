@@ -61,6 +61,7 @@ if ($result->num_rows == 1) {
     $surName = $row['last_name'];
     $course = $row['course'];
     $year = $row['year'];
+    $photo = $row['photo'];
 
 
     // Store the retrieved data in session variables
@@ -69,6 +70,7 @@ if ($result->num_rows == 1) {
     $_SESSION['last_name'] = $surName;
     $_SESSION['course'] = $course;
     $_SESSION['year'] = $year;
+    $_SESSION['photo'] = $photo;
     $_SESSION['user'] = $user; // Store the user type in session
     
     // Redirect to the appropriate dashboard based on user type
@@ -77,7 +79,7 @@ if ($result->num_rows == 1) {
             header("Location: student/student_home.php");
             break;
         case 'admin':
-            header("Location: admin/admin_home.php");
+            header("Location: admin/adminHome.php");
             break;
         case 'teacher':
             header("Location: teacher/teacher_home.php");

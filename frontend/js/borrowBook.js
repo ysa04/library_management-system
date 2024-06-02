@@ -75,7 +75,7 @@ function renderStudentData(studentData) {
         cell7.textContent = student.penalty; 
 
         var cell8 = document.createElement('td');
-        cell8.textContent = student.paid_penalty; 
+        cell8.textContent = student.status; 
 
         // Append cells to the row
         row.appendChild(cell1);

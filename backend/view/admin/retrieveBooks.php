@@ -14,11 +14,13 @@
  
 
    <div class="container retrieve-books">
-   <div class="bookForm-div">
 
    <div class="bookModaldetails">
   
-   </div>
+  </div>
+
+   <div class="bookForm-div">
+
   <!--the function adminSearchBook.js -->
     <form id="bookForm">
     <label for="book-title">Book Title</label>

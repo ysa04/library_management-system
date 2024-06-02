@@ -56,6 +56,7 @@ if (isset($_GET['book_id'])) {
         echo "<h5>Summary:</h5>";
         echo "<p>" . $row['summary'] . "</p>";
         echo "</div>";
+
         
         echo "</div>";
 

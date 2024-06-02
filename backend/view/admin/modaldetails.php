@@ -14,22 +14,22 @@ if ($conn->connect_error) {
 }
 
 
-// this data is coming from retrieve_data.js using ajax and modal function.
+// this data is coming from adminSearchStudent.js using ajax and modal function.
 $query_id = $_GET['id'];
 
-// Sanitize and validate query ID
+
 $query_id = mysqli_real_escape_string($conn, $query_id);
 
 // Query to retrieve student data based on query ID
 $sql = "SELECT * FROM student_info WHERE id = '$query_id'";
 $result = mysqli_query($conn, $sql);
 
-// Check if query returned any results
+
 if (mysqli_num_rows($result) > 0) {
     // Fetch student data
     $student_data = mysqli_fetch_assoc($result);
     // Pass student data to another PHP file for rendering
-    // You can use include or other methods as needed
+ 
     include 'studentdetails.php';
 } else {
     echo "No student data found for the provided query ID.";

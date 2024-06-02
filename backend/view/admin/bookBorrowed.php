@@ -23,11 +23,11 @@
             <th>Date Returned</th>
             <th>Number of Books</th>
             <th>Penalty</th>
-            <th>Paid Penalty</th>
+            <th>Book Status</th>
         </tr>
       </thead>
       <tbody id="borrow-main-table">
-    
+    <!-- borrowBook.js -->
       </tbody>
     </table>
 
