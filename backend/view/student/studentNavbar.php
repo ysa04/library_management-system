@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="student_home.php">
     <img class="top-icon" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
     <p>e-Library</p>
     </a>

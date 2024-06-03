@@ -25,7 +25,7 @@
 <body>
 <?php include 'studentNavbar.php'; ?> 
 
-!-- Main content -->
+
 <div style="background-color: rgb(191, 222, 234); border-radius: 5px; position: relative;" class="container">
         <div class="main-content">
             <h4>"If you study to remember, you will forget; But if you study to understand you will remember"</h4>

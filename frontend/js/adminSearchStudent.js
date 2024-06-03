@@ -20,7 +20,7 @@ function searchStudent() {
                 console.log(JSON.parse(xhr.responseText)); // Just checking data in console
                 var data = JSON.parse(xhr.responseText);
                 var tableBody = document.getElementById('adminTable');
-                // tableBody.innerHTML = ''; // Clear existing table rows
+                tableBody.innerHTML = ''; // Clear existing table rows
                 if (data.length > 0) {
                     data.forEach(function(row) {
                         var tr = document.createElement('tr');

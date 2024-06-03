@@ -1,0 +1,25 @@
+[02-Jun-2024 18:47:38 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'book_id' in 'field list' in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php:32
+Stack trace:
+#0 C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php(32): mysqli->prepare('SELECT book_id,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php on line 32
+[02-Jun-2024 18:48:59 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'book_id' in 'field list' in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php:32
+Stack trace:
+#0 C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php(32): mysqli->prepare('SELECT book_id,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php on line 32
+[02-Jun-2024 18:51:58 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'book_id' in 'field list' in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php:32
+Stack trace:
+#0 C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php(32): mysqli->prepare('SELECT book_id,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php on line 32
+[02-Jun-2024 19:01:07 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'id' in 'field list' in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php:32
+Stack trace:
+#0 C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php(32): mysqli->prepare('SELECT id, imag...')
+#1 {main}
+  thrown in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php on line 32
+[02-Jun-2024 19:01:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'id' in 'field list' in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php:32
+Stack trace:
+#0 C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php(32): mysqli->prepare('SELECT id, imag...')
+#1 {main}
+  thrown in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php on line 32

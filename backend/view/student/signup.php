@@ -28,12 +28,15 @@ $createTableSql = "CREATE TABLE IF NOT EXISTS student_info (
     usn_number varchar(30) NOT NULL,
     contact_number varchar(30) NOT NULL,
     number_visit int(50) NOT NULL,
-    no_books_barrowed int(50) NOT NULL,
-    no_books_returned int(50) NOT NULL,
-    penalty int(50) NOT NULL,
-    paid_penalty int(50) NOT NULL,
     added_at varchar(50) NOT NULL DEFAULT current_timestamp(),
-    password varchar(50) NOT NULL
+    password varchar(50) NOT NULL,
+    course varchar(30) NOT NULL,
+    program varchar(255) NOT NULL,
+    photo longblob NOT NULL,
+    year varchar(30) NOT NULL
+
+    
+    
 )";
 $mysqli->query($createTableSql);
 
@@ -45,8 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $last_name = $_POST['last_name'];
     $age = $_POST['age'];
     $email = $_POST['email'];
+    $year = $_POST['year'];
     $course = $_POST['course'];
+    $program = $_POST['program'];
     $contact_number = $_POST['contact_number'];
+
     $password = $_POST['password']; 
     
     
@@ -93,11 +99,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // If not already taken, proceed with registration
     // Prepare INSERT statement
-    $insertSql = "INSERT INTO student_info (usn_number, first_name, last_name, age, email, course, contact_number, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertSql = "INSERT INTO student_info (usn_number, first_name, last_name, age, email, year, course, program, contact_number, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmtInsert = $mysqli->prepare($insertSql);
     
     // Bind parameters and execute statement
-    $stmtInsert->bind_param("ssssssss", $usn_number, $first_name, $last_name, $age, $email,$course, $contact_number, $password);
+    $stmtInsert->bind_param("ssssssssss", $usn_number, $first_name, $last_name, $age, $email, $year, $course, $program, $contact_number, $password);
     $stmtInsert->execute();
     
     // Check if registration was successful
