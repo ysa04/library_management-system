@@ -45,7 +45,7 @@
                         $host = "localhost";
                         $username = "root";
                         $password = "ysa_2024_gatongay";
-                        $database = "library";
+                        $database = "users_category";
 
                         // Attempt to establish a connection to the MySQL database
                         $con = new mysqli($host, $username, $password, $database);
