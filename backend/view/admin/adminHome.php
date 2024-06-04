@@ -53,12 +53,12 @@
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="registeredStudent.php">Visit Reservation</a>
-  
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <a class="link" href="#">Visit Reservation</a>
+    <i class="fa-solid fa-person"></i>
     </div>
     
 </div>
+
 
 </div>
 

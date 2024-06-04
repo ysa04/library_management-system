@@ -15,7 +15,7 @@ if (empty($title)) {
 $servername = "localhost";
 $username = "root";
 $password = "ysa_2024_gatongay";
-$dbname = "library";
+$dbname = "users_category";
 
 // Enable error logging
 ini_set('log_errors', 1);
@@ -29,7 +29,7 @@ if ($conn->connect_error) {
     exit;
 }
 
-$sql = $conn->prepare("SELECT book_id, image_name, image_data FROM books WHERE title LIKE ?");
+$sql = $conn->prepare("SELECT id, image_name, image_data FROM books WHERE title LIKE ?");
 $searchTerm = "%$title%";
 $sql->bind_param("s", $searchTerm);
 $sql->execute();
@@ -38,7 +38,7 @@ $result = $sql->get_result();
 if ($result->num_rows > 0) {
     $book = $result->fetch_assoc();
     echo json_encode([
-        'book_id' => $book['book_id'],
+        'id' => $book['id'],
         'image_name' => $book['image_name'],
         'image_data' => base64_encode($book['image_data']) // Assuming image_data is binary
     ]);

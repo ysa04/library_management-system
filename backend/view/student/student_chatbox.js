@@ -49,7 +49,7 @@ const generateResponse = () => {
             if (book.error) {
                 throw new Error(book.error);
             }
-            const bookCoverURL = `bookNavigate.php?book_id=${book.book_id}`;
+            const bookCoverURL = `bookNavigate.php?id=${book.id}`;
             const responseMessage = `
                 Here's the cover image: <a href="${bookCoverURL}" target="_blank">
                 <img src="data:image/jpeg;base64,${book.image_data}" alt="${book.image_name}" class="book-cover"></a>`;
