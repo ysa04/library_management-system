@@ -19,8 +19,12 @@ if(isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['co
     $course = $conn->real_escape_string($_POST['course']);
     $usnNumber = $conn->real_escape_string($_POST['usn_number']);
 
-    // Construct the query to search for students with matching first name, last name, course, and usn number
-    $query = "SELECT * FROM student_info WHERE first_name = '$firstName' AND last_name = '$lastName' AND course = '$course' AND usn_number = '$usnNumber'";
+   // Construct the query to search for students with matching first name, last name, course, and usn number using LIKE
+    $query = "SELECT * FROM student_info 
+              WHERE first_name LIKE '%$firstName%' 
+              AND last_name LIKE '%$lastName%' 
+              AND course LIKE '%$course%' 
+              AND usn_number LIKE '%$usnNumber%'";
 
     // Execute the query
     $result = $conn->query($query);
