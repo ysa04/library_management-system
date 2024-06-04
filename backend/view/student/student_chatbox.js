@@ -7,6 +7,19 @@ const chatbotCloseBtn = document.querySelector(".close-btn");
 
 let userMessage;
 
+const sanitizeInput = (input) => {
+    return input.replace(/[&<>"']/g, (match) => {
+        const escape = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        return escape[match];
+    });
+};
+
 const createChatLi = (message, className) => {
     const chatLi = document.createElement("li");
     chatLi.classList.add("chat", className);
@@ -15,10 +28,15 @@ const createChatLi = (message, className) => {
     return chatLi;
 };
 
+const autoScroll = () => {
+    chatbox.scrollTop = chatbox.scrollHeight;
+};
+
 const generateResponse = () => {
     if (userMessage.toLowerCase().includes('hi')) {
         const greetingMessage = "Hello! I can help you search for books. Just type the title or author of the book you're looking for.";
         chatbox.appendChild(createChatLi(greetingMessage, "incoming"));
+        autoScroll();
         return;
     }
 
@@ -54,13 +72,16 @@ const generateResponse = () => {
                 Here's the cover image: <a href="${bookCoverURL}" target="_blank">
                 <img src="data:image/jpeg;base64,${book.image_data}" alt="${book.image_name}" class="book-cover"></a>`;
             chatbox.appendChild(createChatLi(responseMessage, "incoming"));
+            autoScroll();
         })
         .catch(error => {
             console.error('Error:', error.message);
             chatbox.appendChild(createChatLi("Sorry, an error occurred while searching for the book.", "incoming"));
+            autoScroll();
         });
     } else {
         chatbox.appendChild(createChatLi("Sorry, I didn't understand that. Please type 'search for [book title]' to find a book.", "incoming"));
+        autoScroll();
     }
 };
 
@@ -69,12 +90,20 @@ const handleChat = () => {
     if (!userMessage) return;
 
     chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+    autoScroll();
 
     setTimeout(() => {
         chatbox.appendChild(createChatLi("Thinking...", "incoming"));
+        autoScroll();
         generateResponse();
     }, 600);
 };
+
+// Adjust textarea height based on content
+chatInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
 
 // Event listeners
 sendChatBtn.addEventListener("click", handleChat);
