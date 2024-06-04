@@ -56,12 +56,12 @@
                         }
 
                         // Check if the book ID is specified in the query parameters
-                        if (isset($_GET['book_id'])) {
+                        if (isset($_GET['id'])) {
                             // Retrieve the book ID from the query parameter
-                            $book_id = $_GET['book_id'];
+                            $book_id = $_GET['id'];
 
                             // Prepare and execute a query to fetch details of the specified book
-                            $query = "SELECT book_id, title, author, summary, genre, book_count, publication_year, stat, image_name, image_data FROM books WHERE book_id = ?";
+                            $query = "SELECT id, title, author, summary, genre, book_count, publication_year, stat, image_name, image_data FROM books WHERE id = ?";
                             $stmt = $con->prepare($query);
                             $stmt->bind_param("i", $book_id);
                             $stmt->execute();
