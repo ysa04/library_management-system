@@ -348,8 +348,9 @@ border: 2px solid rgb(11, 11, 90);
 .bookSummary{
   margin-top: 20px;
   border: 1px solid rgb(11, 11, 90);
+  margin: 20px 20px 20px;
   border-radius: 5px;
-  width:100%;
+  width:95%;
 
 }
 
