@@ -100,7 +100,7 @@ if ($result->num_rows > 0) {
             <th>Book should return by</th>
             <th>Penalty</th>
             <th>Status</th>
-            <th>Option</th>
+    
           </tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -124,7 +124,7 @@ if ($result->num_rows > 0) {
                     <input type='hidden' name='date_returned' value='" . $row["date_returned"] . "' />
                     <input type='hidden' name='penalty' value='" . $row["penalty"] . "' />
                     <input type='hidden' name='status' value='" . $row["status"] . "' />
-                    <button type='submit'>email</button>
+        
                 </form>
               </td>";
         echo "</tr>";

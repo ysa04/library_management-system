@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
     $count = 0;
     while ($row = $result->fetch_assoc()) {
         // If # covers are already displayed in a row, close the row div and open a new one
-        if ($count % 5 == 0) {
+        if ($count % 6 == 0) {
             echo "<div class='row'>";
         }
         echo "<div class='col'>";
@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
         $count++;
 
         // If # covers are displayed, close the row div
-        if ($count % 5 == 0) {
+        if ($count % 6 == 0) {
             echo "</div>"; // Close row div
         }
     }
