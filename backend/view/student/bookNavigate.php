@@ -31,8 +31,6 @@
     
     <div style="background-color: rgb(191, 222, 234); border-radius: 5px; position: relative;" class="container">
         <div class="main-content">
-            <h4>"If you study to remember, you will forget; But if you study to understand you will remember"</h4>
-            <h1>BOOK CATEGORIES</h1>
             
     <!-- Main Content -->
     <div class="container">
@@ -44,7 +42,7 @@
                         // Database connection parameters
                         $host = "localhost";
                         $username = "root";
-                        $password = "ysa_2024_gatongay";
+                        $password = "";
                         $database = "users_category";
 
                         // Attempt to establish a connection to the MySQL database
@@ -61,7 +59,7 @@
                             $book_id = $_GET['id'];
 
                             // Prepare and execute a query to fetch details of the specified book
-                            $query = "SELECT id, title, author, summary, genre, book_count, publication_year, stat, image_name, image_data FROM books WHERE id = ?";
+                            $query = "SELECT id, title, author, summary,book_count, publication_year, stat,image_data FROM books WHERE id = ?";
                             $stmt = $con->prepare($query);
                             $stmt->bind_param("i", $book_id);
                             $stmt->execute();
@@ -75,7 +73,6 @@
         echo "<h1 class='card-title' >" . $row['title'] . "</h1>";
         echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "' class=img-fluid mb-3><br>";
         echo "<p class='card-text'><strong>Author:</strong> " . $row['author'] . "</p>";
-        echo "<p class='card-text'><strong>Genre:</strong>  " . $row['genre'] . "</p>";
         echo "<p class='card-text'><strong>Publication year:</strong>  " . $row['publication_year'] . "</p>";
         echo "<p class='card-text'><strong>Book Count:</strong>  " . $row['book_count'] . "</p>";
         echo "<p class='card-text'><strong>Status:</strong> " . $row['stat'] . "</p>";

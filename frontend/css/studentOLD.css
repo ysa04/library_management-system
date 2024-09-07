@@ -5,13 +5,6 @@
     height: 100vh;
     background-image: linear-gradient(to right, white, white, rgb(100, 204, 220), skyblue);
   }
-
-  
-  @media (max-width: 600px) {
-    .main{
-      height: 100vh;
-    }
-  }
   
   .top-content{
     background-color: rgb(11, 11, 90);
@@ -23,6 +16,7 @@
   }
   .top-content p{
     padding-left: 5px;
+   
   }
 
 
@@ -32,32 +26,23 @@
     height: auto; /* Allows the height to adjust according to the aspect ratio */
   }
 
-
-  @media (max-width: 600px) {
-    .side-image{
-    display: none;
-    }
-  }
-
   .main-content{
     margin-top: 15px;
     padding-top: 15px;
     display: flex;
-   justify-content: center;
+    flex-direction: column;
+    align-items: center; 
   }
 
-  .main-h4{
-    display: flex;
-    justify-content: center;
+  .main-content h4{
     font-style: italic;
     font-family:Brush Script MT, Brush Script Std, cursive;
     font-size: 35px;
     font-weight: 400;
     color: rgb(174, 36, 36);
-    padding-top: 20px;
   }
   
-  .main-content h4{
+  .main-content h1{
     margin-top: 30px;
     margin-bottom: 20px;
     font-family: Impact, fantasy;
@@ -66,15 +51,6 @@
   
   .ama-logo{
     margin-left: 20px;
-    border-radius: 10px;
-  }
-
-  @media (max-width: 600px) {
-    .ama-logo{
-    margin-top: 10px;
-    width: 100px;
-    height: 50px;
-    }
   }
   
   .student-login{
@@ -85,17 +61,6 @@
     padding: 15px 20px 0px;
     border-radius: 5px; 
   }
-
-
-  
-  @media (max-width: 600px) {
-    .student-login{
-    margin-top: 23%;
-    margin-left: 4%;
-    padding: 10px 10px 10px;
-    }
-  }
-  
   
   ::placeholder {
     text-align: center; /* Center-align the placeholder text */
@@ -104,7 +69,7 @@
   .login-input{
     margin-top: 20px;
   }
-
+  
   .password-input{
     margin-top: 40px;
     
@@ -279,33 +244,14 @@ border: 2px solid rgb(11, 11, 90);
 
 .student-home-footer{
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   background-color: rgb(236, 171, 171);
-  gap: 20px;
-  padding: 50px 20px;
+  gap: 80px;
+  padding: 100px 50px 50px;
   font-size: 18px;
   font-weight: 500;
   margin-top: 30px;
 }
-
-.suggestions-box {
-  max-height: 300px;
-  overflow-y: auto;
-  background-color: white;
-  position: absolute;
-  width: 20%;
-}
-
-.suggestion-item {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggestion-item:hover {
-  background-color: #f0f0f0;
-}
-
 
 /* footer.html css end */
 
@@ -346,14 +292,6 @@ border: 2px solid rgb(11, 11, 90);
 
 }
 
-
-@media (max-width: 600px) {
-  .footer{
- display: none;
-  }
-}
-
-
 .footer p{
   margin-left: 10px;
   margin-top: 10px;
@@ -368,10 +306,8 @@ border: 2px solid rgb(11, 11, 90);
   display:flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1%;
+  margin-top: 5%;
 }
-
-
 
 .register-form form{
   background-color:  rgb(11, 11, 90);
@@ -381,19 +317,12 @@ border: 2px solid rgb(11, 11, 90);
   font-weight: 400;
 }
 
-@media (max-width: 600px) {
-  .register-form form{
-    padding: 10px 10px 10px;
-    border-radius: 0px;
-  }
-}
-
 .input-group label{
-  /* display: inline-block; */
+  display: inline-block;
   width: 100px; /* Adjust width as needed */
   text-align: right;
   margin-right: 10px; 
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .input-group button{
@@ -401,22 +330,9 @@ border: 2px solid rgb(11, 11, 90);
   margin-left: 75%;
 }
 
-@media (max-width: 600px) {
-  .input-group button{
-    margin-top: 20px;
-    margin-left: 60%;
-   background-color: rgb(101, 230, 230) !important;
-  }
-  .input-group label{
-    width: 87px;
-  }
-}
-
-
 .register-form a{
   color: rgb(95, 184, 219);
 }
-
 
 /* register.php css end */
 

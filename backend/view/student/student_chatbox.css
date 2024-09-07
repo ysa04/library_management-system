@@ -1,9 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:wght@400;500;600&display=swap);
-*{
-    
-    
+* {
     font-family: "Poppins", sans-serif;
 }
+
+.book-cover {
+    flex: 0 0 calc(100% - 20px); /* Adjust the width for covers per row */
+    margin: 15px 0px 50px; /* Adjust the margin as needed */
+    max-width: 250px; /* Set a maximum width for the book cover */
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+}
+
 .chatbot-img {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Automatically adjust the height to maintain aspect ratio */
@@ -25,24 +31,30 @@
     border-radius: 50%;
     transition: all 0.2s ease;
     background-color: #724ae8;
+    z-index: 1000;
 }
+
 .chatbot-toggler .show-chatbot {
     transform: rotate(90deg);
 }
+
 .chatbot-toggler span {
     position: absolute;
 }
+
 .show-chatbot .chatbot-toggler span:first-child,
 .chatbot-toggler span:last-child {
     opacity: 0;
 }
+
 .show-chatbot .chatbot-toggler span:last-child {
     opacity: 1;
 }
+
 .chatbot {
-    position:fixed;
-    right:40px;
-    bottom:100px;
+    position: fixed;
+    right: 40px;
+    bottom: 100px;
     width: 420px;
     transform: scale(0.5);
     opacity: 0;
@@ -51,16 +63,19 @@
     background: #fff;
     border-radius: 15px;
     transform-origin: bottom right;
-    box-shadow: 0 0 128px 0 rgba(0,0,0,0,1),
-                0 32px 64px -48px rgba(0,0,0,0,0.5);
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
     transition: all 0.1s ease;
+    z-index: 1000;
 }
+
 .show-chatbot .chatbot {
     transform: scale(1);
     opacity: 1;
     pointer-events: auto;
 }
-.chatbot header{
+
+.chatbot header {
     background: #724ae8;
     padding: 16px 0;
     text-align: center;
@@ -71,6 +86,7 @@
     color: #fff;
     font-size: 1.4rem;
 }
+
 .chatbot header span {
     position: absolute;
     right: 20px;
@@ -80,15 +96,18 @@
     display: none;
     transform: translateY(-50%);
 }
+
 .chatbot .chatbox {
     height: 510px;
     overflow-y: auto;
     padding: 30px 20px 70px;
     scroll-behavior: smooth;
 }
+
 .chatbox .chat {
     display: flex;
 }
+
 .chatbox .incoming span {
     height: 32px;
     width: 32px;
@@ -100,6 +119,7 @@
     border-radius: 4px;
     margin: 0 10px 7px 0;
 }
+
 .chatbox .outgoing {
     margin: 20px 0;
     justify-content: flex-end;
@@ -140,22 +160,78 @@
     resize: none;
     padding: 16px 15px 16px 0;
     overflow: hidden;
-    /* Allow textarea to expand */
     transition: height 0.2s ease;
-    
 }
+
 .chat-input span {
     align-self: flex-end;
     height: 55px;
     line-height: 55px;
-    color:#724ae8;
+    color: #724ae8;
     font-size: 1.35rem;
     cursor: pointer;
     visibility: hidden;
 }
+
 .chat-input textarea:valid ~ span {
     visibility: visible;
+}
+@media (max-width: 1024px){
+    .chatbot {
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+    }
 
+    .chatbot .chatbox {
+        height:calc(100%- 70px);
+    }
+
+    .chatbot header {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+    }
+
+    .chatbot header span {
+        display: block;
+    }
+
+    .chatbot-toggler {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px;
+    }
+
+    .chatbot-img {
+        width: 35px;
+        height: 35px;
+    }
+    .chatbot {
+        bottom: 70px;
+        right: 15px;
+        width: 90%;
+        height: 70%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .book-cover {
+        flex: 0 0 calc(50% - 20px);
+        max-width: 100%;
+    }
+
+    .nav-search div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-search input, .nav-search select, .nav-search button {
+        width: 100%;
+    }
 }
 
 @media (max-width: 490px) {
@@ -165,9 +241,11 @@
         width: 100%;
         height: 100%;
     }
+
     .chatbot .chatbox {
         height: 98%;
     }
+
     .chatbot header span {
         display: block;
     }

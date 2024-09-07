@@ -41,7 +41,7 @@
      </div>
 
 
-   <div class="footer">
+   <div class="footer-main">
     <p>&copy; 2024 AMACC Makati e-Lib All rights reserved</p>
    </div>
 

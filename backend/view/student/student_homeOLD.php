@@ -10,38 +10,54 @@
     <link rel="stylesheet" href="student_chatbox.css">
     <script src="student_chatbox.js" defer></script>
     <title>student Home Page</title>
-    
+    <style>
+ 
+
+        .book-cover {
+            flex: 0 0 calc(100% - 20px); /* Adjust the width for covers per row */
+            margin: 15px 0px 50px; /* Adjust the margin as needed */
+            max-width: 250px; /* Set a maximum width for the book cover */
+            height: auto; /* Automatically adjust the height to maintain aspect ratio */
+        }
+        
+    </style>
 </head>
 <body>
 <?php include 'studentNavbar.php'; ?> 
 
 
-
-<div style="background-color: rgb(191, 222, 234);">
-
-    <h4 class="main-h4">"If you study to remember, you will forget; But if you study to understand you will remember"</h4>
+<div style="background-color: rgb(191, 222, 234); border-radius: 5px; position: relative;" class="container">
         <div class="main-content">
-           
-         <div style="padding-right: 60px; padding-left: 10px;">
-         <h4>Book Search</h4>
+            <h4>"If you study to remember, you will forget; But if you study to understand you will remember"</h4>
+            <h1>BOOK CATEGORIES</h1>
             <form class="nav-search" id="filterForm">
                 <div>
-                    <input type="text" name="title" id="titleInput" placeholder="Title" onkeyup="showSuggestions(this.value)">
-                    <!-- applyfilter() is in filtersearch.js -->
+                    <input type="text" name="title" id="titleInput" placeholder="Title">
+                    <input type="text" name="author" id="authorInput" placeholder="Author">
+                    <input type="text" name="year" id="yearInput" placeholder="Publication Year">
+                    <select name="genre" id="genreSelect">
+                        <option value="">Select Genre</option>
+                        <option value="Business">Business</option>
+                        <option value="Nursing">Nursing</option>
+                        <option value="IT">IT</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Comedy">Comedy</option>
+                    </select>
+                    <select name="status" id="statusSelect">
+                        <option value="">Select Status</option>
+                        <option value="Available">Available</option>
+                        <option value="Borrowed">Borrowed</option>
+                    </select>
                     <button class="search-button" type="button" onclick="applyFilter()">Search</button>
-                    <div id="suggestions" class="suggestions-box"></div> <!-- Suggestion box -->
                 </div>
             </form>
-         </div>
-            
-            
-                <!-- Book gallery -->
+        </div>
+
+        <!-- Book gallery -->
         <div class="gallery">
             <?php include_once "searchhome.php"; ?>
         </div>
-          </div>
-            </div>
-           
+        
         <!-- Chatbot section -->
         <button class="chatbot-toggler">
             <img src="/frontend/img/chatbot.png" alt="Chatbot Icon" class="chatbot-img">

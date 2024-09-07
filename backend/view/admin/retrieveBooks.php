@@ -16,7 +16,7 @@
    <div class="container retrieve-books">
 
    <div class="bookModaldetails">
-  
+  <!-- book detail located -->
   </div>
 
    <div class="bookForm-div">

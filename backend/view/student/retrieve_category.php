@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // Database connection parameters
 $host = "localhost";       // The hostname of the MySQL server
 $username = "root";        // The MySQL username
-$password = "ysa_2024_gatongay"; // The MySQL password
+$password = ""; // The MySQL password
 $database = "books";       // The name of the database to connect to
 
 // Attempt to establish a connection to the MySQL database

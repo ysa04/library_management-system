@@ -2,7 +2,7 @@
 // Database connection
 $servername = "localhost";
 $username = "root"; 
-$password = "ysa_2024_gatongay"; 
+$password = ""; 
 $dbname = "users_category"; 
 
 // Create connection

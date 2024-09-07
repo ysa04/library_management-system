@@ -23,3 +23,4 @@ Stack trace:
 #0 C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php(32): mysqli->prepare('SELECT id, imag...')
 #1 {main}
   thrown in C:\xampp\htdocs\library_system\backend\view\student\search_books_for_chatbot.php on line 32
+[10-Jun-2024 15:33:53 Europe/Berlin] No book found for title: demo slayer

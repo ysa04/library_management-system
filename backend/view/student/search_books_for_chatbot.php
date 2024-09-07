@@ -14,7 +14,7 @@ if (empty($title)) {
 // Database connection (adjust credentials as needed)
 $servername = "localhost";
 $username = "root";
-$password = "ysa_2024_gatongay";
+$password = "";
 $dbname = "users_category";
 
 // Enable error logging

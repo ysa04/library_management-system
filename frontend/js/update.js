@@ -1,3 +1,4 @@
+
 // function for closing the tab of student details
 function closeTab() {
   var modalClose = document.querySelector('.details');

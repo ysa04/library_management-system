@@ -39,9 +39,8 @@ if (isset($_GET['error_email'])) {
            <p>e-Library</p>
           </div>
 
-  <div class="register-form">
+  <div class="register-form container">
 
-   <div>
   
     <form action="/backend/view/student/signup.php" method="post">
     <h2>Student Register</h2>
@@ -115,12 +114,14 @@ if (isset($_GET['error_email'])) {
             <button type="submit" class="btn">Register</button>
         </div>
 
-      <div>
-      <p>Already have an account? <a href="/frontend/components/student/student_login.html">Login here</a></p>
-     <p>Go Back to <a href="index.php">Homepage</a></p>
+        <p>Already have an account? <a href="/frontend/components/student/student_login.html">Login here</a></p>
+       <p>Go Back to <a href="index.php">Homepage</a></p>
+
+        </form>
+  
       </div>
     
-    </form>
+ 
  
     </div>
 

@@ -3,8 +3,8 @@
 // Database connection parameters
 $host = "localhost";       // The hostname of the MySQL server
 $username = "root";        // The MySQL username
-$password = "ysa_2024_gatongay"; // The MySQL password
-$database = "student_record";    // The name of the database to connect to
+$password = ""; // The MySQL password
+$database = "users_category";    // The name of the database to connect to
 
 // Attempt to establish a connection to the MySQL database
 $con = new mysqli($host, $username, $password, $database);

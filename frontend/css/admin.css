@@ -106,10 +106,13 @@
  }
 
  .table-details{
-  background-color: rgb(194, 226, 239);
-  padding: 20px 20px 20px;
+  padding: 10px 10px 10px;
   border-radius: 4px;
  }
+
+.table-details table thead{
+padding-left: 40px;
+}
 
  .table-h4{
   margin-left: 10px;
@@ -121,7 +124,8 @@
  }
 
  .borrowed-books{
-  background-color: aqua;
+  background-color: rgb(11, 11, 90);
+  color: white;
   border-radius: 3px;
  }
 
@@ -209,6 +213,7 @@ color: white;
 
 
 .bookModaldetails{
+  margin-top: 20px;
   margin-bottom: 20px;
   padding: 30px 30px 30px;
   color:rgb(11, 11, 90);

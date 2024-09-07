@@ -13,7 +13,7 @@
 
 <!-- data is coming from modaldetails.php -->
     <div  class="table-details">
-   <table>
+   <table class="table">
    <h4 class="table-h4">Student Details</h4>
     <thead>
     <tr>

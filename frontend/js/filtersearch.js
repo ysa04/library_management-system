@@ -68,3 +68,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+function showSuggestions(value) {
+    if (value.length === 0) {
+        document.getElementById("suggestions").innerHTML = "";
+        return;
+    }
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "input_suggestion.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("suggestions").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send("title=" + encodeURIComponent(value));
+}
+
+
+
+function selectSuggestion(title) {
+    document.getElementById("titleInput").value = title;
+    document.getElementById("suggestions").innerHTML = ""; // Clear suggestions
+}

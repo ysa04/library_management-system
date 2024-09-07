@@ -3,7 +3,7 @@
 // MySQL Configuration
 $host = 'localhost';
 $username = 'root';  // Your MySQL username
-$password =  'ysa_2024_gatongay';      // Your MySQL password
+$password =  '';      // Your MySQL password
 $database = 'users_category'; // Your database name
 
 // Connect to MySQL

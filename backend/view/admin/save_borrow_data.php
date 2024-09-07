@@ -2,7 +2,7 @@
 // Establish connection to MySQL database
 $servername = "localhost";
 $username = "root"; // Change this to your MySQL username
-$password = "ysa_2024_gatongay"; // Change this to your MySQL password
+$password = ""; // Change this to your MySQL password
 $dbname = "users_category"; // Change this to your MySQL database name
 
 // Create connection

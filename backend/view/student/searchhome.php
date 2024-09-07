@@ -2,7 +2,7 @@
 // Database connection parameters
 $host = "localhost";
 $username = "root";
-$password = "ysa_2024_gatongay";
+$password = "";
 $database = "users_category";
 
 // Attempt to establish a connection to the MySQL database
@@ -23,10 +23,10 @@ function sanitize_input($data) {
 
 // Initialize variables for search/filter criteria
 $title = isset($_POST['title']) ? sanitize_input($_POST['title']) : '';
-$author = isset($_POST['author']) ? sanitize_input($_POST['author']) : '';
-$genre = isset($_POST['genre']) ? sanitize_input($_POST['genre']) : '';
-$year = isset($_POST['year']) ? sanitize_input($_POST['year']) : '';
-$status = isset($_POST['status']) ? sanitize_input($_POST['status']) : '';
+// $author = isset($_POST['author']) ? sanitize_input($_POST['author']) : '';
+// $genre = isset($_POST['genre']) ? sanitize_input($_POST['genre']) : '';
+// $year = isset($_POST['year']) ? sanitize_input($_POST['year']) : '';
+// $status = isset($_POST['status']) ? sanitize_input($_POST['status']) : '';
 // add location $later
 
 // Prepare the SQL query
@@ -36,18 +36,18 @@ $sql = "SELECT * FROM books WHERE 1";
 if (!empty($title)) {
     $sql .= " AND title LIKE '%$title%'";
 }
-if (!empty($author)) {
-    $sql .= " AND author LIKE '%$author%'";
-}
-if (!empty($genre)) {
-    $sql .= " AND genre = '$genre'";
-}
-if (!empty($year)) {
-    $sql .= " AND publication_year = '$year'";
-}
-if (!empty($status)) {
-    $sql .= " AND stat = '$status'";
-}
+// if (!empty($author)) {
+//     $sql .= " AND author LIKE '%$author%'";
+// }
+// if (!empty($genre)) {
+//     $sql .= " AND genre = '$genre'";
+// }
+// if (!empty($year)) {
+//     $sql .= " AND publication_year = '$year'";
+// }
+// if (!empty($status)) {
+//     $sql .= " AND stat = '$status'";
+// }
 
 // Execute the query
 $result = $con->query($sql);

@@ -69,7 +69,7 @@ const generateResponse = () => {
             }
             const bookCoverURL = `bookNavigate.php?id=${book.id}`;
             const responseMessage = `
-                Here's the cover image: <a href="${bookCoverURL}" target="_blank">
+                Here's the cover image: <a href="${bookCoverURL}">
                 <img src="data:image/jpeg;base64,${book.image_data}" alt="${book.image_name}" class="book-cover"></a>`;
             chatbox.appendChild(createChatLi(responseMessage, "incoming"));
             autoScroll();
