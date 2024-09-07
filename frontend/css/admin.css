@@ -299,3 +299,8 @@ border-radius: 5px;
   color: white;
 }
 
+/* add-book.css start */
+
+.add_book_form{
+  background-color: skyblue;
+}

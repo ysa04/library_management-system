@@ -60,6 +60,16 @@
 </div>
 
 
+<div class="box">
+    <div class="box-content">
+    <a class="link" href="add-book.php">Add Book</a>
+    <i class="fa-solid fa-person"></i>
+    </div>
+</div>
+
+
+
+
 </div>
 
 
