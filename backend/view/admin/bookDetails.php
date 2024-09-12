@@ -20,7 +20,9 @@
       <th scope="col">Book id</th>
       <th scope="col">Book Title</th>
       <th scope="col">Book Author</th>
-      <th scope="col">Genre</th>
+      <th scope="col">Book Description</th>
+      <th scope="col">Sub Description</th> 
+
    
     </tr>
    </thead>
@@ -29,25 +31,31 @@
       <th> <input type="text" id="id" value="<?php echo $book_data['id'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="title" value="<?php echo $book_data['title'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="author" value="<?php echo $book_data['author'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="genre" value="<?php echo $book_data['genre'];?>" style="width: 200px;"/> </th>
-  
+      <th> <input type="text" id="book_description" value="<?php echo $book_data['book_description'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="sub_description" value="<?php echo $book_data['sub_description'];?>" style="width: 200px;"/> </th>
+
+
     </tr>
   </tbody>
    <thead>
       <tr>
-      <th scope="col">Book Count</th>
-      <th scope="col">Publication Year</th>
+      <th scope="col">DDC</th>
+      <th scope="col">Sub DDC Number</th>
       <th scope="col">Status</th> 
-      <th scope="col">Shelve</th>  
+      <th scope="col">Shelf Number</th> 
+      <th scope="col">Book Count</th>
+   
     </tr>
   </thead>
   <tbody>
     <tr>
 
-       <th> <input type="text" id="book_count" value="<?php echo $book_data['book_count'];?>" style="width: 200px;"/> </th>  
-      <th> <input type="text" id="publication_year" value="<?php echo $book_data['publication_year'];?>" style="width: 200px;"/> </th> 
+    <th> <input type="text" id="ddc" value="<?php echo $book_data['dewey_number'];?>" style="width: 200px;"/> </th>
+    <th> <input type="text" id="sub_ddc" value="<?php echo $book_data['sub_dewey_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="stat" value="<?php echo $book_data['stat'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="shelve" value="<?php echo $book_data['shelve'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="shelf" value="<?php echo $book_data['shelf'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="book_count" value="<?php echo $book_data['book_count'];?>" style="width: 200px;"/> </th> 
+
       <!-- <th> <input type="text" id="summary" value="<?php echo $book_data['summary'];?>" style="width: 200px;"/></th> -->
     </tr> 
   </tbody>
@@ -57,11 +65,15 @@
       <thead>
         <tr>
           <th>Summary</th>
+          <th scope="col">Publication Year</th>
+          <th scope="col">Code Number</th>
         </tr>
       </thead>
       <tbody>
         <tr>
         <th> <textarea id="summary" style="width: 300px;"><?php echo $book_data['summary'];?></textarea></th>
+        <th> <input type="text" id="publication_year" value="<?php echo $book_data['publication_year'];?>" style="width: 200px;"/> </th>
+        <th> <input type="text" id="code_number" value="<?php echo $book_data['dewey_number'], $book_data['sub_dewey_number'];?>" style="width: 200px;" readonly/> </th>
         </tr>
       </tbody>
     </table>

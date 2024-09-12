@@ -39,7 +39,6 @@
       <th>BOOK ID</th>
       <th>BOOK TITLE</th>
       <th>BOOK AUTHOR</th>
-      <th>BOOK GENRE</th>
       <th>BOOK COUNT</th>
       <th>PUBLICATION YEAR</th>
       <th>STATUS</th>

@@ -34,7 +34,6 @@ if(isset($_POST['title']) && isset($_POST['author'])) {
                 'id' => $row['id'],
                 'title' => $row['title'],
                 'author' => $row['author'],
-                'genre' => $row['genre'],
                 'book_count' => $row['book_count'],
                 'publication_year' => $row['publication_year'],
                 'stat' => $row['stat']

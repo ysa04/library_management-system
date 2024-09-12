@@ -28,7 +28,6 @@ function searchBooks() {
                     tr.innerHTML = "<td>" + row['id'] + "</td>" +
                                                    "<td>" + row['title'] + "</td>" +
                                                    "<td>" + row['author'] + "</td>" +
-                                                   "<td>" + row['genre'] + "</td>" +
                                                    "<td>" + row['book_count'] + "</td>" +
                                                    "<td>" + row['publication_year'] + "</td>" +
                                                    "<td>" + row['stat'] + "</td>" +

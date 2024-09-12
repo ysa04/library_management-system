@@ -27,12 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE books SET 
             title = ?,
             author = ?,
+            book_description = ?,
+            sub_description = ?,
+            dewey_number = ?,
+            sub_dewey_number = ?,
             summary = ?,
-            genre = ?,
             book_count = ?,
             publication_year = ?,
             stat = ?,
-            shelve = ?
+            shelf = ?
             WHERE id = ?";
 
     // Prepare the statement
@@ -46,15 +49,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Bind parameters
-    $stmt->bind_param("ssssiissi",
+    $stmt->bind_param("ssssiisiisii",
         $newData['bookTitle'],
         $newData['bookAuthor'],
+        $newData['book_description'],
+        $newData['sub_description'],
+        $newData['ddc'],
+        $newData['sub_ddc'],
         $newData['summary'],
-        $newData['genre'],
         $newData['bookCount'],
         $newData['publicationYear'],
         $newData['stat'],
-        $newData['shelve'],
+        $newData['shelf'],
         $id
     );
 

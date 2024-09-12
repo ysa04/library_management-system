@@ -3,11 +3,14 @@ function updateBookDetails(getId){
     var id = getId;// Get the student ID from PHP
     var bookTitle = document.getElementById("title").value;
     var bookAuthor = document.getElementById("author").value;
-    var genre = document.getElementById("genre").value;
+    var bookDescription = document.getElementById("book_description").value;
+    var subDescription = document.getElementById("sub_description").value;
+    var ddc = document.getElementById("ddc").value;
+    var subDdc = document.getElementById("sub_ddc").value;
     var bookCount= document.getElementById("book_count").value;
     var publicationYear = document.getElementById("publication_year").value;
     var stat = document.getElementById("stat").value;
-    var shelve = document.getElementById("shelve").value;
+    var shelf = document.getElementById("shelf").value;
     var summary = document.getElementById("summary").value;
     console.log(id);
 
@@ -15,11 +18,14 @@ function updateBookDetails(getId){
      
         bookTitle: bookTitle,
         bookAuthor:bookAuthor,
-        genre:genre,
+        bookDescription: bookDescription,
+        subDescription: subDescription,
+        ddc:ddc,
+        subDdc:subDdc,
         bookCount: bookCount,
         publicationYear:publicationYear,
         stat:stat,
-        shelve:shelve,
+        shelf:shelf,
         summary:summary
   };
 
