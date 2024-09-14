@@ -13,15 +13,12 @@
 
 <?php include 'navbar.php'; ?> 
 
-<div class="admin">
-    <h5>Admin Dashboard</h5>
-</div>
-<hr class="container"/>
+<div>
 <div class="box-div container">
 
 <div class="box">
 <div class="box-content">
-    <a class="link" href="book.php">Book Account</a>
+    <a class="link" href="bookDdc.php">Update Book DDC</a>
 <i class="fa-solid fa-book"></i>
 </div>
    
@@ -29,47 +26,32 @@
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="borrowedRecord.php">Borrow Today</a>
+    <a class="link" href="sub_ddc.php">Update Sub DDC</a>
     <i class="fa-solid fa-book-open"></i>
     </div>
 </div>
 
+
+
 <div class="box">
     <div class="box-content">
-    <a class="link" href="studentBorrow.php">Student with Borrowed books </a>
+    <a class="link" href="retrieveBooks.php">Search and Edit Book </a>
     <i class="fa-solid fa-person"></i>
     </div>
    
 </div>
 
-<div class="box">
-    <div class="box-content">
-    <a class="link" href="registeredStudent.php">Registered Students</a>
-  
-    <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    
-</div>
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="#">Visit Reservations</a>
+    <a class="link" href="add-book.php">Add Book</a>
     <i class="fa-solid fa-person"></i>
     </div>
-    
 </div>
 
 
 </div>
-
-
-
-
- <script src="/frontend/js/bookNavigate.js"></script>
-<script src="/frontend/js/retrieve_data.js"></script>
-<script src="/frontend/js/filtersearch.js"></script>
-<script src="/frontend/js/borrowBook.js"></script>
-<script src="/frontend/js/update.js"></script>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
