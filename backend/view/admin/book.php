@@ -14,6 +14,11 @@
 <?php include 'navbar.php'; ?> 
 
 <div>
+<!-- Back Button -->
+<button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button>
+
+
+
 <div class="box-div container">
 
 <div class="box">
@@ -26,16 +31,15 @@
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="sub_ddc.php">Update Sub DDC</a>
+    <a class="link" href="sub_ddc.php">Update SubDDC</a>
     <i class="fa-solid fa-book-open"></i>
+
     </div>
 </div>
 
-
-
 <div class="box">
     <div class="box-content">
-    <a class="link" href="retrieveBooks.php">Search and Edit Book </a>
+    <a class="link" href="retrieveBooks.php">Edit Book Details </a>
     <i class="fa-solid fa-person"></i>
     </div>
    

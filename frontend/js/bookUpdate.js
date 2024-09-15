@@ -29,6 +29,9 @@ function updateBookDetails(getId){
         summary:summary
   };
 
+
+  console.log(newData);
+  
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "updateBookDetails.php", true);
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -49,3 +52,18 @@ function updateBookDetails(getId){
     xhr.send(JSON.stringify({ id: id, newData: newData }));
 
 };
+
+
+
+// retrieveBook.php event handling
+
+// document.querySelector('.bookForm_button').addEventListener('click', function() {
+//     const content = document.querySelector('.book_table');
+    
+//     // Check the current display style
+//     if (content.style.display === 'none') {
+//         content.style.display = 'block';  // Show the content
+//     } else {
+//         content.style.display = 'none';   // Hide the content
+//     }
+// });

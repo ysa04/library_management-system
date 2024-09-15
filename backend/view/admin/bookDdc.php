@@ -13,7 +13,6 @@
 
 <?php include 'navbar.php'; ?> 
 
-
 <?php
 // Database connection
 
@@ -99,8 +98,10 @@ $conn->close();
                 <?php } ?>
             </thead>
         </table>
+        <button type="button" onclick="window.history.back();" class="btn btn-primary">Go Back</button>
         <button type="submit" class="btn btn-primary">Save Changes</button>
         <a href="add_description.php" class="btn btn-secondary">Add Description</a>
+    
     </form>
 </div>
 

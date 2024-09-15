@@ -12,6 +12,7 @@
 <body>
 
 <?php include 'navbar.php'; ?> 
+<button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button>
 
 <div class="add_book_form container">
 

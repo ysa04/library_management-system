@@ -12,7 +12,9 @@
    <body>
 
 <!-- data is coming from updateBook.php -->
-    <div  class="tableBookDetails">
+    <div class="tableBookDetails">
+
+    <form method="POST" action="updateDetailsBook.php">
    <table class="table">
    <h4 class="table-h4">Book Details</h4>
     <thead>
@@ -28,11 +30,11 @@
    </thead>
    <tbody>
     <tr>
-      <th> <input type="text" id="id" value="<?php echo $book_data['id'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="title" value="<?php echo $book_data['title'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="author" value="<?php echo $book_data['author'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="book_description" value="<?php echo $book_data['book_description'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="sub_description" value="<?php echo $book_data['sub_description'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="id" value="<?php echo $book_data['id'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="title" value="<?php echo $book_data['title'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="author" value="<?php echo $book_data['author'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="book_description" value="<?php echo $book_data['book_description'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="sub_description" value="<?php echo $book_data['sub_description'];?>" style="width: 200px;"/> </th>
 
 
     </tr>
@@ -50,11 +52,11 @@
   <tbody>
     <tr>
 
-    <th> <input type="text" id="ddc" value="<?php echo $book_data['dewey_number'];?>" style="width: 200px;"/> </th>
-    <th> <input type="text" id="sub_ddc" value="<?php echo $book_data['sub_dewey_number'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="stat" value="<?php echo $book_data['stat'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="shelf" value="<?php echo $book_data['shelf'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="book_count" value="<?php echo $book_data['book_count'];?>" style="width: 200px;"/> </th> 
+    <th> <input type="text" name="ddc" value="<?php echo $book_data['dewey_number'];?>" style="width: 200px;"/> </th>
+    <th> <input type="text" name="sub_ddc" value="<?php echo $book_data['sub_dewey_number'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="stat" value="<?php echo $book_data['stat'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="shelf" value="<?php echo $book_data['shelf'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" name="book_count" value="<?php echo $book_data['book_count'];?>" style="width: 200px;"/> </th> 
 
       <!-- <th> <input type="text" id="summary" value="<?php echo $book_data['summary'];?>" style="width: 200px;"/></th> -->
     </tr> 
@@ -71,12 +73,15 @@
       </thead>
       <tbody>
         <tr>
-        <th> <textarea id="summary" style="width: 300px;"><?php echo $book_data['summary'];?></textarea></th>
-        <th> <input type="text" id="publication_year" value="<?php echo $book_data['publication_year'];?>" style="width: 200px;"/> </th>
-        <th> <input type="text" id="code_number" value="<?php echo $book_data['dewey_number'], $book_data['sub_dewey_number'];?>" style="width: 200px;" readonly/> </th>
+        <th> <textarea name="summary" style="width: 300px;"><?php echo $book_data['summary'];?></textarea></th>
+        <th> <input type="text" name="publication_year" value="<?php echo $book_data['publication_year'];?>" style="width: 200px;"/> </th>
+        <th> <input type="text" name="code_number" value="<?php echo $book_data['dewey_number'], $book_data['sub_dewey_number'];?>" style="width: 200px;" readonly/> </th>
         </tr>
       </tbody>
     </table>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+    </form>
     </div>
 
 
@@ -84,8 +89,8 @@
 
      <div class="table-button">
       <!-- updatebookdetails funtion is in bookupdate.js -->
-     <button onclick="updateBookDetails(<?php echo $book_data['id'];?>)">Update Details</button>
-    <button class="close-tab" onclick="closeBookTab()">Close Tab</button>
+     <!-- <button onclick="updateBookDetails(<?php echo $book_data['id'];?>)">Update Details</button> -->
+     <button class="btn btn-primary" onclick="closeBookTab()">Close Tab</button>
    </div>
 
   

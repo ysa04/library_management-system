@@ -1,3 +1,6 @@
+<!-- this is being replaced by updateDetailsBook.php -->
+
+
 <?php
 // Database connection
 $servername = "localhost";
@@ -14,82 +17,45 @@ if ($conn->connect_error) {
 }
 
 
-// Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Decode the JSON data sent in the request body
-    $data = json_decode(file_get_contents("php://input"), true);
+    // Capture and sanitize form data
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+    $book_description = $_POST['book_description'];
+    $sub_description = $_POST['sub_description'];
+    $ddc = $_POST['ddc'];
+    $sub_ddc = $_POST['sub_ddc'];
+    $status = $_POST['stat'];
+    $shelf = $_POST['shelf'];
+    $book_count = $_POST['book_count'];
+    $summary = $_POST['summary'];
+    $publication_year = $_POST['publication_year'];
+ 
 
-    // Extract the ID and newData from the decoded JSON data
-    $id = $data['id'];
-    $newData = $data['newData'];
+    // Database connection
+    $conn = new mysqli("localhost", "username", "password", "database_name");
 
-    // Construct an SQL UPDATE query
-    $sql = "UPDATE books SET 
-            title = ?,
-            author = ?,
-            book_description = ?,
-            sub_description = ?,
-            dewey_number = ?,
-            sub_dewey_number = ?,
-            summary = ?,
-            book_count = ?,
-            publication_year = ?,
-            stat = ?,
-            shelf = ?
-            WHERE id = ?";
-
-    // Prepare the statement
-    $stmt = $conn->prepare($sql);
-
-    // Check if the statement was prepared successfully
-    if ($stmt === false) {
-        http_response_code(500); // Internal Server Error
-        echo json_encode(array("error" => "Failed to prepare statement"));
-        exit();
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    // Bind parameters
-    $stmt->bind_param("ssssiisiisii",
-        $newData['bookTitle'],
-        $newData['bookAuthor'],
-        $newData['book_description'],
-        $newData['sub_description'],
-        $newData['ddc'],
-        $newData['sub_ddc'],
-        $newData['summary'],
-        $newData['bookCount'],
-        $newData['publicationYear'],
-        $newData['stat'],
-        $newData['shelf'],
-        $id
-    );
+    // SQL query to insert or update the book details
+    $sql = "INSERT INTO books (id, title, author, book_description, sub_description, dewey_number, sub_dewey_number, stat, shelf, book_count, summary, publication_year)
+            VALUES ('$id', '$title', '$author', '$book_description', '$sub_description', '$ddc', '$sub_ddc', '$status', '$shelf', '$book_count', '$summary', '$publication_year', '$code_number')
+            ON DUPLICATE KEY UPDATE 
+            title='$title', author='$author', book_description='$book_description', sub_description='$sub_description', dewey_number='$ddc', sub_dewey_number='$sub_ddc',
+            stat='$status', shelf='$shelf', book_count='$book_count', summary='$summary', publication_year='$publication_year'";
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Check if any rows were affected
-        if ($stmt->affected_rows > 0) {
-            // If successful, send a success response
-            $response = array("message" => "Data updated successfully");
-            echo json_encode($response);
-        } else {
-            // If no rows were affected, send an error response
-            http_response_code(500); // Internal Server Error
-            echo json_encode(array("error" => "Failed to update data"));
-        }
+    if ($conn->query($sql) === TRUE) {
+        echo "Record saved successfully";
     } else {
-        // If statement execution failed, send an error response
-        http_response_code(500); // Internal Server Error
-        echo json_encode(array("error" => "Failed to execute statement"));
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    // Close statement
-    $stmt->close();
-} else {
-    // If the request method is not POST, return an error response
-    http_response_code(405); // Method Not Allowed
-    echo json_encode(array("error" => "Method not allowed"));
+    $conn->close();
 }
 
-// Close database connection
-$conn->close();
+
 

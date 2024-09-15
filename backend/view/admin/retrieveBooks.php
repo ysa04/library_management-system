@@ -12,12 +12,9 @@
    <body>
    <?php include 'navbar.php'; ?> 
  
-
+   <button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button>
    <div class="container retrieve-books">
 
-   <div class="bookModaldetails">
-  <!-- book detail located -->
-  </div>
 
    <div class="bookForm-div">
 
@@ -27,13 +24,13 @@
     <input type="text" id="title" name="title"/>
     <label for="book-author">Book Author</label>
     <input type="text" id="author" name="author">
-    <button type="submit">Search</button>
+    <button type="submit" class="bookForm_button">Search</button>
   </form>
   </div>
 
   <br/> <br/>
  <div>
-  <table class="table">
+  <table class="table book_table">
   <thead>
     <tr>
       <th>BOOK ID</th>
@@ -49,6 +46,11 @@
   
   </tbody>
   </table>
+
+     <div class="bookModaldetails">
+  <!-- book detail located -->
+  </div>
+
  </div>
 
 
