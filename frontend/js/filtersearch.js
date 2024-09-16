@@ -1,25 +1,25 @@
  // student directory from student_home.php
-function applyFilter() {
+ function applyFilter() {
     var formData = new FormData(document.getElementById("filterForm"));
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "searchhome.php", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var results = xhr.responseText;
-            // Update the image containers with search results
-            document.querySelectorAll('.gallery').forEach(function(container) {
-                container.innerHTML = results;
-            });
+            // Update the gallery with search results
+            console.log(results);
+            document.querySelector('.gallery').innerHTML = results;
         }
     };
     xhr.send(formData);
 }
 
+// this area is an old code you can delete
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('searchForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent form submission
-        const pagination = document.querySelector('.pagination');
+        // const pagination = document.querySelector('.pagination');
 
         // Retrieve form data
         var formData = new FormData(this);

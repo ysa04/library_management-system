@@ -22,7 +22,7 @@
     <h4 class="main-h4">"If you study to remember, you will forget; But if you study to understand you will remember"</h4>
         <div class="main-content">
            
-         <div style="padding-right: 60px; padding-left: 10px;">
+        <div style="padding-right: 60px; padding-left: 10px;">
          <h4>Book Search</h4>
             <form class="nav-search" id="filterForm">
                 <div>
@@ -33,12 +33,12 @@
                 </div>
             </form>
          </div>
+
+         <div class="gallery pagination-container">
+        <?php include_once "searchhome.php"; ?>
+      </div>
             
-            
-                <!-- Book gallery -->
-        <div class="gallery">
-            <?php include_once "searchhome.php"; ?>
-        </div>
+        
           </div>
             </div>
            

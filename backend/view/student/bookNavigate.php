@@ -21,6 +21,9 @@
             max-width: 100%;
             height: auto;
         }
+
+
+
     </style>
 </head>
 <body>
@@ -59,39 +62,51 @@
                             $book_id = $_GET['id'];
 
                             // Prepare and execute a query to fetch details of the specified book
-                            $query = "SELECT id, title, author, summary,book_count, publication_year, stat,image_data FROM books WHERE id = ?";
+                            $query = "SELECT id, title, author, summary,book_count, publication_year, stat,image_data, dewey_number, sub_dewey_number, book_description, sub_description FROM books WHERE id = ?";
                             $stmt = $con->prepare($query);
                             $stmt->bind_param("i", $book_id);
                             $stmt->execute();
                             $result = $stmt->get_result();
 
     // Check if the book is found
-    if ($result->num_rows == 1) {
+   if ($result->num_rows == 1) {
         // Display details of the book
         $row = $result->fetch_assoc();
-        
-        echo "<h1 class='card-title' >" . $row['title'] . "</h1>";
-        echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "' class=img-fluid mb-3><br>";
-        echo "<p class='card-text'><strong>Author:</strong> " . $row['author'] . "</p>";
-        echo "<p class='card-text'><strong>Publication year:</strong>  " . $row['publication_year'] . "</p>";
-        echo "<p class='card-text'><strong>Book Count:</strong>  " . $row['book_count'] . "</p>";
-        echo "<p class='card-text'><strong>Status:</strong> " . $row['stat'] . "</p>";
+    
+        echo "<div class='container mt-4'>";
+        echo "<div class='row align-items-center'>";
+        echo "<h3 class='card-title'>" . $row['title'] . "</h3>";
+        // Image
+        echo "<div class='col-md-4'>";
+        echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "' class='img-fluid mb-3'>";
         echo "</div>";
-        echo "<div class='bookSummary'>";
+        
+        // Book details
+        echo "<div class='col-md-8'>";
+        echo "<p class='card-text'><strong>Book ID No.:</strong> " . $row['id'] . "</p>";
+        echo "<p class='card-text'><strong>Author:</strong> " . $row['author'] . "</p>";
+        echo "<p class='card-text'><strong>Publication year:</strong> " . $row['publication_year'] . "</p>";
+        echo "<p class='card-text'><strong>Book Count:</strong> " . $row['book_count'] . "</p>";
+        echo "<p class='card-text'><strong>Status:</strong> " . $row['stat'] . "</p>";
+        echo "<p class='card-text'><strong>Book Description:</strong> " . $row['book_description'] . "</p>";
+        echo "<p class='card-text'><strong>Sub Description:</strong> " . $row['sub_description'] . "</p>";
+        echo "<p class='card-text'><strong>Book Code Number:</strong> " . $row['dewey_number'] . $row['sub_dewey_number'] . $row['publication_year'] . "</p>";
+        echo "</div>";
+        
+        echo "</div>";
+        
+        echo "<div class='bookSummary mt-4'>";
         echo "<h5>Summary:</h5>";
         echo "<p>" . $row['summary'] . "</p>";
         echo "</div>";
-        
+        echo "<button>Borrow inside</button>";
+        echo "<button>Borrow outside</button>";
         echo "</div>";
-
- 
     } else {
         echo "<p>Book not found.</p>";
     }
-} else {
-    echo "<p>Book ID not specified.</p>";
-}
-
+    
+                        }
                         // Close the database connection
                         $con->close();
                         ?>

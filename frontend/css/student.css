@@ -170,17 +170,17 @@
   }
 
 
-  .book-image{
+  /* .book-image{
     margin-bottom: 5%;
     padding: 1px 90px 50px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 20px;
-  }
+  } */
 
  .gallery a img{
   width: 100%; /* Make the image take full width of its grid cell */
-  height: 80%;
+  height: 150px;
   object-fit: cover; /* Scale images to cover the container */
   border-radius: 5px;
  }

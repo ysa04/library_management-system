@@ -13,79 +13,98 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-// Function to sanitize user input
 function sanitize_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    return $data;
+    return htmlspecialchars(strip_tags(trim($data)));
 }
 
-// Initialize variables for search/filter criteria
+// Get and sanitize input
+$booksPerPage = 12; // Number of books per page
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $booksPerPage;
+
+// Get and sanitize input
 $title = isset($_POST['title']) ? sanitize_input($_POST['title']) : '';
-// $author = isset($_POST['author']) ? sanitize_input($_POST['author']) : '';
-// $genre = isset($_POST['genre']) ? sanitize_input($_POST['genre']) : '';
-// $year = isset($_POST['year']) ? sanitize_input($_POST['year']) : '';
-// $status = isset($_POST['status']) ? sanitize_input($_POST['status']) : '';
-// add location $later
 
-// Prepare the SQL query
-$sql = "SELECT * FROM books WHERE 1";
-
-// Add search criteria to the SQL query if filters are applied
-if (!empty($title)) {
-    $sql .= " AND title LIKE '%$title%'";
+// Prepare the SQL query to fetch total number of books
+$sql = "SELECT COUNT(*) AS count FROM books WHERE title LIKE ?";
+$stmt = $con->prepare($sql);
+if (!$stmt) {
+    die("Failed to prepare SQL statement: " . $con->error);
 }
-// if (!empty($author)) {
-//     $sql .= " AND author LIKE '%$author%'";
-// }
-// if (!empty($genre)) {
-//     $sql .= " AND genre = '$genre'";
-// }
-// if (!empty($year)) {
-//     $sql .= " AND publication_year = '$year'";
-// }
-// if (!empty($status)) {
-//     $sql .= " AND stat = '$status'";
-// }
+$searchTerm = "%$title%";
+$stmt->bind_param("s", $searchTerm);
+$stmt->execute();
+$result = $stmt->get_result();
+$totalBooks = $result->fetch_assoc()['count'];
+$totalPages = ceil($totalBooks / $booksPerPage);
 
-// Execute the query
-$result = $con->query($sql);
+// Prepare the SQL query to fetch books for the current page
+$sql = "SELECT * FROM books WHERE title LIKE ? LIMIT ?, ?";
+$stmt = $con->prepare($sql);
+if (!$stmt) {
+    die("Failed to prepare SQL statement: " . $con->error);
+}
+$stmt->bind_param("sii", $searchTerm, $offset, $booksPerPage);
+$stmt->execute();
+$result = $stmt->get_result();
 
-// Check if any results were found
+// Display books
 if ($result->num_rows > 0) {
-    // Open the container div for book covers
-    echo "<div class='book-container'>";
-
-    // Output data of each row
+    echo "<div class='container mt-4'>";
+    echo "<div class='row'>";
     $count = 0;
+
     while ($row = $result->fetch_assoc()) {
-        // If # covers are already displayed in a row, close the row div and open a new one
-        if ($count % 6 == 0) {
-            echo "<div class='row'>";
+        // Start a new row if necessary
+        if ($count % 6 == 0 && $count > 0) {
+            echo "</div><div class='row '>"; // Close previous row and start a new one
         }
-        echo "<div class='col'>";
+
+        // Output each book
+        echo "<div class='col'>"; // Column for book cover
         echo "<a href='bookNavigate.php?id=" . $row["id"] . "'>";
-        echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . $row["title"] . "' class='book-cover'>";
-        echo "<p class='book-category'></p>";
+        echo "<img src='data:image/jpeg;base64," . base64_encode($row["image_data"]) . "' alt='" . htmlspecialchars($row["title"], ENT_QUOTES, 'UTF-8') . "' class='book-cover img-fluid'>";
         echo "</a>";
         echo "</div>";
 
-        // Increment the count
         $count++;
-
-        // If # covers are displayed, close the row div
-        if ($count % 6 == 0) {
-            echo "</div>"; // Close row div
-        }
     }
 
-    // Close the container div for book covers
-    echo "</div>";
+    // Close the last row if it was not fully populated
+    if ($count % 6 != 0) {
+        echo "</div>"; // Close the last incomplete row
+    }
+
+    echo "</div>"; // Close the container div
+
+    // Pagination controls
+    echo "<nav aria-label='Page navigation'>";
+    echo "<ul class='pagination justify-content-center mt-4'>";
+    
+    // Previous button
+    echo "<li class='page-item " . ($page <= 1 ? 'disabled' : '') . "'>";
+    echo "<a class='page-link' href='?page=" . max(1, $page - 1) . "'>Previous</a>";
+    echo "</li>";
+    
+    // Page numbers
+    for ($i = 1; $i <= $totalPages; $i++) {
+        echo "<li class='page-item " . ($i == $page ? 'active' : '') . "'>";
+        echo "<a class='page-link' href='?page=" . $i . "'>" . $i . "</a>";
+        echo "</li>";
+    }
+    
+    // Next button
+    echo "<li class='page-item " . ($page >= $totalPages ? 'disabled' : '') . "'>";
+    echo "<a class='page-link' href='?page=" . min($totalPages, $page + 1) . "'>Next</a>";
+    echo "</li>";
+    
+    echo "</ul>";
+    echo "</nav>";
+
 } else {
     echo "<p>No results found.</p>";
 }
 
-// Close the database connection
+// Close the prepared statement and connection
+$stmt->close();
 $con->close();
-
