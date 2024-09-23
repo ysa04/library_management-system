@@ -15,48 +15,110 @@
 <body>
 <?php include 'studentNavbar.php'; ?> 
 
+<?php
+// Check if user is logged in (assuming this session is from userslogin.php)
+if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name']) || !isset($_SESSION['course']) || !isset($_SESSION['age']) || !isset($_SESSION['contact_number'])|| !isset($_SESSION['year']) || !isset($_SESSION['photo'])) {
+    // Redirect to login page or perform appropriate action
+    // header("Location: studentlogin.php");
+    // exit();
+}
+
+// Extract session variables
+$usn = $_SESSION['usn'];
+$name = $_SESSION['first_name'];
+$surName = $_SESSION['last_name'];
+$age = $_SESSION['age'];
+$course = $_SESSION['course'];
+$contactNumber = $_SESSION['contact_number'];
+$email = $_SESSION['email'];
+$year = $_SESSION['year'];
+$photo = $_SESSION['photo'];
+
+// Base64 encode the photo for embedding in the HTML
+$encodedPhoto = base64_encode($photo);
+$photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
+
+?>
 
 
-<div style="background-color: rgb(191, 222, 234);">
+<section style="background-color: #eee;">
+  <div class="container py-5">
 
-    <h4 class="main-h4">"If you study to remember, you will forget; But if you study to understand you will remember"</h4>
-        <div class="main-content">
-           
-           <h1>hello</h1>
-
-         <div class="gallery pagination-container">
-        <?php include_once "searchhome.php"; ?>
-      </div>
-            
-        
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+          <img src="data:<?php echo $photoMimeType; ?>;base64,<?php echo $encodedPhoto; ?>" alt="User Photo" class="rounded-circle img-fluid" style="width: 150px;" >
+    
           </div>
-            </div>
-           
-        <!-- Chatbot section -->
-        <button class="chatbot-toggler">
-            <img src="/frontend/img/chatbot.png" alt="Chatbot Icon" class="chatbot-img">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-        <div class="chatbot">
-            <header>
-                <h2>Amaia</h2>
-                <span class="close-btn material-symbols-outlined">close</span>
-            </header>
-            <ul class="chatbox">
-                <li class="chat incoming">
-                    <span class="material-symbols-outlined">smart_toy</span>
-                    <p>Hi i'm Amaia <br> How can I help you today?</p>
-                </li>
-            </ul>
-            <div class="chat-input">
-                <textarea placeholder="Enter a message..."></textarea>
-                <span id="send-btn" class="material-symbols-outlined">send</span>
-            </div>
         </div>
-    </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <!-- <i class="fas fa-globe fa-lg text-warning"></i> -->
+                <a href="#" onclick="loadContent('personalinfo.php')">Your Personal Details</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <!-- <i class="fab fa-github fa-lg text-body"></i> -->
+                <a href="#" onclick="loadContent('reserveBook.php')">Your Summary</a>
 
-    <!-- Footer -->
-    <?php include '../../../frontend/components/student/footer.html'; ?>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <!-- <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i> -->
+                <a href="#">change password</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <!-- <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i> -->
+                <a href="#" onclick="loadContent('reserveBook.php')">Borrow History</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    
+
+
+      <div class="col-lg-8">
+      <h1 class="sample">default page</h1>
+      <div class="page">
+        <!-- page -->
+      </div>
+      </div>
+      
+
+      
+    </div>
+  </div>
+</section>
+
+
+<script>
+
+function loadContent(page) {
+  document.querySelector('.sample').style.display = 'none';
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', page, true);
+
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+
+                    document.querySelector('.page').innerHTML = xhr.responseText;
+                } else {
+                    document.querySelector('.page').innerHTML = 'Error loading page.';
+                }
+            };
+
+            xhr.onerror = function() {
+                document.querySelector('.page').innerHTML = 'Request error.';
+            };
+
+            xhr.send();
+        }
+
+
+</script>
 
     <!-- Scripts -->
     <script src="/frontend/js/bookNavigate.js"></script>

@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       </ul>
       <div style="display: flex; color: white; margin-top: 15px;">
       <i style="margin-top: 4px;" class="fa-solid fa-user"></i>
+
       <p>&nbsp;<?php echo $name; ?>,</p>
       <p>&nbsp;<?php echo $surName; ?></p> <br/>
       <p>&nbsp;&nbsp;USN: <?php echo $usn; ?></p>

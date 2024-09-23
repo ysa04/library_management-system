@@ -29,7 +29,6 @@
 <body>
         <!-- PHP for session data -->
         <?php include 'studentNavbar.php'; ?> 
-   
 
     
     <div style="background-color: rgb(191, 222, 234); border-radius: 5px; position: relative;" class="container">
@@ -43,6 +42,8 @@
                     <div class="card-body">
                         <?php
                         // Database connection parameters
+
+
                         $host = "localhost";
                         $username = "root";
                         $password = "";
@@ -55,6 +56,12 @@
                         if ($con->connect_error) {
                             die("Connection failed: " . $con->connect_error);
                         }
+ 
+                  if (!isset($_SESSION['usn']) || !isset($_SESSION['id'])){
+                     
+                   }
+
+                   $student_id = $_SESSION['id'];
 
                         // Check if the book ID is specified in the query parameters
                         if (isset($_GET['id'])) {
@@ -94,13 +101,16 @@
         echo "</div>";
         
         echo "</div>";
-        
         echo "<div class='bookSummary mt-4'>";
         echo "<h5>Summary:</h5>";
         echo "<p>" . $row['summary'] . "</p>";
         echo "</div>";
-        echo "<button>Borrow inside</button>";
-        echo "<button>Borrow outside</button>";
+// Add student_id to the borrow buttons
+// Add student_id to the borrow buttons and include the book title
+echo "<button class='borrow-btn' data-book-id='" . htmlspecialchars($row['id']) . "' data-borrow-type='inside' data-student-id='" . htmlspecialchars($student_id) . "' data-book-title='" . htmlspecialchars($row['title']) . "'>Borrow inside</button>";
+echo "<button class='borrow-btn' data-book-id='" . htmlspecialchars($row['id']) . "' data-borrow-type='outside' data-student-id='" . htmlspecialchars($student_id) . "' data-book-title='" . htmlspecialchars($row['title']) . "'>Borrow outside</button>";
+
+
         echo "</div>";
     } else {
         echo "<p>Book not found.</p>";
@@ -117,6 +127,45 @@
     </div>
     </div>    
     </div>         
+
+    <script>
+   document.querySelectorAll('.borrow-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const bookId = this.getAttribute('data-book-id');
+        const borrowType = this.getAttribute('data-borrow-type');
+        const studentId = this.getAttribute('data-student-id'); // Get student ID
+        const bookTitle = this.getAttribute('data-book-title'); // Get book title
+
+        // Modify the confirmation message to include the book title
+        const confirmation = confirm(`Are you sure you want to borrow the book titled "${bookTitle}"?`);
+
+        console.log(bookId, borrowType, studentId, bookTitle); // Log book title
+
+        if (confirmation) {
+            this.textContent = "Requested";
+            this.disabled = true; // Optionally disable the button
+
+            // Send borrow request to server
+            fetch('borrow.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ bookId, borrowType, studentId, bookTitle }) // Include studentId
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    });
+});
+
+</script>
+
     
 
     <!-- Bootstrap JS -->

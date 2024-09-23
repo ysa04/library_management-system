@@ -53,7 +53,7 @@
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="#">Visit Reservations</a>
+    <a class="link" href="bookReservation.php">Book Reservations</a>
     <i class="fa-solid fa-person"></i>
     </div>
     
