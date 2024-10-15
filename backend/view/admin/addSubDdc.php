@@ -24,7 +24,7 @@ $category = mysqli_real_escape_string($conn, $category);
 $data = mysqli_real_escape_string($conn, $data);
 
 // Prepare the SQL query to insert a new row with the category and data
-$query = "INSERT INTO sub_dewey_classification ($category) VALUES ('$data')";
+$query = "INSERT INTO sub_dewey_classification (`$category`) VALUES ('$data')";
 
 $result = mysqli_query($conn, $query);
 

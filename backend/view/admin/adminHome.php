@@ -29,14 +29,23 @@
 
 <div class="box">
     <div class="box-content">
+    <a class="link" href="bookReservation.php">Book Reservations</a>
+    <i class="fa-solid fa-person"></i>
+    </div>
+    
+</div>
+
+<!-- 
+<div class="box">
+    <div class="box-content">
     <a class="link" href="borrowedRecord.php">Borrow Today</a>
     <i class="fa-solid fa-book-open"></i>
     </div>
-</div>
+</div> -->
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="studentBorrow.php">Student with Borrowed books </a>
+    <a class="link" href="returnBook.php">Claim/Return Books</a>
     <i class="fa-solid fa-person"></i>
     </div>
    
@@ -47,14 +56,6 @@
     <a class="link" href="registeredStudent.php">Registered Students</a>
   
     <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    
-</div>
-
-<div class="box">
-    <div class="box-content">
-    <a class="link" href="bookReservation.php">Book Reservations</a>
-    <i class="fa-solid fa-person"></i>
     </div>
     
 </div>

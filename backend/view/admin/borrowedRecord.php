@@ -27,7 +27,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
-    $password = "ysa_2024_gatongay";
+    $password = "";
     $database = "users_category";
 
     // Create connection

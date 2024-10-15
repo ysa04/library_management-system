@@ -13,11 +13,11 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $dewey_number = $_POST['dewey_number'];
+    $dewey_number = $_POST['main_category'];
     $description = $_POST['description'];
 
     // Prepared statement to insert into dewey_classification
-    $stmt = $conn->prepare("INSERT INTO dewey_classification (dewey_number, description) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO dewey_classification (main_category, description) VALUES (?, ?)");
     $stmt->bind_param('ss', $dewey_number, $description);
 
     if ($stmt->execute()) {
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $add_column_sql = "ALTER TABLE sub_dewey_classification ADD COLUMN `$description` VARCHAR(255)";
         
         if ($conn->query($add_column_sql)) {
-            echo "Description added successfully and sub classification updated!";
+            echo "Description added successfully updated!";
         } else {
             echo "Error adding column in sub_dewey_classification: " . $conn->error;
         }
@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h4>Add New Dewey Classification Description</h4>
         <form method="POST">
             <div class="mb-3">
-                <label for="dewey_number" class="form-label">Dewey Number</label>
-                <input type="text" class="form-control" id="dewey_number" name="dewey_number" required>
+                <label for="main_category" class="form-label">Main Category</label>
+                <input type="text" class="form-control" id="main_category" name="main_category" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>

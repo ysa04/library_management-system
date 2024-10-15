@@ -12,8 +12,11 @@
 <body>
 <?php include 'studentNavbar.php'; ?>
 
+   <div class="container mt-4">
+    <img src="/frontend/img/ama image.png" alt="ama_image" width="100%"/>
+    </div>  
 
-<div class="contact-div container">
+    <div class="contact-div container">
     <div>
     <h5>MAKATI AMA One Bldg., 5486 South Superhighway corner Gen. Tinio St., Bangkal, Makati City</h5>
     </div>

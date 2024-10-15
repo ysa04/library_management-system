@@ -13,7 +13,7 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-// Read JSON input
+
 $data = json_decode(file_get_contents("php://input"), true);
 
 if (!$data) {
@@ -31,9 +31,12 @@ if (!$bookId || !$studentId || !$borrowType || !$bookTitle) {
     exit;
 }
 
-// Prepare the insert query
+// Prepare the insert query for the borrow request
+$returnInterval = ($borrowType === 'outside') ? '3 DAY' : '1 HOUR';
+
 $query = "INSERT INTO studentbook (book_id, book_title, student_id, borrow_type, status, date_borrowed, date_returned, approved) 
-          VALUES (?, ?, ?, ?, 'pending', NOW(), DATE_ADD(NOW(), INTERVAL 4 HOUR), 0)";
+          VALUES (?, ?, ?, ?, 'pending', NOW(), DATE_ADD(NOW(), INTERVAL $returnInterval), 0)";
+
 $stmt = $con->prepare($query);
 
 if (!$stmt) {
@@ -41,16 +44,27 @@ if (!$stmt) {
     exit;
 }
 
-// Correct the order of parameters and types in bind_param()
-// "i" for book_id, "s" for book_title, "i" for student_id, and "s" for borrow_type
+// Bind parameters for the insert
 $stmt->bind_param("isis", $bookId, $bookTitle, $studentId, $borrowType);
 
 if ($stmt->execute()) {
-    echo json_encode(["message" => "Borrow request submitted for approval."]);
+    // Now update the book count in the books table
+    $updateQuery = "UPDATE books SET book_count = book_count - 1 WHERE id = ? AND book_count > 0";
+    $updateStmt = $con->prepare($updateQuery);
+    $updateStmt->bind_param("i", $bookId);
+
+    if ($updateStmt->execute()) {
+        echo json_encode(["message" => "Borrow request submitted for approval."]);
+    } else {
+        echo json_encode(["message" => "Error updating book count: " . $updateStmt->error]);
+    }
+
+    $updateStmt->close();
 } else {
     echo json_encode(["message" => "Error submitting request: " . $stmt->error]);
 }
 
 $stmt->close();
 $con->close();
+
 

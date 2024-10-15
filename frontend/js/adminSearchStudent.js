@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function searchStudent() {
     var firstName = document.getElementById('first_name').value;
     var lastName = document.getElementById('last_name').value;
-    var course = document.getElementById('course').value;
-    var usnNumber = document.getElementById('usn_number').value;
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'searchStudents.php', true);
@@ -17,7 +15,6 @@ function searchStudent() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                console.log(JSON.parse(xhr.responseText)); // Just checking data in console
                 var data = JSON.parse(xhr.responseText);
                 var tableBody = document.getElementById('adminTable');
                 tableBody.innerHTML = ''; // Clear existing table rows
@@ -41,11 +38,10 @@ function searchStudent() {
         }
     };
     var params = 'first_name=' + encodeURIComponent(firstName) +
-                 '&last_name=' + encodeURIComponent(lastName) +
-                 '&course=' + encodeURIComponent(course) +
-                 '&usn_number=' + encodeURIComponent(usnNumber);
+                 '&last_name=' + encodeURIComponent(lastName);
     xhr.send(params);
 }
+
 
 
 function updateStudent(Id) {

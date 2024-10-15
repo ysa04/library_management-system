@@ -40,11 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Prepare the update statement for dewey_classification
-        $stmt = $conn->prepare("UPDATE dewey_classification SET dewey_number = ?, description = ? WHERE id = ?");
+        $stmt = $conn->prepare("UPDATE dewey_classification SET main_category = ?, description = ? WHERE id = ?");
 
         // Loop through all submitted fields to update the records
         foreach ($_POST['id'] as $index => $id) {
-            $dewey_number = $_POST['dewey_number'][$index];
+            $dewey_number = $_POST['main_category'][$index];
             $description = $_POST['description'][$index];
 
             // Bind parameters and execute the query for dewey_classification
@@ -89,7 +89,7 @@ $conn->close();
                     <!-- Hidden input to store the ID for each row -->
                     <input type="hidden" name="id[]" value="<?= htmlspecialchars($row['id']); ?>">
                     <th>
-                        <input type="text" id="dewey_number" class="form-control" name="dewey_number[]" value="<?= htmlspecialchars($row['dewey_number']); ?>" style="width: 150px;">
+                        <input type="text" id="main_category" class="form-control" name="main_category[]" value="<?= htmlspecialchars($row['main_category']); ?>" style="width: 150px;">
                     </th>
                     <th>
                         <input type="text" id="description" class="form-control" name="description[]" value="<?= htmlspecialchars($row['description']); ?>" style="width: 300px;">

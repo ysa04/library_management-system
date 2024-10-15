@@ -14,6 +14,7 @@
 <?php include 'navbar.php'; ?> 
 
 <div class="registeredStudent-div container">
+
 <div class="bookModaldetails">
   <!-- this area is for student details when details button click -->
   </div>
@@ -29,10 +30,10 @@
     <input type="text" name="first_name" id="first_name" style="width: 200px;"/>
     <label>Lastname</label>
     <input type="text" name="last_name" id="last_name" style="width: 200px;"/>
-    <label>Course</label>
+    <!-- <label>Course</label>
     <input type="text" name="course" id="course" style="width: 200px;"/>
-    <label>Usn NO.</label>
-    <input type="text" name="usn_number" id="usn_number" style="width: 200px;"/>
+    <label>Usn no.</label>
+    <input type="text" name="usn_number" id="usn_number" style="width: 200px;"/> -->
     <button>search</button>
     </form>
     </div>
@@ -53,7 +54,7 @@
     </tr>
   </thead>
   <tbody id="adminTable">
-  
+
   </tbody>
   </table>
     </div>

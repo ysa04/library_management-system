@@ -19,21 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize form inputs
     $title = $_POST['title'];
     $author = $_POST['author'];
-    
+
     // Split the DDC value into dewey_number and description
     list($ddcNumber, $ddcDescription) = explode('|', $_POST['ddc']); 
     list($subDdc, $subDescription) = explode('|', $_POST['subDescription']); 
-    
-    // $subDdc = $_POST['subDescription'];
+
     $status = $_POST['status'];
-    $publicationYear = $_POST['publication_year'];
-    $bookCount = $_POST['book_count'];
+    $publicationYear = (int)$_POST['publication_year']; // Cast to int
+    $bookCount = (int)$_POST['book_count']; // Cast to int
     $shelf = $_POST['shelf'];
     $bookSummary = $_POST['book_summary'];
     $imageData = $_POST['imageFile'];
 
     // Prepare the SQL statement to insert book details
-    $sql = "INSERT INTO books (title, author, summary, book_count, publication_year, stat, image_data, shelf, dewey_number, book_description, sub_dewey_number, sub_description) 
+    $sql = "INSERT INTO books (title, author, summary, book_count, publication_year, stat, image_data, shelf, dewey_number, sub_category, book_description, sub_description)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
@@ -42,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Prepare failed: " . $conn->error);
     }
 
-    // Bind parameters (add $ddcDescription to be saved in the database)
+    // Bind parameters
     $stmt->bind_param(
-        'sssiissiisis', 
+        'sssiiissssss', // Adjusted to match the number of variables
         $title, 
         $author, 
         $bookSummary, 
@@ -53,10 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $status, 
         $imageData, 
         $shelf, 
-        $ddcNumber,   // dewey_number
-        $ddcDescription,  // dewey_description
-        $subDdc,
-        $subDescription  
+        $ddcNumber, 
+        $subDdc, 
+        $ddcDescription,
+        $subDescription// Assuming you want to store this as well
     );
 
     // Execute the statement
@@ -75,4 +74,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Close the database connection
 $conn->close();
+
 

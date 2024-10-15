@@ -15,9 +15,7 @@
 <?php
 // Check if user is logged in (assuming this session is from userslogin.php)
 if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name']) || !isset($_SESSION['course']) || !isset($_SESSION['year']) || !isset($_SESSION['photo'])) {
-    // Redirect to login page or perform appropriate action
-    // header("Location: studentlogin.php");
-    // exit();
+
 }
 
 // Extract session variables
@@ -38,7 +36,7 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
    <div class="e-card container">
     <div class="card-content">
         <div class="card-details">
-        <img src="/frontend/img/AMAES-logo_header.png" alt="ama" width="100px" height="50px"/>
+        <img src="/frontend/img/ama-logo2.jpeg" alt="ama" width="120px" height="50px"/>
         <h6>NAME: <?php echo $name . ' ' . $surName; ?></h6>
         <h6>COURSE: <?php echo $course ?></h6>
         <h6>YEAR: <?php echo $year ?></h6>
@@ -57,15 +55,22 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
         <p>No photo available</p>
     <?php endif; ?>
 
-    <div class="card-validation">
+    <!-- <div class="card-validation">
         <p>validation sticker here</p>
-    </div>
+    </div> -->
     </div>
     </div>
     <div>
-    <a href="generate-pdf.php?name=<?php echo urlencode($name); ?>&surname=<?php echo urlencode($surName); ?>&course=<?php echo urlencode($course); ?>&year=<?php echo urlencode($year); ?>&usn=<?php echo urlencode($usn); ?>" target="_blank">Download E-Card</a>
+    <a href="generate-pdf.php?name=<?php echo urlencode($name); ?>&surname=<?php echo urlencode($surName); ?>&course=<?php echo urlencode($course); ?>&year=<?php echo urlencode($year); ?>&usn=<?php echo urlencode($usn); ?>&photo=<?php echo urlencode($encodedPhoto); ?>&photoMimeType=<?php echo urlencode($photoMimeType); ?>" target="_blank">Download E-Card</a>
+
     </div>
     </div>
+
+    
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 

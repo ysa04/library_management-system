@@ -1,6 +1,6 @@
 
 <?php include 'navbar.php'; ?> 
-<button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button>
+<!-- <button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button> -->
 
 <?php
 // Database connection
@@ -55,7 +55,7 @@ while ($row = $data_result->fetch_assoc()) {
 
     <form action="addSubDdc.php" method="post">
         <label for="category">Select Category:</label>
-        <select id="category" name="category" required>
+        <select id="category" name="category" required style="border-radius: 5px">
             <option value="">Select a Category</option>
             <?php
             // Populate options with column names (only once)
@@ -65,16 +65,15 @@ while ($row = $data_result->fetch_assoc()) {
             ?>
         </select>
         <label for="data">Data:</label>
-        <input type="text" id="data" name="data" required>
-        <input type="submit" value="Add Data">
-    </form>
+        <input type="text" id="data" name="data" required  style="border-radius: 5px">
+        <input type="submit" value="Add Data" style="width: 80px; padding: 5px; font-size: 14px;background-color: skyblue; " >
+        </form>
 
     <br/> <br/>
 
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>No.</th>
                 <?php
                 // Render column headers only once
                 foreach ($columns as $column) {
@@ -88,7 +87,6 @@ while ($row = $data_result->fetch_assoc()) {
             // Render table rows using the fetched data
             foreach ($rows as $row) {
                 echo "<tr>";
-                echo "<td>" . htmlspecialchars($row['id']) . "</td>"; // Display ID
                 foreach ($columns as $column) {
                     echo "<td><a href='subDdc_edit.php?id=" . urlencode($row['id']) . "&column=" . urlencode($column) . "'>" . htmlspecialchars($row[$column]) . "</a></td>";
                 }

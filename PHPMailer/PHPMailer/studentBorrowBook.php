@@ -4,7 +4,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "ysa_2024_gatongay";
+$password = "";
 $dbname = "users_category";
 
 
@@ -13,40 +13,25 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
-
-$sql = "SELECT sb.student_id, sb.book_title, sb.published_date, sb.status, sb.date_returned, sb.penalty, si.first_name, si.last_name, si.email, si.contact_number 
+$sql = "SELECT sb.student_id, sb.book_title, sb.date_returned, sb.penalty, si.first_name, si.last_name, si.email 
         FROM studentbook sb
         JOIN student_info si ON sb.student_id = si.id
-        WHERE sb.status = 'not returned'";
-
+        WHERE sb.status = 'claimed' AND sb.date_returned < NOW()"; 
 $stmt = $conn->prepare($sql);
-
-if (!$stmt) {
-    die("Statement preparation failed: " . $conn->error);
-}
-
 $stmt->execute();
 $result = $stmt->get_result();
 
-if (!$result) {
-    die("Execution failed: " . $stmt->error);
-}
-
-// Collecting data
+// 3. Collecting data
 $emailsData = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $emailsData[] = $row;
     }
 } else {
-    echo "No students found who have not returned their books.";
+    echo "No overdue books found.";
 }
 
-$stmt->close();
-$conn->close();
-
-// Sending emails
+// 4. Sending emails
 foreach ($emailsData as $data) {
     $email = $data["email"];
     $first_name = $data["first_name"];
@@ -54,6 +39,10 @@ foreach ($emailsData as $data) {
     $book_title = $data["book_title"];
     $date_returned = $data["date_returned"];
     $penalty = $data["penalty"];
+
+    // Optional: Check if an email was sent already
+    // You might need to create a table to track sent emails or use another method
+    // For example, you could check if an email was sent in the last day
 
     $subject = "Library Book Return Reminder";
     $message = "Dear $first_name $last_name,<br><br>";
@@ -65,5 +54,7 @@ foreach ($emailsData as $data) {
     $emailStatus = sendMail($email, $subject, $message);
     echo "Email status for $first_name $last_name: $emailStatus<br>";
 }
-?>
 
+// Close the statement and connection
+$stmt->close();
+$conn->close();

@@ -16,12 +16,11 @@
        session_start();
 
          // Check if user is logged in
-     if (!isset($_SESSION['usn']) || !isset($_SESSION['first_name']) || !isset($_SESSION['last_name'])) {
+     if (!isset($_SESSION['first_name']) || !isset($_SESSION['last_name'])) {
     header("Location: studentlogin.php");
     exit();
     }
 
-    $usn = $_SESSION['usn'];
     $name = $_SESSION['first_name'];
     $surName = $_SESSION['last_name'];
 
@@ -42,8 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-    <img class="top-icon" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
-    <p>e-Library</p>
+    <img class="top-icon" src="/frontend/img/large_AMA_LOGO.png" width="90" height="35" alt=""/>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -61,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       <i style="margin-top: 4px;" class="fa-solid fa-user"></i>
       <p>&nbsp;<?php echo $name; ?>,</p>
       <p>&nbsp;<?php echo $surName; ?></p> <br/>
-      <p>&nbsp;&nbsp;USN: <?php echo $usn; ?></p>
       <form method="post" action="/backend/view/index.php">
       <input type="hidden" name="logout" value="true">
       <button class="logout-button" type="submit">logout</button>

@@ -1,4 +1,7 @@
-
+html, body {
+  height: 100%; /* Ensure the html and body take full height */
+  margin: 0; /* Remove default margin */
+}
 
 /*  student_home.php css start */
 .main{
@@ -202,7 +205,8 @@
 
 .navbar-brand{
   display: flex;
-  margin-top: 10px;
+  /* box-shadow: 1px 1px 7px skyblue;
+  border-radius: 5px; */
 }
 
 .navbar-brand p{
@@ -457,7 +461,7 @@ border: 2px solid rgb(11, 11, 90);
   justify-content: center;
   background-color: rgb(185, 225, 240);
   margin-top: 20px;
-  padding: 20px 20px 20px;
+  padding: 20px 10px 20px;
   border-radius: 5px;
 }
 
@@ -484,6 +488,10 @@ border: 2px solid rgb(11, 11, 90);
 .card-details{
   margin-top: 5px;
   margin-right: 10px;
+}
+
+.card-details img{
+  border-radius: 3px;
 }
 
 .card-details h6{

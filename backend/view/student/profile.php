@@ -41,7 +41,7 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
 ?>
 
 
-<section style="background-color: #eee;">
+<section style="background-color:rgb(191, 222, 234); min-height: 100vh;">
   <div class="container py-5">
 
     <div class="row">
@@ -49,7 +49,7 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
         <div class="card mb-4">
           <div class="card-body text-center">
           <img src="data:<?php echo $photoMimeType; ?>;base64,<?php echo $encodedPhoto; ?>" alt="User Photo" class="rounded-circle img-fluid" style="width: 150px;" >
-    
+  
           </div>
         </div>
         <div class="card mb-4 mb-lg-0">
@@ -70,7 +70,7 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <!-- <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i> -->
-                <a href="#" onclick="loadContent('reserveBook.php')">Borrow History</a>
+                <a href="#" onclick="loadContent('bookHistory.php')">Borrow History</a>
               </li>
             </ul>
           </div>
@@ -81,7 +81,27 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
 
 
       <div class="col-lg-8">
-      <h1 class="sample">default page</h1>
+  
+      <div class="sample">
+      <h4 >Hello, <?php echo $name . ' ' . $surName; ?> </h4>
+        <p>Please follow the steps below to borrow a book through this student portal:
+          <p>Select a Book: Begin by clicking on the book you wish to borrow.</p>
+          <p>Choose Borrow Option: You will have two options:</p>
+          <p>Borrow Inside:</p>
+          After selecting this option, your request will be processed.
+          You can check the status of your request in the "Borrow History" section.
+          If your request is marked as Pending, please wait for admin approval.
+          Once approved, visit the library reception to collect your book.
+          Please note that you have 5 hours to return the book after borrowing it inside.
+        </p>
+        <p>Borrow Outside:
+         <p>If you choose this option, you will have 3 days to return the book.</p>
+           Failure to return the book by the due date will result in a penalty of 500 pesos, 
+           along with an accumulation fee for each day the book is overdue.
+           <hr/>
+           <p>Thank you for your cooperation, and happy reading!</p>
+         </p>
+      </div>
       <div class="page">
         <!-- page -->
       </div>

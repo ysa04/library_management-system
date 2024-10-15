@@ -51,7 +51,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch data from the table
-$sql = "SELECT  dewey_number, description FROM dewey_classification";
+$sql = "SELECT  main_category, description FROM dewey_classification";
 $result = $conn->query($sql);
 
 // Check for errors
@@ -62,8 +62,8 @@ if (!$result) {
 // Generate options for dropdown
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
-    echo '<option value="' . htmlspecialchars($row['dewey_number']) . '|' . htmlspecialchars($row['description']) . '">';
-    echo htmlspecialchars($row['dewey_number']) . ' - ' . htmlspecialchars($row['description']);
+    echo '<option value="' . htmlspecialchars($row['main_category']) . '|' . htmlspecialchars($row['description']) . '">';
+    echo htmlspecialchars($row['main_category']) . ' - ' . htmlspecialchars($row['description']);
     echo '</option>';
 }
 } else {
@@ -79,10 +79,10 @@ $conn->close();
 
 
   <div class="col-md-4">
-    <label for="validationCustom04" class="form-label">SUB DESCRIPTION</label>
+    <label for="validationCustom04" class="form-label">SUB CATEGORY</label>
     <select class="form-select" id="subDescription" name="subDescription" required>
       <option selected disabled value="">Choose...</option>
-   <!-- addBook.js -->
+   addBook.js
     </select>
   </div>
 

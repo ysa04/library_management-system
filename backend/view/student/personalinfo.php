@@ -44,7 +44,7 @@ $photoMimeType = 'image/jpeg'; // Adjust this if your image is not JPEG
 ?>
 
 
-<div class="card mb-4">
+           <div class="card mb-4">
           <div class="card-body">
           <div class="row">
               <div class="col-sm-3">

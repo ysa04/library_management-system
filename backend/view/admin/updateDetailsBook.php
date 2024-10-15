@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $book_description = isset($_POST['book_description']) ? $_POST['book_description'] : '';
     $sub_description = isset($_POST['sub_description']) ? $_POST['sub_description'] : '';
     $ddc = isset($_POST['ddc']) ? $_POST['ddc'] : '';
-    $sub_ddc = isset($_POST['sub_ddc']) ? $_POST['sub_ddc'] : '';
+    $sub_categ = isset($_POST['sub_category']) ? $_POST['sub_category'] : '';
     $status = isset($_POST['stat']) ? $_POST['stat'] : '';
     $shelf = isset($_POST['shelf']) ? $_POST['shelf'] : '';
     $book_count = isset($_POST['book_count']) ? $_POST['book_count'] : '';
@@ -31,10 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
 
     // SQL query to insert or update the book details
-    $sql = "INSERT INTO books (id, title, author, book_description, sub_description, dewey_number, sub_dewey_number, stat, shelf, book_count, summary, publication_year)
-            VALUES ('$id', '$title', '$author', '$book_description', '$sub_description', '$ddc', '$sub_ddc', '$status', '$shelf', '$book_count', '$summary', '$publication_year')
+    $sql = "INSERT INTO books (id, title, author, book_description, sub_description, dewey_number, sub_category, stat, shelf, book_count, summary, publication_year)
+            VALUES ('$id', '$title', '$author', '$book_description', '$sub_description', '$ddc', '$sub_categ', '$status', '$shelf', '$book_count', '$summary', '$publication_year')
             ON DUPLICATE KEY UPDATE 
-            title='$title', author='$author', book_description='$book_description', sub_description='$sub_description', dewey_number='$ddc', sub_dewey_number='$sub_ddc',
+            title='$title', author='$author', book_description='$book_description', sub_description='$sub_description', dewey_number='$ddc', sub_category='$sub_categ',
             stat='$status', shelf='$shelf', book_count='$book_count', summary='$summary', publication_year='$publication_year'";
 
     if ($conn->query($sql) === TRUE) {

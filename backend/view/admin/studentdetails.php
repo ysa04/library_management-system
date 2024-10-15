@@ -39,7 +39,7 @@
       <th scope="col">Usn</th>
       <th scope="col">Contact No.</th>
       <th scope="col">No. of visit</th>
-      <th scope="col">SignUp Date</th>
+      <th scope="col">Course</th>
       <th scope="col"></th>
    
     </tr>
@@ -50,7 +50,7 @@
      <th> <input type="text" id="usn_number" value="<?php echo $student_data['usn_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="contact_number" value="<?php echo $student_data['contact_number'];?>" style="width: 200px;"/> </th>
       <th> <input type="text" id="number_visit" value="<?php echo $student_data['number_visit'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="added_at" value="<?php echo $student_data['added_at'];?>" style="width: 200px;"/> </th>
+      <th> <input type="text" id="course" value="<?php echo $student_data['course'];?>" style="width: 200px;"/> </th>
       <!-- the onclick bookBorrow function is in borrowBook.js -->
       <th> <button class="borrowed-books"  onclick="bookBorrow(<?php echo $student_data['id'];?>)">BORROWED BOOKS</button> </th> 
     </tr>
@@ -58,12 +58,12 @@
   <thead>
   
       <th scope="col">Program</th>
-      <th scope="col">Course</th>
+   
   </thead>
   <tbody>
     <tr>
       <th> <input type="text" id="program" value="<?php echo $student_data['program'];?>" style="width: 200px;"/> </th>
-      <th> <input type="text" id="course" value="<?php echo $student_data['course'];?>" style="width: 200px;"/> </th>
+ 
     </tr>
   </tbody>
     </table>

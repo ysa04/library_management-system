@@ -68,14 +68,14 @@ function renderStudentData(studentData) {
         var cell5 = document.createElement('td');
         cell5.textContent = student.date_returned; 
 
-        var cell6 = document.createElement('td');
-        cell6.textContent = student.number_of_books; 
+        // var cell6 = document.createElement('td');
+        // cell6.textContent = student.number_of_books; 
 
         var cell7 = document.createElement('td');
-        cell7.textContent = student.penalty; 
+        cell7.textContent = student.status; 
 
         var cell8 = document.createElement('td');
-        cell8.textContent = student.status; 
+        cell8.textContent = student.penalty; 
 
         // Append cells to the row
         row.appendChild(cell1);
@@ -83,7 +83,7 @@ function renderStudentData(studentData) {
         row.appendChild(cell3);
         row.appendChild(cell4);
         row.appendChild(cell5);
-        row.appendChild(cell6);
+        // row.appendChild(cell6);
         row.appendChild(cell7);
         row.appendChild(cell8);
 
