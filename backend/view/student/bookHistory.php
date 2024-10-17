@@ -42,7 +42,7 @@ if ($conn->connect_error) {
 
 
 // Query to retrieve books requested by the specific user with status 'return'
-$sql = "SELECT book_title, date_borrowed, date_returned, status FROM studentbook WHERE student_id = ? AND status = 'return'";
+$sql = "SELECT book_title, date_borrowed, date_returned, status FROM studentbook WHERE student_id = ? AND status = 'returned'";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id); // Bind the id to the query
 $stmt->execute();
@@ -58,7 +58,7 @@ $result = $stmt->get_result();
       <th scope="col">Return on</th>
       <th scope="col">Pick up Location</th>
       <th scope="col">Status</th>
-      <th scope="col">Modify</th>
+      <!-- <th scope="col">Modify</th> -->
     </tr>
   </thead>
   <tbody>
@@ -70,7 +70,7 @@ $result = $stmt->get_result();
             <td scope="row"><?php echo htmlspecialchars($row["date_returned"]); ?></td>
             <td scope="row">Library reception</td>
             <td scope="row"><?php echo htmlspecialchars($row["status"]); ?></td>
-            <td><button class="btn btn-info">Cancel</button></td>
+            <!-- <td><button class="btn btn-info">Cancel</button></td> -->
           </tr>
         <?php endwhile; ?>
     <?php else: ?>

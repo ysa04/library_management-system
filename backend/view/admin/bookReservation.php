@@ -74,7 +74,7 @@ $query = "SELECT sb.id, sb.student_id, sb.book_id, sb.borrow_type, sb.date_borro
 $result = $con->query($query);
 
 if ($result->num_rows > 0) {
-    echo "<h4>Borrow Requests for Approval</h4>";
+    echo "<h4 class='container mt-2'>Borrow Requests for Approval</h4>";
     echo "<table class='container table table-striped table-hover'>";
     echo "<thead>
             <tr>
@@ -98,7 +98,7 @@ if ($result->num_rows > 0) {
                 <td>{$row['date_borrowed']}</td>
                 <td>{$row['date_returned']}</td>
                 <td>
-                    <button class='btn btn-success btn-sm mb-2'  onclick='approveRequest({$row['id']})'>Approve</button>
+                    <button class='btn btn-primary btn-sm'  onclick='approveRequest({$row['id']})'>Approve</button>
                     <button class='btn btn-danger btn-sm' onclick='rejectRequest({$row['id']})'>Reject</button>
                 </td>
               </tr>";

@@ -1,6 +1,6 @@
 .main-section{
     height: 100vh;
-   background-image: url(/frontend/img/homepage-background.png);
+   /* background-image: url(/frontend/img/homepage-background.png); */
 }
 
 .header{
@@ -18,6 +18,7 @@
 
   .ama-logo{
     padding-left: 20px;
+    padding-top: 20px;
   }
   
   .login-gallery{
@@ -26,14 +27,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 160px;
     text-align: center;
+    background-color: rgb(151, 215, 240);
+    padding: 30px 30px 30px;
   }
 
   .gallery{
     position: relative;
-    background-color: rgb(93, 185, 221, 0.8);
+    background-color: white;
     border-radius: 10px;
+
   }
 
 .image1{
@@ -52,6 +56,7 @@
   width: 80%;
   border-radius: 10px;
   color: red;
+  background-color:rgb(151, 215, 240) ;
   font-weight: 700;
   border: 1px solid transparent;
 }

@@ -10,10 +10,34 @@
     .error-message {
             color: red;
         }
+
+        .mb-3 {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+        }
+
+        label {
+            width: 100px; /* Fixed width for labels */
+            margin-right: 10px; /* Space between label and input */
+        }
+
+        .form-control {
+            flex: 1; /* Input takes the remaining space */
+        }
+
+        .register-forms{
+            display: flex;
+            justify-content: center;
+          background-color: rgb(151, 215, 240);
+          width: 50%;
+          border-radius: 5px;
+          margin-top: 10px;
+        }
+
 </style>
 
 </head>
-<body style="background-color: rgb(197, 227, 239);">
+<body>
 
 
 <?php
@@ -39,13 +63,12 @@ if (isset($_GET['error_email'])) {
            <p>e-Library</p>
           </div>
 
-  <div class="register-form container">
-
   
-    <form action="/backend/view/student/signup.php" method="post">
-    <h2>Student Register</h2>
-    <br/>
-       <?php
+   <div class="register-forms container">
+
+    <form class="mt-4" action="/backend/view/student/signup.php" method="post">
+    <h4>Register Account</h4>
+    <?php
         // Display error messages if they exist
         if (!empty($error_usn)) {
             echo "<p class='error-message'>$error_usn</p>";
@@ -54,76 +77,66 @@ if (isset($_GET['error_email'])) {
             echo "<p class='error-message'>$error_email</p>";
         }
         ?>
-        <div class="input-group">
-            <label  for="usn_number">USN:</label>
-            <input type="text" id="usn_number" name="usn_number" required>
-        </div>
 
-        <div class="input-group">
-            <label for="firstname">Firstname:</label>
-            <input type="text" id="first_name" name="first_name" required>
-        </div>
+  <div class="md-2 pb-1">
+  <label for="firstname">Firstname:</label>
+  <input type="text" id="first_name" name="first_name" class="form-control transparent-input" required>
+  </div>
 
-        <div class="input-group">
-            <label for="lastname">Lastname:</label>
-            <input type="text" id="last_name" name="last_name" required>
-        </div>
-
-        <div class="input-group">
-            <label for="age">Age:</label>
-            <input type="text" id="email" name="age" required>
-        </div>
+  
+  <div class="md-3 pb-1">
+  <label for="lastname">Lastname:</label>
+  <input type="text" id="last_name" name="last_name" class="form-control transparent-input" required>
+  </div>
 
 
-    <div class="input-group">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
+  <div class="md-3 pb-1">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email" class="form-control transparent-input" required>
+  </div>
+
+  <div class="md-3 pb-1">
+  <label  for="usn_number">USN:</label>
+  <input type="text" id="usn_number" name="usn_number" class="form-control transparent-input" required>
+  </div>
+
+  <div class="md-3 pb-1">
+  <label  for="usn_number">Password:</label>
+  <input type="text" id="paswword" name="password" class="form-control transparent-input" required>
+  </div>
+
+  <div class="mb-3">
+        <label for="course" class="form-label">Course</label>
+        <select class="form-select" id="course" aria-label="Select an option">
+            <option selected>Choose...</option>
+            <option value="BSIT">BSIT</option>
+            <option value="BSCS">BSCS</option>
+            <option value="BSBA">BSBA</option>
+            <option value="NURSING">NURSING</option>
+            <option value="PROFESSOR">PROFESSOR</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="year_level" class="form-label">Year Level</label>
+        <select class="form-select" id="year" aria-label="Select an option">
+            <option selected>Choose...</option>
+            <option value="High School">High School</option>
+            <option value="1st year College">1st year College</option>
+            <option value="2nd year College">2nd year College</option>
+            <option value="3rd year College">3rd year College</option>
+            </select>
         </div>
 
-        <div class="input-group">
-            <label for="email">Year:</label>
-            <input type="text" id="year" name="year" required>
-        </div>
-
-        <div class="input-group">
-            <label for="email">Course:</label>
-            <input type="text" id="course" name="course" required>
-        </div>
-
-        <div class="input-group">
-            <label for="email">Program:</label>
-            <input type="text" id="program" name="program" required>
-        </div>
-
-        <div class="input-group">
-            <label for="contact">Mobile:</label>
-            <input type="text" id="contact_number" name="contact_number" required>
-        </div>
-
-        <div class="input-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-          
-        <div class="input-group">
-            <label  for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-        </div>
-
-        <div class="input-group">
-            <button type="submit" class="btn">Register</button>
-        </div>
+  <div class="col-12 mb-4">
+    <button class="btn btn-primary" type="submit">Register</button>
+  </div>
+     
 
         <p>Already have an account? <a href="/frontend/components/student/student_login.html">Login here</a></p>
        <p>Go Back to <a href="index.php">Homepage</a></p>
-
-        </form>
-  
-      </div>
-    
- 
- 
-    </div>
+</form>
+</div>
 
 
 </div>

@@ -13,6 +13,7 @@
 
 <?php include 'navbar.php'; ?> 
 
+
 <div class="admin">
     <h5>Admin Dashboard</h5>
 </div>
@@ -20,7 +21,7 @@
 <div class="box-div container">
 
 <div class="box">
-<div class="box-content">
+<div class="box-content" >
     <a class="link" href="book.php">Book Account</a>
 <i class="fa-solid fa-book"></i>
 </div>

@@ -9,8 +9,9 @@ $database = 'users_category'; // Your database name
 // Connect to MySQL
 $mysqli = new mysqli($host, $username, $password);
 
+// Check connection
 if ($mysqli->connect_error) {
-    die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+    die("Connection failed: " . $mysqli->connect_error);
 }
 
 // Create database if not exists
@@ -21,41 +22,28 @@ $mysqli->select_db($database);
 // Create student_information table if not exists
 $createTableSql = "CREATE TABLE IF NOT EXISTS student_info ( 
     id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name varchar(50) NOT NULL,
-    last_name varchar(50) NOT NULL,
-    email varchar(50) NOT NULL,
-    age int(30) NOT NULL,
-    usn_number varchar(30) NOT NULL,
-    contact_number varchar(30) NOT NULL,
-    number_visit int(50) NOT NULL,
-    added_at varchar(50) NOT NULL DEFAULT current_timestamp(),
-    password varchar(50) NOT NULL,
-    course varchar(30) NOT NULL,
-    program varchar(255) NOT NULL,
-    photo longblob NOT NULL,
-    year varchar(30) NOT NULL
-
-    
-    
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    usn_number VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    course VARCHAR(30) NOT NULL,
+    year VARCHAR(30) NOT NULL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )";
 $mysqli->query($createTableSql);
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
-    $usn_number = $_POST['usn_number'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $age = $_POST['age'];
-    $email = $_POST['email'];
-    $year = $_POST['year'];
-    $course = $_POST['course'];
-    $program = $_POST['program'];
-    $contact_number = $_POST['contact_number'];
+    $usn_number = trim($_POST['usn_number']);
+    $first_name = trim($_POST['first_name']);
+    $last_name = trim($_POST['last_name']);
+    $email = trim($_POST['email']);
+    $course = trim($_POST['course']);
+    $year = trim($_POST['year']);
+    $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT); // Hash the password
 
-    $password = $_POST['password']; 
-    
-    
     // Check if USN or email already exists
     $is_usn_taken = false;
     $is_email_registered = false;
@@ -99,11 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // If not already taken, proceed with registration
     // Prepare INSERT statement
-    $insertSql = "INSERT INTO student_info (usn_number, first_name, last_name, age, email, year, course, program, contact_number, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $insertSql = "INSERT INTO student_info (first_name, last_name, email, usn_number, course, year, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmtInsert = $mysqli->prepare($insertSql);
     
     // Bind parameters and execute statement
-    $stmtInsert->bind_param("ssssssssss", $usn_number, $first_name, $last_name, $age, $email, $year, $course, $program, $contact_number, $password);
+    $stmtInsert->bind_param("sssssss",  $first_name, $last_name, $email, $usn_number, $course, $year, $password);
     $stmtInsert->execute();
     
     // Check if registration was successful
@@ -122,5 +110,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close MySQL connection
 $mysqli->close();
 
-?>
 

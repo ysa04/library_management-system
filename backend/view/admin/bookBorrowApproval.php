@@ -58,7 +58,7 @@ $con = new mysqli($host, $username, $password, $database);
     $result = $con->query($query);
 
     if ($result->num_rows > 0) {
-      echo "<h4>Books Ready for Claiming</h4>";
+      echo "<h4 class='container mt-2'>Books Ready for Claiming</h4>";
         echo "<table class='container table table-striped table-hover'>";
         echo "<thead>
                 <tr>
@@ -82,7 +82,7 @@ $con = new mysqli($host, $username, $password, $database);
                     <td>{$row['date_borrowed']}</td>
                     <td>{$row['date_returned']}</td>
                     <td>
-                        <button class='btn btn-primary btn-sm mb-2' onclick='claimBook({$row['id']})'>Claim</button>
+                        <button class='btn btn-primary btn-sm' onclick='claimBook({$row['id']})'>Claim</button>
                         <button class='btn btn-danger btn-sm' onclick='deleteBook({$row['id']})'>Delete</button>
                     </td>
                   </tr>";

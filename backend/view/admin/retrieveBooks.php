@@ -12,7 +12,7 @@
    <body>
    <?php include 'navbar.php'; ?> 
  
-   <button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button>
+   <!-- <button type="button" onclick="window.history.back();" class="btn btn-primary mt-2" style="margin-Left: 10px;">Go Back</button> -->
    <div class="container retrieve-books">
 
 
@@ -27,6 +27,7 @@
     <button type="submit" class="bookForm_button">Search</button>
   </form>
   </div>
+  <div id="errorMessage" style="color: red;"></div>
 
   <br/> <br/>
  <div>
@@ -45,6 +46,9 @@
   <tbody id="adminTableBody">
   
   </tbody>
+
+
+
   </table>
 
      <div class="bookModaldetails">

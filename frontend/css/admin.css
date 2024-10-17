@@ -309,3 +309,13 @@ border-radius: 5px;
   background-color: rgb(163, 219, 241);
 }
 
+/* adminHome.php start css */
+
+.box-div .box{
+  background-color: rgb(179, 227, 247);
+}
+
+.box-div .box .box-content .link{
+font-weight: 500;
+color: black;
+}

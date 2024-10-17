@@ -41,7 +41,9 @@ if ($conn->connect_error) {
 
 
 // Query to retrieve books requested by the specific user
-$sql = "SELECT book_title, date_borrowed, date_returned, status FROM studentbook WHERE student_id = ?";
+$sql = "SELECT book_title, date_borrowed, date_returned, status 
+        FROM studentbook 
+        WHERE student_id = ? AND status != 'returned'";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id); // Bind the id to the query
 $stmt->execute();

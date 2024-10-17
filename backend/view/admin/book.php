@@ -39,7 +39,7 @@
 
 <div class="box">
     <div class="box-content">
-    <a class="link" href="retrieveBooks.php">Edit Book Details </a>
+    <a class="link" href="retrieveBooks.php">Search/Edit Books</a>
     <i class="fa-solid fa-person"></i>
     </div>
    

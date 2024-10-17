@@ -1,6 +1,4 @@
 
-
-// coming from retrieveBooks.php
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('bookForm').addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent form submission
@@ -17,33 +15,39 @@ function searchBooks() {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
+            var tableBody = document.getElementById('adminTableBody');
+            var errorMessage = document.getElementById('errorMessage'); // Assuming you have an element for error messages
+            errorMessage.innerHTML = ''; // Clear previous messages
+
             if (xhr.status === 200) {
-                console.log(JSON.parse(xhr.responseText)); // just checking data in console
                 var data = JSON.parse(xhr.responseText);
-                var tableBody = document.getElementById('adminTableBody');
                 tableBody.innerHTML = '';
-                if(data.length > 0){
-                  data.forEach(function(row){
-                    var tr = document.createElement('tr');
-                    tr.innerHTML = "<td>" + row['id'] + "</td>" +
-                                                   "<td>" + row['title'] + "</td>" +
-                                                   "<td>" + row['author'] + "</td>" +
-                                                   "<td>" + row['book_count'] + "</td>" +
-                                                   "<td>" + row['publication_year'] + "</td>" +
-                                                   "<td>" + row['stat'] + "</td>" +
-                                                   "<td><button class='book_details' onclick='updateBook(" + row['id'] + ")'>edit details</button></td>";
-                                    tableBody.appendChild(tr);
-                  })
+
+                if (data.length > 0) {
+                    data.forEach(function(row) {
+                        var tr = document.createElement('tr');
+                        tr.innerHTML = "<td>" + row['id'] + "</td>" +
+                                       "<td>" + row['title'] + "</td>" +
+                                       "<td>" + row['author'] + "</td>" +
+                                       "<td>" + row['book_count'] + "</td>" +
+                                       "<td>" + row['publication_year'] + "</td>" +
+                                       "<td>" + row['stat'] + "</td>" +
+                                       "<td><button class='book_details' onclick='updateBook(" + row['id'] + ")'>edit details</button></td>";
+                        tableBody.appendChild(tr);
+                    });
+                } else {
+                    errorMessage.innerHTML = 'No matching books found.'; // Display error message
                 }
-              
             } else {
-                console.error('Error:', xhr.status);
+                errorMessage.innerHTML = 'Error: ' + xhr.status; // Display error status
             }
         }
     };
+
     var params = 'title=' + encodeURIComponent(title) + '&author=' + encodeURIComponent(author);
     xhr.send(params);
 }
+
 
 
 function updateBook(bookId) {

@@ -48,20 +48,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['logout'])) {
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
    
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="student_home.php">HOME</a>
+          <a class="nav-link " aria-current="page" href="student_home.php">HOME</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="profile.php">PROFILE</a>
+          <a class="nav-link " aria-current="page" href="profile.php">PROFILE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.php">CONTACT US</a>
+          <a class="nav-link " aria-current="page" href="contact.php">CONTACT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="eCard.php">LIBRARY CARD</a>
+          <a class="nav-link" aria-current="page" href="eCard.php">LIBRARY CARD</a>
         </li>
       </ul>
-      <div style="display: flex; color: white; margin-top: 15px;">
+      <div style="display: flex; color: black; margin-top: 15px;">
       <i style="margin-top: 4px;" class="fa-solid fa-user"></i>
 
       <p>&nbsp;<?php echo $name; ?>,</p>

@@ -11,13 +11,13 @@
 
     <div class="main-section">
 
-    <div class="header">
+    <!-- <div class="header">
     <img class="header-logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
     <p>e-Library</p>
-    </div>
+    </div> -->
 
     <div class="ama-logo">
-      <img src="/frontend/img/AMAES-logo_header.png"  height="100" alt="AMA"/>
+      <img src="/frontend/img/AMAES-logo_header.png"  height="80" alt="AMA"/>
     </div>
 
      <div class="login-gallery">
@@ -32,18 +32,18 @@
         <a href="/backend/view/login.php?user=admin"><button>ADMIN</button></a>
        </div>
 
-       <div class="gallery">
+       <!-- <div class="gallery">
         <img class="image3" src="/frontend/img/teacher_3D_icon.png" alt="student" width="300" height="290"/>
        <a href="/backend/view/login.php?user=teacher"><button>TEACHERS</button></a> 
-       </div>
+       </div> -->
  
 
      </div>
 
 
-   <div class="footer-main">
+   <!-- <div class="footer-main">
     <p>&copy; 2024 AMACC Makati e-Lib All rights reserved</p>
-   </div>
+   </div> -->
 
     </div>
    

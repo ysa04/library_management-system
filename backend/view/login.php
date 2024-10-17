@@ -19,7 +19,7 @@ $user = $_GET['user'];
           <img class="top=logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
            <p>e-Library</p>
           </div>
-          <img  class="ama-logo" src="/frontend/img/AMAES-logo_header.png" alt=""/>
+          <img  class="ama-logo" src="/frontend/img/AMAES-logo_header.png"  height="70"  alt=""/>
           <img class="side-image" src="/frontend/img/book2.png" alt=""/>
 
             <div class="student-login">
@@ -54,12 +54,6 @@ $user = $_GET['user'];
 ?>      
  <!-- end of conditional statement if user is admin and teacher signup link will not appear -->
     </div>
-      <!-- FOOTER START -->
-     <div class="footer">
-      <p>&copy; 2024 AMACC Makati e-Lib All rights reserved</p>
-     </div>
-     </div>
-      <!-- FOOTER END -->
    
 
  <script src="/frontend/js/update.js"></script>
