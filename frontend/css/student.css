@@ -1,13 +1,4 @@
-html, body {
-  height: 100%; /* Ensure the html and body take full height */
-  margin: 0; /* Remove default margin */
-}
 
-/*  student_home.php css start */
-.main{
-    height: 100vh;
-    background-image: linear-gradient(to right, white, white, rgb(100, 204, 220), skyblue);
-  }
 
   
   @media (max-width: 600px) {
@@ -70,6 +61,7 @@ html, body {
   .ama-logo{
     margin-left: 20px;
     border-radius: 10px;
+    padding-top: 20px;
   }
 
   @media (max-width: 600px) {
@@ -81,15 +73,23 @@ html, body {
   }
   
   .student-login{
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 15%;
-    background-color: rgb(155, 220, 226);
-    padding: 15px 20px 0px;
-    border-radius: 5px; 
+    display: flex;
+    justify-content: center;
+    background-color: rgb(242, 159, 159); 
+    margin-top: 70px;
+    padding: 20px 20px 20px;
   }
 
+  .users-login{
+    padding: 20px 20px 20px;
+    background-color:  darkblue;
+    border-radius: 5px;
+    box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
+  }
 
+  .users-login p{
+    color: white;
+  }
   
   @media (max-width: 600px) {
     .student-login{
@@ -120,21 +120,29 @@ html, body {
   .submit-login input{
     width: 300px;
     border-radius: 5px;
-    background-color: rgb(39, 20, 126);
-    color: white;
+    background-color: skyblue;
+    color: black;
+    font-weight: 600;
   }
+
+  .sign-up{
+    color:  skyblue;
+    font-size: large;
+  }
+
   .submit-login a{
-    color: red;
+    color: white;
   }
   
   .login-input, .password-input, input{
     width: 300px;
     border-radius: 5px;
     height: 30px;
+    /* color: white; */
   }
   
   .input{
-    background-color: rgb(203, 198, 198);
+    /* background-color: white; */
     color: black;
     border: 1px solid transparent;
   }

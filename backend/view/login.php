@@ -14,26 +14,28 @@
 $user = $_GET['user'];
 
 ?>
-          <div class="main">
-          <div class="top-content">
-          <img class="top=logo" src="/frontend/img/header-book-icon.png" width="30" height="30" alt=""/>
-           <p>e-Library</p>
-          </div>
-          <img  class="ama-logo" src="/frontend/img/AMAES-logo_header.png"  height="70"  alt=""/>
-          <img class="side-image" src="/frontend/img/book2.png" alt=""/>
+        
+          <img  class="ama-logo" src="/frontend/img/AMAES-logo_header.png"  height="80"  alt=""/>
 
+
+
+
+
+       
             <div class="student-login">
-            <p style="font-weight: 700;"><?php echo strtoupper($user) ?> LOGIN</p>
+
+            <div class="users-login">
+            <p style="font-weight: 700;">LOGIN USERS</p>
         <!-- FORM START-->
               
             <form action="/backend/view/userslogin.php?user=<?php echo $_GET['user']; ?>" method="post">
               <div class="login-input">
-                <label for="usn">USN</label>
+                <label for="usn" style="color: white">USN</label>
                 <input class="input" name="usn" type="text" placeholder="USN"/>
               </div>
               
             <div class="password-input">
-              <label for="password">Password</label>
+              <label for="password" style="color: white">Password</label>
               <input class="input" name="password" type="password" placeholder="Password"/>
             </div>
         
@@ -42,19 +44,21 @@ $user = $_GET['user'];
               <a href=""><p>Forgot / Reset Password</p></a>
             </div>
             </form>
+           
+           
         <!--FORM END  -->
 
  <!-- start of conditional statement if user is admin and teacher signup link will not appear -->
  <?php
  if ($user !== "admin" && $user !== "teacher") {
 ?>
-<p style="margin-left: 50px;">Not Registered? <a href="/backend/view/student/Register.php<?php echo isset($_GET['user']) ? "?user=" . $_GET['user'] : ""; ?>">Sign up now</a></p>
+<p style="margin-left: 50px;">Not Registered? <a href="/backend/view/student/Register.php<?php echo isset($_GET['user']) ? "?user=" . $_GET['user'] : ""; ?>" class="sign-up">Sign up now</a></p>
 <?php
 }
 ?>      
  <!-- end of conditional statement if user is admin and teacher signup link will not appear -->
+ </div>
     </div>
-   
 
  <script src="/frontend/js/update.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

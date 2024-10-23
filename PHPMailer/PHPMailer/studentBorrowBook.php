@@ -47,7 +47,7 @@ foreach ($emailsData as $data) {
     $subject = "Library Book Return Reminder";
     $message = "Dear $first_name $last_name,<br><br>";
     $message .= "This is a friendly reminder regarding the book titled '<strong>$book_title</strong>' that you borrowed from the school library.<br>";
-    $message .= "The book was due to be returned by <strong>$date_returned</strong>. As of today, it has not been returned yet. Please return the book as soon as possible to avoid a penalty of <strong>$penalty</strong>.<br><br>";
+    $message .= "The book was due to be returned by <strong>$date_returned</strong>. As of today, it has not been returned yet. Please return the book as soon as possible to avoid accumulation of penalty of <strong>$penalty</strong>.<br><br>";
     $message .= "Thank you for your prompt attention to this matter.<br><br>";
     $message .= "Best regards,<br>Your School Library";
 

@@ -23,12 +23,12 @@
      <div class="login-gallery">
 
       <div class="gallery">
-       <img class="image1" src="/frontend/img/student_3D_icon.png" alt="student" width="300" height="300"/>
-      <a href="/backend/view/login.php?user=student"><button>STUDENT</button></a> 
+       <img class="image1" src="/frontend/img/imageIndex.jpg" alt="student" width="350" height="280"/>
+      <a href="/backend/view/login.php?user=student"><button>LIBRARY USERS</button></a> 
       </div>
 
       <div class="gallery">
-        <img class="image2" src="/frontend/img/book-bulb-3D.png" alt="student" width="295" height="260"/>
+        <img class="image2" src="/frontend/img/adminBook.jpg" alt="student" width="350" height="279"/>
         <a href="/backend/view/login.php?user=admin"><button>ADMIN</button></a>
        </div>
 
